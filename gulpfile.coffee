@@ -1,14 +1,28 @@
-gulp = require 'gulp'
-coffee = require 'gulp-coffee'
-stylus = require 'gulp-stylus'
-imagemin = require 'gulp-imagemin'
-jade = require 'gulp-jade'
+gulp        = require 'gulp'
+coffee      = require 'gulp-coffee'
+stylus      = require 'gulp-stylus'
+imagemin    = require 'gulp-imagemin'
+jade        = require 'gulp-jade'
+prefix      = require 'gulp-autoprefixer'
+minifyCSS   = require 'gulp-minify-css'
+concat      = require 'gulp-concat'
 
 paths =
   coffee: 'developer/coffee/*.coffee'
   images: 'developer/img/*'
-  jade: 'developer/*.jade'
+  stylus: 'developer/styl/*'
+  jade:   'developer/*.jade'
+  prefix: 'production/css/*'
 
+
+gulp.task('stylus', ()->
+  return gulp.src(paths.stylus)
+    .pipe(stylus())
+    .pipe(prefix())
+    .pipe(minifyCSS({removeEmpty:true}))
+    .pipe(concat('styles.css'))
+    .pipe(gulp.dest('production/css'))
+)
 
 gulp.task('jade', ()->
   return gulp.src(paths.jade)
@@ -17,7 +31,7 @@ gulp.task('jade', ()->
 )
 
 gulp.task('coffee', ()->
-  return gulp.src(paths.scripts)
+  return gulp.src(paths.coffee)
     .pipe(coffee())
     .pipe(gulp.dest('production/js'))
 )
@@ -32,6 +46,7 @@ gulp.task('watch', ()->
   gulp.watch paths.scripts, ['coffee']
   gulp.watch paths.images, ['images']
   gulp.watch paths.jade, ['jade']
+  gulp.watch paths.stylus, ['stylus']
 )
 
-gulp.task 'default', ['jade','coffee', 'images', 'watch']
+gulp.task 'default', ['stylus','jade','coffee', 'images', 'watch']

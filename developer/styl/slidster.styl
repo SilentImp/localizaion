@@ -1,0 +1,44 @@
+slide-width = 640px
+slide-height = 480px
+slide-margin = 20px
+
+slide-bgc = #fff
+
+dark-color = #fff
+light-color = #000
+
+
+body  
+  background-color #333 
+  font-family "PT Sans"
+  
+h1, h2, h3, h4, h5
+  font-family "PT Sans Caption"
+  text-transform uppercase
+
+#slides
+  article
+    width slide-width
+    height slide-height
+    margin slide-margin auto
+    background-color slide-bgc
+    position relative
+    color light-color
+    &.title
+      h1
+        width 100%
+        line-height 3
+        font-size 30px 
+        display inline-block
+        vertical-align middle
+        background-color rgba(255,255,255,.75) 
+    &.dark
+      color dark-color
+    &.center
+      text-align center
+      line-height slide-height
+    .wrapper
+      position relative
+      display inline-block
+      vertical-align middle
+      
