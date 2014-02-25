@@ -16,29 +16,56 @@ h1, h2, h3, h4, h5
   font-family "PT Sans Caption"
   text-transform uppercase
 
-#slides
-  article
-    width slide-width
-    height slide-height
-    margin slide-margin auto
-    background-color slide-bgc
-    position relative
-    color light-color
-    &.title
-      h1
-        width 100%
-        line-height 3
-        font-size 30px 
+
+article
+  overflow hidden
+  width slide-width
+  height slide-height
+  margin slide-margin auto
+  background-color slide-bgc
+  position relative
+  color light-color
+  &.cloud
+    h1
+      position absolute
+      margin auto
+      text-align center
+      display block
+      border-radius 100%
+      background-color #FFF
+      &>.wrapper
         display inline-block
         vertical-align middle
-        background-color rgba(255,255,255,.75) 
-    &.dark
-      color dark-color
-    &.center
-      text-align center
-      line-height slide-height
-    .wrapper
-      position relative
+      &:after
+        content "."
+        height 0
+        width 0
+        display block
+        overflow hidden
+        position absolute
+        border-color #fff transparent transparent
+        border-style solid
+        border-width 30px 10px 0 10px
+        top 100%
+        left 50%
+        margin -5px 0 0 -10px
+        transform-origin 10px -100px
+        transform rotate(-30deg)
+  &.title
+    h1
+      width 100%
+      line-height 3
+      font-size 30px 
       display inline-block
       vertical-align middle
-      
+      background-color rgba(255,255,255,.75) 
+  &.dark
+    color dark-color
+  &.center
+    text-align center
+    line-height slide-height
+  &>.wrapper
+    position relative
+    display inline-block
+    vertical-align middle
+    

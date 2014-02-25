@@ -4,70 +4,89 @@
   background-size cover
   background-repeat no-repeat
   h1
-    position absolute
     top 50px
     left 0
     right 0
-    
-    margin auto
-    
     width 210px
     height 210px
     line-height 210px
-    text-align center
-    display block
-    
-    border-radius 100% 
-    
-    font-size 24px 
-    background-color #FFF 
-    
+    font-size 20px
     &.alien
       background-image url('../img/cover-0.png') 
       background-position 50% 50%
-      background-size 40% 40%
+      background-size 50% 50%
       background-repeat no-repeat
-      
-    &:after
-      content "."
-      height 0
-      width 0
-      display block
-      overflow hidden
-      position absolute
-      border-color #fff transparent transparent
-      border-style solid
-      border-width 30px 10px 0 10px
-      top 100%
-      left 50%
-      margin -5px 0 0 -10px
-      transform-origin 10px -100px
-      transform rotate(-30deg)
+
      
     
-.different-1
+article.different-1.cloud
   background-image url('../img/cover-2.jpg') 
   background-position 50% 50%
   background-size cover
   background-repeat no-repeat
+  h1
+    bottom 20px
+    right 40px
+    width 240px
+    height 240px
+    line-height 240px
+    font-size 22px
+    &:after
+      transform-origin 10px -115px
+      transform rotate(160deg)
   
-.different-2
+article.different-2.cloud
   background-image url('../img/cover-5.jpg') 
   background-position 50% 50%
   background-size cover
   background-repeat no-repeat
+  h1
+    top -60px
+    left 200px
+    width 240px
+    height 240px
+    line-height 240px
+    font-size 22px
+    &:after
+      transform-origin 10px -115px
+      transform rotate(-10deg)
+  
 
-.different-3
+article.different-3.cloud
   background-image url('../img/cover-3.jpg') 
   background-position 50% 50%
   background-size cover
   background-repeat no-repeat
+  h1
+    bottom 20px
+    left 100px
+    width 220px
+    height 220px
+    line-height 220px
+    font-size 22px
+    &>.wrapper 
+      line-height 35px
+    &:after
+      transform-origin 10px -105px
+      transform rotate(-95deg)
   
-.different-4
+article.different-4.cloud
   background-image url('../img/cover-4.jpg') 
   background-position 50% 50%
   background-size cover
   background-repeat no-repeat
+  h1
+    bottom 20px
+    right 40px
+    width 220px
+    height 220px
+    line-height 220px
+    font-size 28px
+    &>.wrapper 
+      line-height 40px
+    &:after
+      transform-origin 10px -105px
+      transform rotate(135deg)
 
 .wallet
   background-image url('../img/wallet.jpg') 
