@@ -3,6 +3,7 @@ html(lang="ru")
   head
     title Фреймворки локализации
     link(href="css/styles.css", rel="stylesheet")
+    script(src="js/highlight.pack.js")
   body
     section#slides.dark
 
@@ -35,3 +36,203 @@ html(lang="ru")
         h1  Но есть и кое что общее
 
       article.wallet.title.center
+
+      article.title.center.vs
+        .wrapper
+          .half localization
+          .half internationalization
+
+      article.title.center.vs.short
+        .wrapper
+          .half l10n
+          .half i18n
+
+      article.center.l10n-title
+        h1 l10n
+
+      article.center.l10n-abstract
+        .wrapper
+          p l10n это адаптация продукта для его соответствия языковым, культурным и прочим требованиям конкретного рынка.
+
+      article.center.l10n-abstract
+        .wrapper
+          ul
+            li Cистема счисления, форматы даты и времени
+            li Валюта
+            li Использование систем ввода
+            li Символы, иконки, цвета
+            li Текст и графика, содержащие отсылки к идеям и действиям
+            li Различие легислативный требований
+            li …
+
+      article.center.i18n-title
+        h1  i18n
+
+      article.center.i18n-abstract
+        .wrapper
+          p i18n это процесс, в результате которого получается продукт, предусматривающий его простую локализацию для целевой аудитории в рамках многообразия её культур, регионов и языков.
+
+      article.center.i18n-abstract
+        .wrapper
+          ul
+            li Разработка продукта таким образом, что бы устранить барьеры для для его локализации.
+              //- например unicode и отсутствие зависимости интерфейса от языка
+            li Реализовать функционал, который не потребуются, пока не начнется локализация.
+              //- например поддержка двунаправленного письма в css
+            li Писать код, который позволяет реализовать поддержку локальных, языковых и культурных особенностей.
+              //- форматы даты, времени, адреса
+            li Отделение элементов, которые требуют локализации от остальных.
+              //- что бы подгрузить элемент который отвечает предпочтениям пользователя
+
+      //- article.center.tips
+      //-   .wrapper
+      //-     ul
+      //-       li Используйте символы вместо мнемоник и кодов, если это возможно.
+      //-       //- они хорощи если надо набрать невидимый символ или вы не можете набрать нужный с помощью клавиатуры, но в остальном лучше использовать обычные
+      //-       li Объявляйте язык документа и язык элементов, в которых он отличается.
+      //-       //- Это важно для улучшения доступности материалов, упрощения их стилизации и для интернета машин
+      //-       li Разделяйте представление и данные
+      //-       li Адаптируйте изображения, анимации, примеры
+      
+      //- article.center.tips
+      //-   .wrapper
+      //-     ul
+      //-       li Поддерживайте соответствующую кодировку и на стороне клиента и на стороне сервера. 
+      //-       li Используйте местные форматы даты и времени, имен и адресов.
+      //-       li Используйте простой, понятный текст.
+      //-       li На каждой странице должна быть легко заметный навигационный блок, который позволит сменить язык. 
+
+      article.center.tongue.cloud
+        h1 
+          .wrapper Как обозначить<br> язык материалов?
+
+      article.center.code-1
+        .wrapper
+          pre
+            code 
+              | Content-Language: de, fr, it
+
+      article.center.code-3
+        .wrapper
+          pre
+            code 
+              = '<meta \n'
+              = '   http-equiv="Content-Language" \n' 
+              = '   content="de, fr, it" />\n'
+
+      article.center.code-3.obsolete
+        .wrapper
+          pre
+            code 
+              = '<meta \n'
+              = '   http-equiv="Content-Language" \n' 
+              = '   content="de, fr, it" />\n'
+
+      article.center.code-3
+        .wrapper
+          pre
+            code 
+              = '<meta \n'
+              = '   name="dc.language" \n' 
+              = '   content="en" />\n'
+
+      article.center.code-3.wtf
+        .wrapper
+          pre
+            code 
+              = '<meta \n'
+              = '   name="dc.language" \n' 
+              = '   content="en" />\n'
+
+      article.center.code-1
+        .wrapper
+          pre
+            code 
+              = '<html lang="en-UK">\n'
+              = '</html>'
+
+      article.center.code-1
+        .wrapper
+          pre
+            code 
+              = '<article lang="und">\n'
+              = '</article>'
+
+      article.center.code-1
+        .wrapper
+          pre
+            code 
+              = '<article lang="zxx">\n'
+              = '</article>'
+
+      article.center.code-2
+        .wrapper
+          pre
+            code 
+              | :lang(en-UK){
+              |   font-family: "PT Sans", sans-serif;
+              |   }
+              | :lang(zh-Hans){
+              |   font-family: "SimSum-18030", 
+              |                SimHei, serif;
+              |   }
+
+      article.center.code-1
+        .wrapper
+          pre
+            code 
+              = '<article translate="no">\n'
+              = '</article>'
+
+      article.center.code-3
+        .wrapper
+          pre
+            code 
+              = '<a \n'
+              = '   href="http://goo.gl/GJ2MeM" \n'
+              = '   hreflang="en">\n'
+              = '   The Battle for the Body Field\n'
+              = '</a>'
+
+      article.center.code-1
+        .wrapper
+          pre
+            code 
+              | a[hreflang = 'sv']:after { 
+              |     content: " [Swedish] "; 
+              |     }
+
+
+      article.center.flags.obsolete
+
+
+      article.center.code-1
+        .wrapper
+          pre
+            code 
+              = '<article translate="no">\n'
+              = '</article>'
+
+      //- значение lang — http://www.ietf.org/rfc/bcp/bcp47.txt или пустая строка
+
+      article.center.title.links
+        h1 Источники
+
+      article.center.i18n-links
+        .wrapper
+          img.logotype(src="svg/w3c-logotype.svg", alt="Логотип w3c")
+          img.link(src="svg/w3c-link-all.svg", alt="QRCODE cо ссылкой на w3c стандарты")
+          p http://w3.org/TR/#tr_Internationalization__All_
+
+      article.center.i18n-links
+        .wrapper
+          img.logotype(src="svg/w3c-logotype.svg", alt="Логотип w3c")
+          img.link(src="svg/w3c-link.svg", alt="QRCODE cо ссылкой на w3c блог")
+          p http://w3.org/blog/International/
+
+      article.center.i18n-links
+        .wrapper
+          img.logotype(src="svg/mlw-logotype.svg", alt="Логотип MultilingualWeb")
+          img.link(src="svg/mlw-link.svg", alt="QRCODE cо ссылкой на MultilingualWeb")
+          p http://multilingualweb.eu/
+    script hljs.initHighlightingOnLoad();
