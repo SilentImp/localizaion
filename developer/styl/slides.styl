@@ -39,13 +39,63 @@
   color #FFF
   display block 
   border 20px solid #fff
+  font-family "PT Sans Bold" 
   content "?"
   white-space nowrap
   text-transform uppercase
   z-index 10
   font-size 200px 
   
-
+.definition
+  .wrapper
+    line-height 1.68
+    ol
+      li
+        font-size 32px
+      b
+        color #999
+        font-weight normal
+        font-family "PT Sans Italic" 
+        font-size 24px
+  
+.rtl-demo
+  .wrapper
+    line-height 1.68
+    white-space nowrap
+    font-size 96px
+    
+.rtl-demo-2
+  .wrapper
+    white-space nowrap
+    line-height 1.68
+    font-size 72px
+    
+.rtl-demo-3
+  .wrapper
+    white-space nowrap
+    line-height 1.68
+    font-size 56px
+    
+.memonic
+  h1 
+    font-size 96px
+    text-transform none
+    
+.rtl-demo,
+.rtl-demo-2,
+.rtl-demo-3
+  span
+    background-color rgba(255, 0, 0, .25)
+  span.rtl 
+    background-color rgba(0, 255, 0, .25)
+  span.wb
+    background-color rgba(0, 0, 255, .25)
+  span.wn
+    background-color rgba(255, 110, 0, .6)
+    line-height 0.9
+    display inline-block
+  span.ib
+    background-color rgba(256, 100, 0, 1)
 
 body article.links
   background-color #080 
@@ -53,6 +103,7 @@ body article.links
   h1
     background none
     font-size 90px 
+    text-shadow 0 0 10px darken(#080, 20%)
     
 .flags
   background-image url('../img/flags.jpg') 
@@ -66,8 +117,10 @@ body article.links
   background-size cover
   background-repeat no-repeat
   h1
-    top 50px
-    right 40px
+    top 0
+    right 60px
+    bottom 0
+    margin auto
     width 250px
     height 250px
     line-height 250px
@@ -77,8 +130,87 @@ body article.links
       display inline-block
       vertical-align middle
     &:after
+      display none
       transform-origin 10px -120px
       transform rotate(60deg)
+
+.dir-type
+  ul 
+    font-size 36px
+    line-height 1.43
+
+.encoding.cloud
+  background-image url('../img/enigma.jpg') 
+  background-position 50% 50%
+  background-size cover
+  background-repeat no-repeat
+  h1
+    top 0
+    left 60px
+    bottom 0
+    margin auto
+    width 300px
+    height 300px
+    line-height 300px
+    font-size 22px
+    &>.wrapper
+      font-size 32px
+      line-height 1.683
+      display inline-block
+      vertical-align middle
+    &:after
+      display none
+      transform-origin 10px -150px
+      transform rotate(-45deg)
+
+.book.cloud
+  background-image url('../img/book.jpg') 
+  background-position 50% 50%
+  background-size cover
+  background-repeat no-repeat
+  h1
+    top 0
+    left 0
+    right 0
+    bottom 0
+    margin auto
+    width 300px
+    height 300px
+    line-height 300px
+    font-size 22px
+    &>.wrapper
+      font-size 28px
+      line-height 1.683
+      display inline-block
+      vertical-align middle
+    &:after
+      display none
+      transform-origin 10px -150px
+      transform rotate(-45deg)
+    
+
+.robot.cloud
+  background-image url('../img/robot.jpg') 
+  background-position 50% 50%
+  background-size cover
+  background-repeat no-repeat
+  h1
+    top 0
+    bottom 0
+    right 60px
+    margin auto
+    width 250px
+    height 250px
+    line-height 250px
+    &>.wrapper
+      font-size 24px
+      line-height 1.683
+      display inline-block
+      vertical-align middle
+    &:after
+      display none
+      transform-origin 10px -100px
+      transform rotate(-50deg)
   
 article.cover
   background-image url('../img/cover-1.jpg') 
@@ -133,7 +265,7 @@ article.different-2.cloud
     font-size 22px
     &:after
       transform-origin 10px -115px
-      transform rotate(-10deg)
+      transform rotate(-5deg)
   
 
 article.different-3.cloud
@@ -142,8 +274,8 @@ article.different-3.cloud
   background-size cover
   background-repeat no-repeat
   h1
-    bottom 20px
-    left 180px
+    bottom 30px
+    left 200px
     width 220px
     height 220px
     line-height 220px
@@ -152,7 +284,7 @@ article.different-3.cloud
       line-height 35px
     &:after
       transform-origin 10px -105px
-      transform rotate(-95deg)
+      transform rotate(-80deg)
   
 article.different-4.cloud
   background-image url('../img/cover-4.jpg') 
@@ -170,7 +302,7 @@ article.different-4.cloud
       line-height 40px
     &:after
       transform-origin 10px -105px
-      transform rotate(135deg)
+      transform rotate(130deg)
 
 .wallet
   background-image url('../img/wallet.jpg') 
@@ -197,6 +329,7 @@ article.different-4.cloud
     border-width 20px 20px 80px 10px 
     text-align center
     background-color #f50 
+    text-shadow 0 0 10px darken(#f50, 20%)
     color #FFF 
     position relative
     &:after
@@ -214,6 +347,7 @@ article.different-4.cloud
     &:first-child
       background-color #08e
       border-width 20px 10px 80px 20px 
+      text-shadow 0 0 10px darken(#08e, 20%)
       &:after
         border-color #08e transparent transparent
         border-width 40px 40px 0 0px
@@ -226,6 +360,7 @@ article.different-4.cloud
   h1 
     font-size 200px
     text-transform none
+    text-shadow 0 0 10px darken(#f50, 20%)
     
 .i18n-abstract
   .wrapper
@@ -255,6 +390,7 @@ article.different-4.cloud
   color #FFF
   h1 
     font-size 200px
+    text-shadow 0 0 10px darken(#08e, 20%)
     text-transform none
     
 .l10n-abstract
@@ -276,3 +412,7 @@ article.different-4.cloud
 .code-3
   code
     font-size 36px
+    
+.code-4
+  code
+    font-size 24px

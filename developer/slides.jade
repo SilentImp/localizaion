@@ -102,6 +102,64 @@ html(lang="ru")
       //-       li Используйте простой, понятный текст.
       //-       li На каждой странице должна быть легко заметный навигационный блок, который позволит сменить язык. 
 
+      article.center.encoding.cloud
+        h1 
+          .wrapper Как задать<br>кодировку?
+
+      article.center.code-2
+        .wrapper
+          pre
+            code 
+              | Content-Type: text/html; charset=UTF-8
+
+      article.center.code-2
+        .wrapper
+          pre
+            code 
+              = '<meta \n'
+              = '   http-equiv="Content-type" \n'
+              = '   content="text/html;charset=UTF-8">'
+
+      article.center.code-1
+        .wrapper
+          pre
+            code 
+              = '<meta charset="UTF-8">'
+
+      article.center.code-1
+        .wrapper
+          pre
+            code 
+              = '1024'
+
+      article.center.code-4
+        .wrapper
+          pre
+            code 
+              = '<link charset="Windows-1251"\n rel="stylesheet" type="text/css"\n href="styles.css"/>\n\n'
+              = '<script charset="UTF-8"\n src="script.js"></script>\n\n'
+              = '<a charset="ISO-8859-1"\n href="page.html"></a>\n'
+
+      article.center.code-4.obsolete
+        .wrapper
+          pre
+            code 
+              = '<link charset="Windows-1251"\n rel="stylesheet" type="text/css"\n href="styles.css"/>\n\n'
+              = '<script charset="UTF-8"\n src="script.js"></script>\n\n'
+              = '<a charset="ISO-8859-1"\n href="page.html"></a>\n'
+
+      article.center.code-2
+        .wrapper
+          pre
+            code 
+              | Content-Type: text/css; charset=UTF-8
+
+      article.center.code-1
+        .wrapper
+          pre
+            code 
+              = '@charset "UTF-8";'
+
       article.center.tongue.cloud
         h1 
           .wrapper Как обозначить<br> язык материалов?
@@ -177,13 +235,6 @@ html(lang="ru")
               |                SimHei, serif;
               |   }
 
-      article.center.code-1
-        .wrapper
-          pre
-            code 
-              = '<article translate="no">\n'
-              = '</article>'
-
       article.center.code-3
         .wrapper
           pre
@@ -202,9 +253,51 @@ html(lang="ru")
               |     content: " [Swedish] "; 
               |     }
 
+      article.center.definition
+        .wrapper
+          ol
+            li language
+              b  язык, en
+            //- en, ru, первое, 2-3 символа
+            li extlang 
+              b  уточнение, zh-yue
+            //- идет сразу за основным языком zh-yue (Cantonese Chinese), ar-afb (Gulf Arabic), всегда 3 симовла
+            li script 
+              b  начертание, zh-Hans
+            //- zh-Hans сразу после уточнения и всегда 4 символа
+            li region 
+              b  регион, en-US, en-UK
+            //- двубуквенный код страны, или код из 3х чисел
+            li variant 
+              b  диалект, sl-nedis, sl-rozaj
+            //- если остальные не смогли точно охарактеризовать язык 
+            li extension 
+              b  расширенное определение
+            li privateuse 
+              b  для частного использования
+
 
       article.center.flags.obsolete
 
+
+      article.center.robot.cloud
+        h1 
+          .wrapper Как управлять роботами?
+
+      article.center.code-3
+        .wrapper
+          pre
+            code 
+              = '<meta \n'
+              = '     name="google" \n'
+              = '     value="notranslate"/>'
+
+      article.center.code-3
+        .wrapper
+          pre
+            code 
+              = '<article class="notranslate">\n'
+              = '</article>'
 
       article.center.code-1
         .wrapper
@@ -213,7 +306,202 @@ html(lang="ru")
               = '<article translate="no">\n'
               = '</article>'
 
+      article.center.book.cloud
+        h1 
+          .wrapper Направление<br>письма
+
+      article.center.dir-type
+        .wrapper
+          ul
+            li Сильно направленные
+            //- большинство букв
+            li Нейтрально направленные
+            //- пробелы и пунктуация, если находятся между двумя разнонаправленными блоками, ведут себя согласно оснвному направлению блока
+            li Слабо направленные
+            //- числа
+
+      article.center.code-1
+        .wrapper
+          pre
+            code 
+              = '<p>раз اثنان три</p>\n'
+              = '<p dir="RTL">раз اثنان три</p>'
+
+      //- В рамках направленного блока поддеоживается ествественный порядок, dir влияет на порядок блоков.
+
+      article.center.rtl-demo
+        .wrapper
+          p раз اثنان три
+          p(dir="RTL") раз اثنان три
+
+      article.center.rtl-demo
+        .wrapper
+          p 
+            span раз
+            |  
+            span.rtl اثنان
+            |  
+            span три
+          p(dir="RTL")
+            span раз
+            |  
+            span.rtl اثنان
+            |  
+            span три
+
+      article.center.code-3
+        .wrapper
+          pre
+            code 
+              = '<p>\n'
+              |   рас, اثنان, три, أربعة.
+              = '\n</p>\n'
+              = '<p dir="RTL">\n'
+              |   рас, اثنان, три, أربعة.
+              = '\n</p>'
+
+      article.center.rtl-demo-2
+        .wrapper
+          p раз, اثنان, три, أربعة.
+          p(dir="RTL") раз, اثنان, три, أربعة.
+
+      article.center.rtl-demo-2
+        .wrapper
+          p
+            span раз
+            span.wb , 
+            span.rtl اثنان
+            span.wb , 
+            span три
+            span.wb , 
+            span.rtl أربعة
+            span.wb .
+          p(dir="RTL")
+            span раз
+            span.wb , 
+            span.rtl اثنان
+            span.wb , 
+            span три
+            span.wb , 
+            span.rtl أربعة
+            span.wb .
+
+      article.center.code-3
+        .wrapper
+          pre
+            code 
+              = '<p>\n'
+              |   рас, اثنان, три, четыри.
+              = '\n</p>\n'
+              = '<p dir="RTL">\n'
+              |   рас, اثنان, три, четыри.
+              = '\n</p>'
+
+      article.center.rtl-demo-2
+        .wrapper
+          p раз, اثنان, три, четыри.
+          p(dir="RTL") раз, اثنان, три, четыри.
+
+      article.center.rtl-demo-2
+        .wrapper
+          p 
+            span раз
+            span.wb , 
+            span.rtl اثنان
+            span.wb , 
+            span три
+            span.ib , 
+            span четыри
+            span.wb .
+          p(dir="RTL") 
+            span раз
+            span.wb , 
+            span.rtl اثنان
+            span.wb , 
+            span три
+            span.ib , 
+            span четыри
+            span.wb .
+
+      article.center.code-1
+        .wrapper
+          pre
+            code 
+              = '<p>Оруэл عربي ١٩٨٤, رسائل</p>\n'
+              = '<p>Оруэл عربي 1984, رسائل</p>'
+
+      article.center.rtl-demo-3
+        .wrapper
+          p Оруэл عربي ١٩٨٤, رسائل
+          p Оруэл عربي 1984, رسائل
+
+      article.center.rtl-demo-3
+        .wrapper
+          p 
+            span Оруэл
+            span.wb  
+            span.rtl 
+              | عربي  
+              span.wn 1984
+              span.ib , 
+              | رسائل
+          p 
+            span Оруэл
+            span.wb  
+            span.rtl 
+              | عربي  
+              span.wn 1984
+              span.ib , 
+              | رسائل
+
+      article.center.memonic
+        .wrapper
+          h1= '&lrm; и &rlm;'
+
+      article.center.code-3
+        .wrapper
+          pre
+            code 
+              = '<p dir="RTL">\n'
+              |   рас, اثنان, три, четыри.
+              = '\n</p>\n'
+              = '<p dir="RTL">\n'
+              |   рас, اثنان, три, четыри.&amp;lrm;
+              = '\n</p>'
+
+      article.center.rtl-demo-2
+        .wrapper
+          p(dir="RTL") раз, اثنان, три, четыри.
+          p(dir="RTL") раз, اثنان, три, четыри.&lrm;
+
+      article.center.rtl-demo-2
+        .wrapper
+          p(dir="RTL")
+            span раз
+            span.wb , 
+            span.rtl اثنان
+            span.wb , 
+            span три
+            span.ib , 
+            span четыри
+            span.wb .
+          p(dir="RTL")
+            span раз
+            span.wb , 
+            span.rtl اثنان
+            span.wb , 
+            span три
+            span.ib , 
+            span четыри
+            span.ib .
+            span &lrm;
+
+
+      //- १९८४
       //- значение lang — http://www.ietf.org/rfc/bcp/bcp47.txt или пустая строка
+      //- &rlm; &lrm;
+      //- dir attribute
+      //- bdi element
 
       article.center.title.links
         h1 Источники
