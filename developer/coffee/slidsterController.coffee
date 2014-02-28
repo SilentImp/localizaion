@@ -2,31 +2,94 @@ define [], ()->
   
   class slidsterController
     constructor: ->
+      @enter = 13
+      @esc = 27
+      @dash = 189
+      @ctrl = 17
+      @cmd = 91
+      @shift = 16
+      @alt = 18
+      @space = 32
+      @chars =  [@dash, @space]
+      @r = 82
+      
+      # вверх
+      @PgUp = 33
+      @Up = 38
+      @Left = 37
+      @H = 72
+      @K = 75
+      
+      # вниз
+      @PgDown = 34
+      @Down = 40
+      @Right = 39
+      @L = 76
+      @J = 74
+
+      #вначало
+      @Home = 36
+
+      #вконец
+      @Home = 35
+
+      #f5
+      @f5 = 116
+
+      @controlsPressed = []
+      @controls = [8, 9, 45, 46, 39, 37, @esc, @ctrl, @alt, @shift, @enter, @cmd]
+      @nextKeys = [@PgDown, @Down, @Right, @L, @J]
+      @prevKeys = [@PgUp, @Up, @Left, @H, @K]
+
       @slides = document.getElementById 'slides'
       document.addEventListener 'dblclick', @fsState
       window.addEventListener 'resize', @resize
-      @resize()
-
-
-    fsState: =>
-      elem = window.document.body
+      document.addEventListener 'fullscreenchange', @fsChange
+      document.addEventListener 'webkitfullscreenchange', @fsChange
+      document.addEventListener 'mozfullscreenchange', @fsChange
+      document.addEventListener "keydown", @keyDown
       
-      console.log elem.classList.contains 'fs'
+      @current = @getCurrentSlide()
+      @resize()
+      @allSlidesCount = @slides.querySelectorAll('article').length
+      @progress = document.querySelector '.progress .value'
+      @redrawProgress()
 
-      if not elem.classList.contains 'fs'
 
-        if elem.requestFullscreen
-          elem.requestFullscreen()
-        else if (elem.msRequestFullscreen)
-          elem.msRequestFullscreen()
-        else if (elem.mozRequestFullScreen)
-          elem.mozRequestFullScreen()
-        else if (elem.webkitRequestFullscreen)
-          elem.webkitRequestFullscreen()
 
-      else
+    redrawProgress: (event)=>
+      before = @allSlidesCount - @slides.querySelectorAll('.current~article').length
+      @progress.style.width = (before*100/@allSlidesCount)+"%"
 
-        if window.document.exitFullscreen
+
+    keyUp: (event)=>
+
+      index = @controlsPressed.indexOf event.which
+      if index > -1  
+        @controlsPressed.splice index, 1
+
+    keyDown: (event)=>
+      if event.which in @controls and @controlsPressed.indexOf(event.which)<0
+        @controlsPressed.push event.which
+
+      if event.which in @nextKeys
+        @next()
+
+      if event.which in @prevKeys
+        @prev()
+
+      switch event.which 
+        when @enter
+          @fsState()
+
+        when @esc
+          @fsStateOff()
+
+    fsChange: =>
+      window.document.body.classList.toggle 'fs'
+
+    fsStateOff: =>
+      if window.document.exitFullscreen
           window.document.exitFullscreen()
         else if window.document.msExitFullscreen
           window.document.msExitFullscreen()
@@ -35,7 +98,23 @@ define [], ()->
         else if window.document.webkitExitFullscreen
           window.document.webkitExitFullscreen()
 
-      elem.classList.toggle 'fs'
+    fsStateOn: =>
+      elem = window.document.body
+      if elem.requestFullscreen
+          elem.requestFullscreen()
+        else if (elem.msRequestFullscreen)
+          elem.msRequestFullscreen()
+        else if (elem.mozRequestFullScreen)
+          elem.mozRequestFullScreen()
+        else if (elem.webkitRequestFullscreen)
+          elem.webkitRequestFullscreen()
+
+
+    fsState: =>
+      if not document.body.classList.contains 'fs'
+        @fsStateOn()
+      else
+        @fsStateOff()
 
     resize: =>
       current = @getCurrentSlide()
@@ -54,23 +133,24 @@ define [], ()->
       current = @slides.querySelector '.current'
       if current == null
         current = @slides.querySelector 'article'
+        current.classList.add 'current'
       return current
 
     next: =>
-      current = @getCurrentSlide()
-      current.classList.remove 'current'
-      next = current.nextElementSibling
-      if next == null
-        next = @slides.querySelector 'article'
-      next.classList.add 'current'
+      @current.classList.remove 'current'
+      @current = @current.nextElementSibling
+      if @current == null
+        @current = @slides.querySelector 'article'
+      @current.classList.add 'current'
+      @redrawProgress()
 
     prev: =>
-      current = @getCurrentSlide()
-      current.classList.remove 'current'
-      prev = current.previousElementSibling
-      if prev == null
-        prev = @slides.querySelector 'article:last-child'
-      prev.classList.add 'current'
+      @current.classList.remove 'current'
+      @current = @current.previousElementSibling
+      if @current == null
+        @current = @slides.querySelector 'article:last-child'
+      @current.classList.add 'current'
+      @redrawProgress()
 
     #   document.addEventListener 'keydown', @keyHandling.bind(this)
 

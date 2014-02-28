@@ -38,11 +38,29 @@ body:not(.fs)
   #slides 
     transform none !important
   
+.progress
+  position fixed
+  top -4px
+  left 0
+  right 0
+  height 4px
+  margin auto
+  z-index 1000
+  background-color rgba(255,255,255,.5) 
+  transition top .25s
+  .value
+    height 4px
+    width 0
+    background-color rgba(255,0,0,.75) 
+    transition width .25s
+
 body.fs
   background-color #FFF 
   height 100%
   overflow hidden
   transform none
+  .progress
+    top 0
   #slides
     width slide-width
     height slide-height
