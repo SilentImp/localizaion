@@ -17,7 +17,31 @@
       }
 
       slidsterController.prototype.fsState = function() {
-        return document.body.classList.toggle('fs');
+        var elem;
+        elem = window.document.body;
+        console.log(elem.classList.contains('fs'));
+        if (!elem.classList.contains('fs')) {
+          if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+          } else if (elem.msRequestFullscreen) {
+            elem.msRequestFullscreen();
+          } else if (elem.mozRequestFullScreen) {
+            elem.mozRequestFullScreen();
+          } else if (elem.webkitRequestFullscreen) {
+            elem.webkitRequestFullscreen();
+          }
+        } else {
+          if (window.document.exitFullscreen) {
+            window.document.exitFullscreen();
+          } else if (window.document.msExitFullscreen) {
+            window.document.msExitFullscreen();
+          } else if (window.document.mozCancelFullScreen) {
+            window.document.mozCancelFullScreen();
+          } else if (window.document.webkitExitFullscreen) {
+            window.document.webkitExitFullscreen();
+          }
+        }
+        return elem.classList.toggle('fs');
       };
 
       slidsterController.prototype.resize = function() {

@@ -9,7 +9,33 @@ define [], ()->
 
 
     fsState: =>
-      document.body.classList.toggle 'fs'
+      elem = window.document.body
+      
+      console.log elem.classList.contains 'fs'
+
+      if not elem.classList.contains 'fs'
+
+        if elem.requestFullscreen
+          elem.requestFullscreen()
+        else if (elem.msRequestFullscreen)
+          elem.msRequestFullscreen()
+        else if (elem.mozRequestFullScreen)
+          elem.mozRequestFullScreen()
+        else if (elem.webkitRequestFullscreen)
+          elem.webkitRequestFullscreen()
+
+      else
+
+        if window.document.exitFullscreen
+          window.document.exitFullscreen()
+        else if window.document.msExitFullscreen
+          window.document.msExitFullscreen()
+        else if window.document.mozCancelFullScreen
+          window.document.mozCancelFullScreen()
+        else if window.document.webkitExitFullscreen
+          window.document.webkitExitFullscreen()
+
+      elem.classList.toggle 'fs'
 
     resize: =>
       current = @getCurrentSlide()
