@@ -1,17 +1,21 @@
 doctype html
 html(lang="ru")
   head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=Edge,chrome=1")
     title Фреймворки локализации
     link(href="css/styles.css", rel="stylesheet")
-    script(src="js/highlight.pack.js")
+    script(data-main="js/presentation", src="js/require.js")
+
   body
     section#slides.dark
 
-      article.cover.center.cloud
+      article.cover.center.cloud.current
         h1.alien
 
       article.cover.center.cloud
-        h1  Локализация
+        h1  
+          .wrapper i18n<br>l10n
 
       article.different-1.cloud.center
         h1  Все мы разные!
@@ -324,6 +328,14 @@ html(lang="ru")
         .wrapper
           pre
             code 
+              = '<p dir="rtl"></p>\n'
+              = '<p dir="ltr"></p>\n'
+              = '<p dir="auto"></p>'
+
+      article.center.code-1
+        .wrapper
+          pre
+            code 
               = '<p>раз اثنان три</p>\n'
               = '<p dir="RTL">раз اثنان три</p>'
 
@@ -496,12 +508,288 @@ html(lang="ru")
             span.ib .
             span &lrm;
 
+      article.center.code-1
+        .wrapper
+          pre
+            code 
+              = '<bdi></bdi>'
 
-      //- १९८४
-      //- значение lang — http://www.ietf.org/rfc/bcp/bcp47.txt или пустая строка
-      //- &rlm; &lrm;
-      //- dir attribute
-      //- bdi element
+      article.center.code-1
+        .wrapper
+          pre
+            code 
+              = '<bdo dir="rtl">\n'
+              = ' Интересно, что получится?\n'
+              = '</bdo>'
+
+      article.center.bdo-example
+        .wrapper
+          p
+            bdo(dir="rtl") Интересно, что получится?
+
+      article.center.code-3
+        .wrapper
+          pre
+            code 
+              | .some{
+              |   direction: ltr
+              |              rtl
+              |              inherit;}
+
+      article.center.code-2
+        .wrapper
+          pre
+            code 
+              | .some{
+              |   unicode-bidi: normal 
+              |                 embed
+              |                 isolate
+              |                 bidi-override
+              |                 isolate-override
+              |                 plaintext
+              |                 inherit;}
+
+              //
+                normal — собственно, нихуя
+                embed — если элемент строчный, то появляется новый контекст направления
+                bidi-override — игнорируя алгоритм двунаправленного письма unicode в рамках элемента ориентирует все строчные элементы согласно direction
+                isolate — блок рассматривается как Object Replacement Character (картинка) и позиционируется вне зависимости от содержимого
+                isolate-override — то же, + внутренности блока перезаписываем bidi-override
+                plaintext — направленность без учета родителей или direction
+
+      article.center.chinese.cloud
+        h1
+          .wrapper и тут врываются 
+            span китайцы
+
+      article.center.code-3
+        .wrapper
+          pre
+            code 
+              | .some{
+              |     writing-mode: horizontal-tb
+              |                   vertical-rl
+              |                   vertical-lr;
+              |     }
+
+      article.center.vertical-demo
+        .half
+          h1 时事专栏
+          p 台湾来鸿：升温中的台北市长选举
+          p 随着国民党荣誉主席连战之子连胜文正式宣布参选，台北市长选举选战逐渐升温。
+        .half
+          h1 时事专栏
+          p 台湾来鸿：升温中的台北市长选举
+          p 随着国民党荣誉主席连战之子连胜文正式宣布参选，台北市长选举选战逐渐升温。
+
+      article.center.vertical-demo-ru
+        .half
+          h1 МИД РФ возмущен "неуважением" НАТО к Украине
+          p Российский МИД выпустил пространное заявление, в котором посоветовал Брюсселю уважать внеблоковый статус Киева и отказаться от заявлений в адрес Украины, которые Москва считает провокационными.
+        .half
+          h1 МИД РФ возмущен "неуважением" НАТО к Украине
+          p Российский МИД выпустил пространное заявление, в котором посоветовал Брюсселю уважать внеблоковый статус Киева и отказаться от заявлений в адрес Украины, которые Москва считает провокационными.
+
+      article.center.vertical-demo-ru-2
+        .half
+          h1 МИД РФ возмущен "неуважением" НАТО к Украине
+          p Российский МИД выпустил пространное заявление, в котором посоветовал Брюсселю уважать внеблоковый статус Киева и отказаться от заявлений в адрес Украины, которые Москва считает провокационными.
+        .half
+          h1 МИД РФ возмущен "неуважением" НАТО к Украине
+          p Российский МИД выпустил пространное заявление, в котором посоветовал Брюсселю уважать внеблоковый статус Киева и отказаться от заявлений в адрес Украины, которые Москва считает провокационными.
+
+      article.center.code-2
+        .wrapper
+          pre
+            code 
+              | .some{
+              |     text-orientation: mixed
+              |                       upright
+              |                       sideways-right
+              |                       sideways-left
+              |                       sideways
+              |                       use-glyph-orientation;
+              |     }
+      
+      article.center.orientation-demo
+        .half
+          h1 МИД РФ возмущен
+          p 台湾来鸿：升温中的
+            span  20 
+            | 台北市长选举
+          p 随着国民党荣誉主席连战之子连胜文正式宣布参选，台北市长选举选战逐渐升温。
+        .half
+          h1 МИД РФ возмущен
+          p 台湾来鸿：升温中的
+            span  20 
+            | 台北市长选举
+          p 随着国民党荣誉主席连战之子连胜文正式宣布参选，台北市长选举选战逐渐升温。
+
+      article.center.orientation-demo-2
+        .half
+          h1 МИД РФ возмущен
+          p 台湾来鸿：升温中的
+            span  20 
+            | 台北市长选举
+          p 随着国民党荣誉主席连战之子连胜文正式宣布参选，台北市长选举选战逐渐升温。
+        .half
+          h1 МИД РФ возмущен
+          p 台湾来鸿：升温中的
+            span  20 
+            | 台北市长选举
+          p 随着国民党荣誉主席连战之子连胜文正式宣布参选，台北市长选举选战逐渐升温。
+
+      article.center.code-2
+        .wrapper
+          pre
+            code 
+              | .some{
+              |     text-combine-horizontal:  none
+              |                               all
+              |                               digits [int];
+              |     }
+
+      article.center.code-1
+        .wrapper
+          pre
+            code
+              = '<ruby>\n'
+              = ' <rb>Наш текст<rb>\n'
+              = ' <rt>Как читать</rt>\n'
+              = '</ruby>'
+
+      article.center.ruby-demo
+        .half
+          ruby
+            rb 紙芝居
+            rt かみしばい
+        .half
+          ruby
+            rb Наш текст
+            rt Как читать
+
+      article.center.ruby-demo-2
+        .half
+          ruby
+            rb 紙芝居
+            rt かみしばい
+        .half
+          ruby
+            rb Наш текст
+            rt Как читать
+
+      article.center.code-3
+        .wrapper
+          pre
+            code
+              = '<ruby>\n'
+              = ' <rb>紙芝居<rb>\n'
+              = ' <rp>(<rp>\n'
+              = ' <rt>かみしばい</rt>\n'
+              = ' <rp>)<rp>\n'
+              = '</ruby>'
+
+      article.center.ruby-demo-rp
+        .wrapper
+          | 紙芝居 (かみしばい)
+
+      article.center.ruby-demo-rp
+        .wrapper
+          ruby
+            rb 紙芝居
+            rp (
+            rt かみしばい
+            rp )
+
+      article.center.code-2
+        .wrapper
+          pre
+            code
+              = '<ruby>\n'
+              = ' <rbc>\n'
+              = '   <rb>林<rb><rb>和</rb><rb>代</rb>\n'
+              = ' </rbc>\n'
+              = ' <rtc>\n'
+              = '   <rt>はやし</rt><rt rbspan="2">かず</rt>\n'
+              = ' </rtc>\n'
+              = '</ruby>'
+
+      article.center.code-2
+        .wrapper
+          pre
+            code
+              = '<ruby>\n'
+              = ' <rbc><rb>民政局</rb></rbc>\n'
+              = ' <rtc><rt>みんせいきょく</rt></rtc>\n'
+              = ' <rtc><rt>ガバメント・セクシヨン</rt></rtc>\n'
+              = '</ruby>'
+
+      article.center.code-2
+        .wrapper
+          pre
+            code
+              = '<ruby>\n'
+              = ' <rbc><rb>民政局</rb></rbc>\n'
+              = ' <rtc><rt>みんせいきょく</rt></rtc>\n'
+              = ' <rtc><rt>ガバメント・セクシヨン</rt></rtc>\n'
+              = '</ruby>'
+
+      article.center.code-2
+        .wrapper
+          pre
+            code 
+              | .some{
+              |     ruby-position:  over
+              |                     under
+              |                     
+              |                     inter-character
+              |                      
+              |                     right
+              |                     left;
+              |     }
+
+      article.center.code-1
+        .wrapper
+          pre
+            code 
+              | .some{
+              |     ruby-merge:  separate
+              |                  collapse
+              |                  auto;
+              |     }
+
+      article.center.code-3
+        .wrapper
+          pre
+            code 
+              | .some{
+              |     ruby-align:  start
+              |                  center
+              |                  space-between
+              |                  space-around;
+              |     }
+            
+      //- article.center.ruby-demo-montage
+      //-   .wrapper
+      //-     ruby
+      //-       rbc
+      //-         rb 民 政 局
+      //-       rtc
+      //-         rt みんせいきょく
+      //-       rtc
+      //-         rt ガバメント・セクシヨン
+
+      article.center.cloud.bored
+        h1 
+          .wrapper Ну давай же,<br>расскажи что-то<br>еще про стандарты!<br>Это так … мммм …<br>захватывающе!
+
+      //- article.center
+      //-   h1 
+      
+
+      //- скрытые блоки, handlebars, template, 
+      //- i18n
+      //- l20n
 
       article.center.title.links
         h1 Источники
@@ -515,6 +803,18 @@ html(lang="ru")
       article.center.i18n-links
         .wrapper
           img.logotype(src="svg/w3c-logotype.svg", alt="Логотип w3c")
+          img.link(src="svg/w3c-link-modes.svg", alt="QRCODE cо ссылкой на w3c спецификацию по режимам письма")
+          p http://www.w3.org/TR/css3-writing-modes/
+
+      article.center.i18n-links
+        .wrapper
+          img.logotype(src="svg/w3c-logotype.svg", alt="Логотип w3c")
+          img.link(src="svg/w3c-link-ruby.svg", alt="QRCODE cо ссылкой на w3c спецификацию по руби начертанию")
+          p http://www.w3.org/TR/css3-ruby/
+
+      article.center.i18n-links
+        .wrapper
+          img.logotype(src="svg/w3c-logotype.svg", alt="Логотип w3c")
           img.link(src="svg/w3c-link.svg", alt="QRCODE cо ссылкой на w3c блог")
           p http://w3.org/blog/International/
 
@@ -523,4 +823,3 @@ html(lang="ru")
           img.logotype(src="svg/mlw-logotype.svg", alt="Логотип MultilingualWeb")
           img.link(src="svg/mlw-link.svg", alt="QRCODE cо ссылкой на MultilingualWeb")
           p http://multilingualweb.eu/
-    script hljs.initHighlightingOnLoad();

@@ -16,10 +16,57 @@ pre
   code
     font-family "PT Mono" 
     line-height 1.68
-
+html
+  height 100%
+  width 100%
+ 
 body  
   background-color #333 
   font-family "PT Sans"
+  min-height 100%
+  width 100%
+  position relative
+  
+  -webkit-touch-callout none
+  -webkit-user-select none
+  -khtml-user-select none
+  -moz-user-select none
+  -ms-user-select none
+  user-select none
+
+body:not(.fs)
+  #slides 
+    transform none !important
+  
+body.fs
+  background-color #FFF 
+  height 100%
+  overflow hidden
+  transform none
+  #slides
+    width slide-width
+    height slide-height
+    overflow hidden
+    position fixed
+    margin 0 
+    margin-top -(slide-height/2) 
+    margin-left -(slide-width/2)
+    top 50%
+    left 50%
+    article
+      position absolute
+      margin auto
+      top 0
+      bottom 0
+      right 0
+      left 0
+      z-index 100
+      opacity 0
+      &.current
+        opacity 1
+        z-index 110
+  
+    
   
 h1, h2, h3, h4, h5
   font-family "PT Sans Caption"
@@ -51,6 +98,8 @@ article
   position relative
   color light-color
   counter-increment slide
+  opacity 1
+  transition opacity .25s
   &:after
     font-family "PT Sans" 
     content counter(slide)
@@ -67,7 +116,8 @@ article
     z-index 100 
     border-radius 100% 
     background-color #FFF 
-    
+  &>.wrapper
+    line-height 1.68
   &.cloud
     h1
       position absolute

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="ru"><head><title>Фреймворки локализации</title><link href="css/styles.css" rel="stylesheet"><script src="js/highlight.pack.js"></script></head><body><section id="slides" class="dark"><article class="cover center cloud"><h1 class="alien"></h1></article><article class="cover center cloud"><h1> Локализация</h1></article><article class="different-1 cloud center"><h1> Все мы разные!</h1></article><article class="different-2 cloud center"><h1> Язык и валюта</h1></article><article class="different-3 cloud center"><h1> <div class="wrapper">Культурные особенности</div></h1></article><article class="different-4 cloud center"><h1> <div class="wrapper">Символы <br>иконки<br>цвета</div></h1></article><article class="title center"><h1> Но есть и кое что общее</h1></article><article class="wallet title center"></article><article class="title center vs"><div class="wrapper"><div class="half">localization</div><div class="half">internationalization</div></div></article><article class="title center vs short"><div class="wrapper"><div class="half">l10n</div><div class="half">i18n</div></div></article><article class="center l10n-title"><h1>l10n</h1></article><article class="center l10n-abstract"><div class="wrapper"><p>l10n это адаптация продукта для его соответствия языковым, культурным и прочим требованиям конкретного рынка.</p></div></article><article class="center l10n-abstract"><div class="wrapper"><ul><li>Cистема счисления, форматы даты и времени</li><li>Валюта</li><li>Использование систем ввода</li><li>Символы, иконки, цвета</li><li>Текст и графика, содержащие отсылки к идеям и действиям</li><li>Различие легислативный требований</li><li>…</li></ul></div></article><article class="center i18n-title"><h1> i18n</h1></article><article class="center i18n-abstract"><div class="wrapper"><p>i18n это процесс, в результате которого получается продукт, предусматривающий его простую локализацию для целевой аудитории в рамках многообразия её культур, регионов и языков.</p></div></article><article class="center i18n-abstract"><div class="wrapper"><ul><li>Разработка продукта таким образом, что бы устранить барьеры для для его локализации.</li><li>Реализовать функционал, который не потребуются, пока не начнется локализация.</li><li>Писать код, который позволяет реализовать поддержку локальных, языковых и культурных особенностей.</li><li>Отделение элементов, которые требуют локализации от остальных.</li></ul></div></article><article class="center encoding cloud"><h1><div class="wrapper">Как задать<br>кодировку?</div></h1></article><article class="center code-2"><div class="wrapper"><pre><code>Content-Type: text/html; charset=UTF-8</code></pre></div></article><article class="center code-2"><div class="wrapper"><pre><code>&lt;meta 
+<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"><title>Фреймворки локализации</title><link href="css/styles.css" rel="stylesheet"><script data-main="js/presentation" src="js/require.js"></script></head><body><section id="slides" class="dark"><article class="cover center cloud current"><h1 class="alien"></h1></article><article class="cover center cloud"><h1> <div class="wrapper">i18n<br>l10n</div></h1></article><article class="different-1 cloud center"><h1> Все мы разные!</h1></article><article class="different-2 cloud center"><h1> Язык и валюта</h1></article><article class="different-3 cloud center"><h1> <div class="wrapper">Культурные особенности</div></h1></article><article class="different-4 cloud center"><h1> <div class="wrapper">Символы <br>иконки<br>цвета</div></h1></article><article class="title center"><h1> Но есть и кое что общее</h1></article><article class="wallet title center"></article><article class="title center vs"><div class="wrapper"><div class="half">localization</div><div class="half">internationalization</div></div></article><article class="title center vs short"><div class="wrapper"><div class="half">l10n</div><div class="half">i18n</div></div></article><article class="center l10n-title"><h1>l10n</h1></article><article class="center l10n-abstract"><div class="wrapper"><p>l10n это адаптация продукта для его соответствия языковым, культурным и прочим требованиям конкретного рынка.</p></div></article><article class="center l10n-abstract"><div class="wrapper"><ul><li>Cистема счисления, форматы даты и времени</li><li>Валюта</li><li>Использование систем ввода</li><li>Символы, иконки, цвета</li><li>Текст и графика, содержащие отсылки к идеям и действиям</li><li>Различие легислативный требований</li><li>…</li></ul></div></article><article class="center i18n-title"><h1> i18n</h1></article><article class="center i18n-abstract"><div class="wrapper"><p>i18n это процесс, в результате которого получается продукт, предусматривающий его простую локализацию для целевой аудитории в рамках многообразия её культур, регионов и языков.</p></div></article><article class="center i18n-abstract"><div class="wrapper"><ul><li>Разработка продукта таким образом, что бы устранить барьеры для для его локализации.</li><li>Реализовать функционал, который не потребуются, пока не начнется локализация.</li><li>Писать код, который позволяет реализовать поддержку локальных, языковых и культурных особенностей.</li><li>Отделение элементов, которые требуют локализации от остальных.</li></ul></div></article><article class="center encoding cloud"><h1><div class="wrapper">Как задать<br>кодировку?</div></h1></article><article class="center code-2"><div class="wrapper"><pre><code>Content-Type: text/html; charset=UTF-8</code></pre></div></article><article class="center code-2"><div class="wrapper"><pre><code>&lt;meta 
    http-equiv=&quot;Content-type&quot; 
    content=&quot;text/html;charset=UTF-8&quot;&gt;</code></pre></div></article><article class="center code-1"><div class="wrapper"><pre><code>&lt;meta charset=&quot;UTF-8&quot;&gt;</code></pre></div></article><article class="center code-1"><div class="wrapper"><pre><code>1024</code></pre></div></article><article class="center code-4"><div class="wrapper"><pre><code>&lt;link charset=&quot;Windows-1251&quot;
  rel=&quot;stylesheet&quot; type=&quot;text/css&quot;
@@ -49,7 +49,9 @@
      name=&quot;google&quot; 
      value=&quot;notranslate&quot;/&gt;</code></pre></div></article><article class="center code-3"><div class="wrapper"><pre><code>&lt;article class=&quot;notranslate&quot;&gt;
 &lt;/article&gt;</code></pre></div></article><article class="center code-1"><div class="wrapper"><pre><code>&lt;article translate=&quot;no&quot;&gt;
-&lt;/article&gt;</code></pre></div></article><article class="center book cloud"><h1><div class="wrapper">Направление<br>письма</div></h1></article><article class="center dir-type"><div class="wrapper"><ul><li>Сильно направленные</li><li>Нейтрально направленные</li><li>Слабо направленные</li></ul></div></article><article class="center code-1"><div class="wrapper"><pre><code>&lt;p&gt;раз اثنان три&lt;/p&gt;
+&lt;/article&gt;</code></pre></div></article><article class="center book cloud"><h1><div class="wrapper">Направление<br>письма</div></h1></article><article class="center dir-type"><div class="wrapper"><ul><li>Сильно направленные</li><li>Нейтрально направленные</li><li>Слабо направленные</li></ul></div></article><article class="center code-1"><div class="wrapper"><pre><code>&lt;p dir=&quot;rtl&quot;&gt;&lt;/p&gt;
+&lt;p dir=&quot;ltr&quot;&gt;&lt;/p&gt;
+&lt;p dir=&quot;auto&quot;&gt;&lt;/p&gt;</code></pre></div></article><article class="center code-1"><div class="wrapper"><pre><code>&lt;p&gt;раз اثنان три&lt;/p&gt;
 &lt;p dir=&quot;RTL&quot;&gt;раз اثنان три&lt;/p&gt;</code></pre></div></article><article class="center rtl-demo"><div class="wrapper"><p>раз اثنان три</p><p dir="RTL">раз اثنان три</p></div></article><article class="center rtl-demo"><div class="wrapper"><p><span>раз</span> <span class="rtl">اثنان</span> <span>три</span></p><p dir="RTL"><span>раз</span> <span class="rtl">اثنان</span> <span>три</span></p></div></article><article class="center code-3"><div class="wrapper"><pre><code>&lt;p&gt;
   рас, اثنان, три, أربعة.
 &lt;/p&gt;
@@ -66,4 +68,77 @@
 &lt;/p&gt;
 &lt;p dir=&quot;RTL&quot;&gt;
   рас, اثنان, три, четыри.&amp;lrm;
-&lt;/p&gt;</code></pre></div></article><article class="center rtl-demo-2"><div class="wrapper"><p dir="RTL">раз, اثنان, три, четыри.</p><p dir="RTL">раз, اثنان, три, четыри.&lrm;</p></div></article><article class="center rtl-demo-2"><div class="wrapper"><p dir="RTL"><span>раз</span><span class="wb">, </span><span class="rtl">اثنان</span><span class="wb">, </span><span>три</span><span class="ib">, </span><span>четыри</span><span class="wb">.</span></p><p dir="RTL"><span>раз</span><span class="wb">, </span><span class="rtl">اثنان</span><span class="wb">, </span><span>три</span><span class="ib">, </span><span>четыри</span><span class="ib">.</span><span>&lrm;</span></p></div></article><article class="center title links"><h1>Источники</h1></article><article class="center i18n-links"><div class="wrapper"><img src="svg/w3c-logotype.svg" alt="Логотип w3c" class="logotype"><img src="svg/w3c-link-all.svg" alt="QRCODE cо ссылкой на w3c стандарты" class="link"><p>http://w3.org/TR/#tr_Internationalization__All_</p></div></article><article class="center i18n-links"><div class="wrapper"><img src="svg/w3c-logotype.svg" alt="Логотип w3c" class="logotype"><img src="svg/w3c-link.svg" alt="QRCODE cо ссылкой на w3c блог" class="link"><p>http://w3.org/blog/International/</p></div></article><article class="center i18n-links"><div class="wrapper"><img src="svg/mlw-logotype.svg" alt="Логотип MultilingualWeb" class="logotype"><img src="svg/mlw-link.svg" alt="QRCODE cо ссылкой на MultilingualWeb" class="link"><p>http://multilingualweb.eu/</p></div></article></section><script>hljs.initHighlightingOnLoad();</script></body></html>
+&lt;/p&gt;</code></pre></div></article><article class="center rtl-demo-2"><div class="wrapper"><p dir="RTL">раз, اثنان, три, четыри.</p><p dir="RTL">раз, اثنان, три, четыри.&lrm;</p></div></article><article class="center rtl-demo-2"><div class="wrapper"><p dir="RTL"><span>раз</span><span class="wb">, </span><span class="rtl">اثنان</span><span class="wb">, </span><span>три</span><span class="ib">, </span><span>четыри</span><span class="wb">.</span></p><p dir="RTL"><span>раз</span><span class="wb">, </span><span class="rtl">اثنان</span><span class="wb">, </span><span>три</span><span class="ib">, </span><span>четыри</span><span class="ib">.</span><span>&lrm;</span></p></div></article><article class="center code-1"><div class="wrapper"><pre><code>&lt;bdi&gt;&lt;/bdi&gt;</code></pre></div></article><article class="center code-1"><div class="wrapper"><pre><code>&lt;bdo dir=&quot;rtl&quot;&gt;
+ Интересно, что получится?
+&lt;/bdo&gt;</code></pre></div></article><article class="center bdo-example"><div class="wrapper"><p><bdo dir="rtl">Интересно, что получится?</bdo></p></div></article><article class="center code-3"><div class="wrapper"><pre><code>.some{
+  direction: ltr
+             rtl
+             inherit;}</code></pre></div></article><article class="center code-2"><div class="wrapper"><pre><code>.some{
+  unicode-bidi: normal 
+                embed
+                isolate
+                bidi-override
+                isolate-override
+                plaintext
+                inherit;}<!--normal — собственно, нихуя
+embed — если элемент строчный, то появляется новый контекст направления
+bidi-override — игнорируя алгоритм двунаправленного письма unicode в рамках элемента ориентирует все строчные элементы согласно direction
+isolate — блок рассматривается как Object Replacement Character (картинка) и позиционируется вне зависимости от содержимого
+isolate-override — то же, + внутренности блока перезаписываем bidi-override
+plaintext — направленность без учета родителей или direction
+--></code></pre></div></article><article class="center chinese cloud"><h1><div class="wrapper">и тут врываются <span>китайцы</span></div></h1></article><article class="center code-3"><div class="wrapper"><pre><code>.some{
+    writing-mode: horizontal-tb
+                  vertical-rl
+                  vertical-lr;
+    }</code></pre></div></article><article class="center vertical-demo"><div class="half"><h1>时事专栏</h1><p>台湾来鸿：升温中的台北市长选举</p><p>随着国民党荣誉主席连战之子连胜文正式宣布参选，台北市长选举选战逐渐升温。</p></div><div class="half"><h1>时事专栏</h1><p>台湾来鸿：升温中的台北市长选举</p><p>随着国民党荣誉主席连战之子连胜文正式宣布参选，台北市长选举选战逐渐升温。</p></div></article><article class="center vertical-demo-ru"><div class="half"><h1>МИД РФ возмущен "неуважением" НАТО к Украине</h1><p>Российский МИД выпустил пространное заявление, в котором посоветовал Брюсселю уважать внеблоковый статус Киева и отказаться от заявлений в адрес Украины, которые Москва считает провокационными.</p></div><div class="half"><h1>МИД РФ возмущен "неуважением" НАТО к Украине</h1><p>Российский МИД выпустил пространное заявление, в котором посоветовал Брюсселю уважать внеблоковый статус Киева и отказаться от заявлений в адрес Украины, которые Москва считает провокационными.</p></div></article><article class="center vertical-demo-ru-2"><div class="half"><h1>МИД РФ возмущен "неуважением" НАТО к Украине</h1><p>Российский МИД выпустил пространное заявление, в котором посоветовал Брюсселю уважать внеблоковый статус Киева и отказаться от заявлений в адрес Украины, которые Москва считает провокационными.</p></div><div class="half"><h1>МИД РФ возмущен "неуважением" НАТО к Украине</h1><p>Российский МИД выпустил пространное заявление, в котором посоветовал Брюсселю уважать внеблоковый статус Киева и отказаться от заявлений в адрес Украины, которые Москва считает провокационными.</p></div></article><article class="center code-2"><div class="wrapper"><pre><code>.some{
+    text-orientation: mixed
+                      upright
+                      sideways-right
+                      sideways-left
+                      sideways
+                      use-glyph-orientation;
+    }</code></pre></div></article><article class="center orientation-demo"><div class="half"><h1>МИД РФ возмущен</h1><p>台湾来鸿：升温中的<span> 20 </span>台北市长选举</p><p>随着国民党荣誉主席连战之子连胜文正式宣布参选，台北市长选举选战逐渐升温。</p></div><div class="half"><h1>МИД РФ возмущен</h1><p>台湾来鸿：升温中的<span> 20 </span>台北市长选举</p><p>随着国民党荣誉主席连战之子连胜文正式宣布参选，台北市长选举选战逐渐升温。</p></div></article><article class="center orientation-demo-2"><div class="half"><h1>МИД РФ возмущен</h1><p>台湾来鸿：升温中的<span> 20 </span>台北市长选举</p><p>随着国民党荣誉主席连战之子连胜文正式宣布参选，台北市长选举选战逐渐升温。</p></div><div class="half"><h1>МИД РФ возмущен</h1><p>台湾来鸿：升温中的<span> 20 </span>台北市长选举</p><p>随着国民党荣誉主席连战之子连胜文正式宣布参选，台北市长选举选战逐渐升温。</p></div></article><article class="center code-2"><div class="wrapper"><pre><code>.some{
+    text-combine-horizontal:  none
+                              all
+                              digits [int];
+    }</code></pre></div></article><article class="center code-1"><div class="wrapper"><pre><code>&lt;ruby&gt;
+ &lt;rb&gt;Наш текст&lt;rb&gt;
+ &lt;rt&gt;Как читать&lt;/rt&gt;
+&lt;/ruby&gt;</code></pre></div></article><article class="center ruby-demo"><div class="half"><ruby><rb>紙芝居</rb><rt>かみしばい</rt></ruby></div><div class="half"><ruby><rb>Наш текст</rb><rt>Как читать</rt></ruby></div></article><article class="center ruby-demo-2"><div class="half"><ruby><rb>紙芝居</rb><rt>かみしばい</rt></ruby></div><div class="half"><ruby><rb>Наш текст</rb><rt>Как читать</rt></ruby></div></article><article class="center code-3"><div class="wrapper"><pre><code>&lt;ruby&gt;
+ &lt;rb&gt;紙芝居&lt;rb&gt;
+ &lt;rp&gt;(&lt;rp&gt;
+ &lt;rt&gt;かみしばい&lt;/rt&gt;
+ &lt;rp&gt;)&lt;rp&gt;
+&lt;/ruby&gt;</code></pre></div></article><article class="center ruby-demo-rp"><div class="wrapper">紙芝居 (かみしばい)</div></article><article class="center ruby-demo-rp"><div class="wrapper"><ruby><rb>紙芝居</rb><rp>(</rp><rt>かみしばい</rt><rp>)</rp></ruby></div></article><article class="center code-2"><div class="wrapper"><pre><code>&lt;ruby&gt;
+ &lt;rbc&gt;
+   &lt;rb&gt;林&lt;rb&gt;&lt;rb&gt;和&lt;/rb&gt;&lt;rb&gt;代&lt;/rb&gt;
+ &lt;/rbc&gt;
+ &lt;rtc&gt;
+   &lt;rt&gt;はやし&lt;/rt&gt;&lt;rt rbspan=&quot;2&quot;&gt;かず&lt;/rt&gt;
+ &lt;/rtc&gt;
+&lt;/ruby&gt;</code></pre></div></article><article class="center code-2"><div class="wrapper"><pre><code>&lt;ruby&gt;
+ &lt;rbc&gt;&lt;rb&gt;民政局&lt;/rb&gt;&lt;/rbc&gt;
+ &lt;rtc&gt;&lt;rt&gt;みんせいきょく&lt;/rt&gt;&lt;/rtc&gt;
+ &lt;rtc&gt;&lt;rt&gt;ガバメント・セクシヨン&lt;/rt&gt;&lt;/rtc&gt;
+&lt;/ruby&gt;</code></pre></div></article><article class="center code-2"><div class="wrapper"><pre><code>&lt;ruby&gt;
+ &lt;rbc&gt;&lt;rb&gt;民政局&lt;/rb&gt;&lt;/rbc&gt;
+ &lt;rtc&gt;&lt;rt&gt;みんせいきょく&lt;/rt&gt;&lt;/rtc&gt;
+ &lt;rtc&gt;&lt;rt&gt;ガバメント・セクシヨン&lt;/rt&gt;&lt;/rtc&gt;
+&lt;/ruby&gt;</code></pre></div></article><article class="center code-2"><div class="wrapper"><pre><code>.some{
+    ruby-position:  over
+                    under
+                    
+                    inter-character
+                     
+                    right
+                    left;
+    }</code></pre></div></article><article class="center code-1"><div class="wrapper"><pre><code>.some{
+    ruby-merge:  separate
+                 collapse
+                 auto;
+    }</code></pre></div></article><article class="center code-3"><div class="wrapper"><pre><code>.some{
+    ruby-align:  start
+                 center
+                 space-between
+                 space-around;
+    }</code></pre></div></article><article class="center cloud bored"><h1><div class="wrapper">Ну давай же,<br>расскажи что-то<br>еще про стандарты!<br>Это так … мммм …<br>захватывающе!</div></h1></article><article class="center title links"><h1>Источники</h1></article><article class="center i18n-links"><div class="wrapper"><img src="svg/w3c-logotype.svg" alt="Логотип w3c" class="logotype"><img src="svg/w3c-link-all.svg" alt="QRCODE cо ссылкой на w3c стандарты" class="link"><p>http://w3.org/TR/#tr_Internationalization__All_</p></div></article><article class="center i18n-links"><div class="wrapper"><img src="svg/w3c-logotype.svg" alt="Логотип w3c" class="logotype"><img src="svg/w3c-link-modes.svg" alt="QRCODE cо ссылкой на w3c спецификацию по режимам письма" class="link"><p>http://www.w3.org/TR/css3-writing-modes/</p></div></article><article class="center i18n-links"><div class="wrapper"><img src="svg/w3c-logotype.svg" alt="Логотип w3c" class="logotype"><img src="svg/w3c-link-ruby.svg" alt="QRCODE cо ссылкой на w3c спецификацию по руби начертанию" class="link"><p>http://www.w3.org/TR/css3-ruby/</p></div></article><article class="center i18n-links"><div class="wrapper"><img src="svg/w3c-logotype.svg" alt="Логотип w3c" class="logotype"><img src="svg/w3c-link.svg" alt="QRCODE cо ссылкой на w3c блог" class="link"><p>http://w3.org/blog/International/</p></div></article><article class="center i18n-links"><div class="wrapper"><img src="svg/mlw-logotype.svg" alt="Логотип MultilingualWeb" class="logotype"><img src="svg/mlw-link.svg" alt="QRCODE cо ссылкой на MultilingualWeb" class="link"><p>http://multilingualweb.eu/</p></div></article></section></body></html>

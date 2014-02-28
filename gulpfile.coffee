@@ -43,7 +43,7 @@ gulp.task('images', ()->
 )
 
 gulp.task('watch', ()->
-  gulp.watch paths.scripts, ['coffee']
+  gulp.watch paths.coffee, ['coffee']
   gulp.watch paths.images, ['images']
   gulp.watch paths.jade, ['jade']
   gulp.watch paths.stylus, ['stylus']

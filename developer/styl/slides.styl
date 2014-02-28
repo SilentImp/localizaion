@@ -81,6 +81,9 @@
     font-size 96px
     text-transform none
     
+.bdo-example
+  font-size 56px
+    
 .rtl-demo,
 .rtl-demo-2,
 .rtl-demo-3
@@ -111,6 +114,153 @@ body article.links
   background-size cover
   background-repeat no-repeat
   
+article.chinese.cloud
+  background-image url('../img/chinese.jpg') 
+  background-position 50% 50%
+  background-size cover
+  background-repeat no-repeat
+  h1
+    top 0
+    right 0
+    bottom 0
+    left 0
+    margin auto
+    
+    width 250px
+    height 250px
+    line-height 250px
+    font-size 21px
+    &:after
+      display none
+      transform-origin 10px -1
+    &>.wrapper
+      line-height 1.43
+      display inline-block
+      vertical-align middle
+      span
+        line-height 1.2
+        font-size 40px
+
+.vertical-demo-ru-2,
+.vertical-demo-ru,        
+.vertical-demo
+  .half
+    background-color #08e
+    color #FFF
+    
+    text-shadow 0 0 8px darken(#08e, 20%)
+
+    font-size 30px
+    width 50%
+    height 100%
+    padding 5% 5% 5% 0
+    float left
+    box-sizing border-box
+    
+    -ms-writing-mode rl-tb
+    -webkit-writing-mode vertical-rl
+    -moz-writing-mode vertical-rl
+    -ms-writing-mode vertical-rl
+    writing-mode vertical-rl
+    
+    &:first-child
+      -webkit-writing-mode horizontal-tb
+      -moz-writing-mode horizontal-tb
+      -ms-writing-mode horizontal-tb
+      writing-mode horizontal-tb
+      padding 5% 0 5% 5%
+      h1
+        margin .89em 0
+
+  p,h1
+    text-align left
+    white-space normal
+    box-sizing border-box 
+    line-height 1.43em
+  
+  h1
+    margin 0 .715em 
+
+.vertical-demo-ru-2
+  .half
+    -webkit-writing-mode vertical-lr
+    -moz-writing-mode vertical-lr
+    -ms-writing-mode vertical-lr
+    writing-mode vertical-lr
+    padding 5% 0 5% 5% 
+  p,h1
+    font-size 21px
+    line-height 1.43
+    text-decoration none
+  
+.vertical-demo-ru
+  p,h1
+    font-size 21px
+    line-height 1.43
+    
+.orientation-demo
+  .half
+    background-color #08e
+    color #FFF
+    
+    text-shadow 0 0 8px darken(#08e, 20%)
+
+    font-size 24px
+    line-height 1.43
+    text-align left
+    width 50%
+    height 100%
+    padding 5% 5% 5% 0
+    float left
+    box-sizing border-box
+    
+    -ms-writing-mode rl-tb
+    -webkit-writing-mode vertical-rl
+    -moz-writing-mode vertical-rl
+    -ms-writing-mode vertical-rl        
+    writing-mode vertical-rl
+    
+    span
+      background-color darken(#08e, 20%)
+      
+  .half:last-child 
+    -webkit-text-orientation upright
+    -moz-text-orientation upright
+    -ms-text-orientation upright
+    text-orientation upright
+  
+.orientation-demo-2
+  .half
+    background-color #08e
+    color #FFF
+    
+    text-shadow 0 0 8px darken(#08e, 20%)
+
+    font-size 24px
+    line-height 1.43
+    text-align left
+    width 50%
+    height 100%
+    padding 5% 5% 5% 0
+    float left
+    box-sizing border-box
+    
+    -ms-writing-mode rl-tb
+    -webkit-writing-mode vertical-rl
+    -moz-writing-mode vertical-rl
+    -ms-writing-mode vertical-rl        
+    writing-mode vertical-rl
+    
+    span
+      background-color darken(#08e, 20%)
+  .half:last-child 
+    -webkit-text-orientation sideways
+    -moz-text-orientation sideways
+    -ms-text-orientation sideways
+    text-orientation sideways
+    
+
+
 .tongue.cloud
   background-image url('../img/tongue.jpg') 
   background-position 50% 50%
@@ -227,14 +377,114 @@ article.cover
     height 200px
     line-height 200px
     font-size 20px
+    .wrapper
+      font-family "PT Mono" 
+      display inline-block
+      vertical-align middle
+      line-height 1
+      font-size 50px 
     &.alien
       background-image url('../img/cover-0.png') 
       background-position 50% 50%
       background-size 50% 50%
       background-repeat no-repeat
 
-     
+.ruby-demo-rp
+  position relative
+  background-color #08e
+  color #FFF
+  font-size 64px 
+  .wrapper
+    text-shadow 0 0 8px darken(#08e, 20%)
+
+.ruby-demo-montage
+  position relative
+  background-color #08e
+  color #FFF
+  ruby
+    display block
+    width 100%
+    position relative
+    text-shadow 0 0 8px darken(#08e, 20%)
+    line-height 48px
+    font-size 36px
+    rbc
+      line-height 120px
+      font-size 100px
+      word-spacing 55px 
+    rtc
+      position absolute
+      left 0
+      right 0
+      white-space nowrap
+      text-align center
+      top -64px
+      font-size 48px
+      line-height 64px
+        
+      &:last-child
+        left -200px
+        right -200px
+        top 120px
+        font-size 48px
+        line-height 64px
     
+
+
+.ruby-demo-2,
+.ruby-demo
+  .wrapper
+    line-height 1
+  ruby
+    vertical-align middle
+  .half
+    background-color #08e
+    color #FFF
+    
+    text-shadow 0 0 8px darken(#08e, 20%)
+
+    font-size 64px
+    width 50%
+    height 100%
+    padding 0
+    float left
+    box-sizing border-box
+    
+.ruby-demo-2 .half
+    -ms-writing-mode rl-tb
+    -webkit-writing-mode vertical-rl
+    -moz-writing-mode vertical-rl
+    -ms-writing-mode vertical-rl        
+    writing-mode vertical-rl
+    
+    -webkit-text-orientation upright
+    -moz-text-orientation upright
+    -ms-text-orientation upright
+    text-orientation upright
+    
+article.bored.cloud
+  background-image url('../img/bored.jpg') 
+  background-position 50% 50%
+  background-size cover
+  background-repeat no-repeat
+  h1
+    top 0
+    bottom 0
+    margin auto
+    left 60px
+    width 340px
+    height 340px
+    line-height 340px
+    font-size 26px
+    &>.wrapper
+      display inline-block
+      vertical-align middle
+      line-height 1.43
+    &:after
+      transform-origin 10px -165px
+      transform rotate(-110deg)
+  
+
 article.different-1.cloud
   background-image url('../img/cover-2.jpg') 
   background-position 50% 50%
