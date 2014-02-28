@@ -118,6 +118,8 @@ article
   counter-increment slide
   opacity 1
   transition opacity .25s
+  &.current
+    box-shadow 0 0 0 10px rgba(255, 255, 255, .25)
   &:after
     font-family "PT Sans" 
     content counter(slide)

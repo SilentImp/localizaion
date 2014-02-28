@@ -42,6 +42,8 @@ define [], ()->
       @prevKeys = [@PgUp, @Up, @Left, @H, @K]
 
       @slides = document.getElementById 'slides'
+      articles = @slides.querySelectorAll 'article'
+
       document.addEventListener 'dblclick', @fsState
       window.addEventListener 'resize', @resize
       document.addEventListener 'fullscreenchange', @fsChange
@@ -49,12 +51,23 @@ define [], ()->
       document.addEventListener 'mozfullscreenchange', @fsChange
       document.addEventListener "keydown", @keyDown
       
+      for slide in articles
+        slide.addEventListener "click", @selectSlide
+
+
+
       @current = @getCurrentSlide()
       @resize()
-      @allSlidesCount = @slides.querySelectorAll('article').length
+      @allSlidesCount = articles.length
       @progress = document.querySelector '.progress .value'
       @redrawProgress()
 
+
+    selectSlide: (event)=>
+      if not document.body.classList.contains 'fs'
+        @current.classList.remove 'current'
+        @current = event.currentTarget
+        @current.classList.add 'current'
 
 
     redrawProgress: (event)=>

@@ -17,6 +17,8 @@
         this.keyDown = __bind(this.keyDown, this);
         this.keyUp = __bind(this.keyUp, this);
         this.redrawProgress = __bind(this.redrawProgress, this);
+        this.selectSlide = __bind(this.selectSlide, this);
+        var articles, slide, _i, _len;
         this.enter = 13;
         this.esc = 27;
         this.dash = 189;
@@ -45,18 +47,31 @@
         this.nextKeys = [this.PgDown, this.Down, this.Right, this.L, this.J];
         this.prevKeys = [this.PgUp, this.Up, this.Left, this.H, this.K];
         this.slides = document.getElementById('slides');
+        articles = this.slides.querySelectorAll('article');
         document.addEventListener('dblclick', this.fsState);
         window.addEventListener('resize', this.resize);
         document.addEventListener('fullscreenchange', this.fsChange);
         document.addEventListener('webkitfullscreenchange', this.fsChange);
         document.addEventListener('mozfullscreenchange', this.fsChange);
         document.addEventListener("keydown", this.keyDown);
+        for (_i = 0, _len = articles.length; _i < _len; _i++) {
+          slide = articles[_i];
+          slide.addEventListener("click", this.selectSlide);
+        }
         this.current = this.getCurrentSlide();
         this.resize();
-        this.allSlidesCount = this.slides.querySelectorAll('article').length;
+        this.allSlidesCount = articles.length;
         this.progress = document.querySelector('.progress .value');
         this.redrawProgress();
       }
+
+      slidsterController.prototype.selectSlide = function(event) {
+        if (!document.body.classList.contains('fs')) {
+          this.current.classList.remove('current');
+          this.current = event.currentTarget;
+          return this.current.classList.add('current');
+        }
+      };
 
       slidsterController.prototype.redrawProgress = function(event) {
         var before;
