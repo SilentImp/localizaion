@@ -1,3 +1,24 @@
+.scrn
+  .wrapper
+    width 100%
+    height 90%
+    font-size 42px
+    img
+      height 75%
+
+.quote
+  .wrapper
+    padding 40px 
+    text-align left
+    font-size 42px 
+    time
+      font-size 36px
+      color #999 
+    cite
+      line-height 1.43
+      font-size 50px 
+      color #999 
+
 .template-hilight:before
   content:".";
   display block
@@ -8,6 +29,13 @@
   height 36px
   top 78px
   box-shadow 0 0 0 1000px rgba(0,0,0, .25)
+
+.jq-needed,
+.mozilla-supported
+  .wrapper
+    width 100%
+    img
+      width 75%
 
 .template-profit ol
   font-size 36px
@@ -164,6 +192,90 @@ article.mustache.cloud
     height 250px
     line-height 250px
     font-size 32px
+    &:after
+      transform-origin 10px -120px
+      transform rotate(55deg)
+    &>.wrapper
+      line-height 1.43
+      display inline-block
+      vertical-align middle
+      span
+        line-height 1.2
+        font-size 40px
+
+article.cern
+  background-image url('../img/cern.png') 
+  background-position 50% 50%
+  background-size 90% auto
+  background-repeat no-repeat
+
+article.better-2.cloud
+  background-image url('../img/red-2.jpg') 
+  background-position 50% 50%
+  background-size cover
+  background-repeat no-repeat
+  h1
+    top 0
+    left 80px
+    bottom 0px
+    margin auto
+    
+    width 250px
+    height 250px
+    line-height 250px
+    font-size 24px
+    &:after
+      transform-origin 10px -120px
+      transform rotate(-65deg)
+    &>.wrapper
+      line-height 1.43
+      display inline-block
+      vertical-align middle
+      span
+        line-height 1.2
+        font-size 40px
+
+article.better-1.cloud
+  background-image url('../img/red-1.jpg') 
+  background-position 50% 50%
+  background-size cover
+  background-repeat no-repeat
+  h1
+    top 0
+    right 60px
+    bottom 0px
+    margin auto
+    
+    width 250px
+    height 250px
+    line-height 250px
+    font-size 24px
+    &:after
+      transform-origin 10px -120px
+      transform rotate(65deg)
+    &>.wrapper
+      line-height 1.43
+      display inline-block
+      vertical-align middle
+      span
+        line-height 1.2
+        font-size 40px
+        
+article.pile.cloud
+  background-image url('../img/pile.jpg') 
+  background-position 50% 50%
+  background-size cover
+  background-repeat no-repeat
+  h1
+    top 0
+    right 80px
+    bottom 120px
+    margin auto
+    
+    width 250px
+    height 250px
+    line-height 250px
+    font-size 24px
     &:after
       transform-origin 10px -120px
       transform rotate(55deg)
@@ -718,6 +830,22 @@ article.different-4.cloud
         border-width 40px 40px 0 0px
         right auto
         left 40px 
+
+.i18next-title
+  background-color #9a00cd
+  color #FFF 
+  h1 
+    font-size 160px
+    text-transform none
+    text-shadow 0 0 10px darken(#9a00cd, 20%)
+
+.l20n-title
+  background-color #ff00a8 
+  color #FFF 
+  h1 
+    font-size 160px
+    text-transform none
+    text-shadow 0 0 10px darken(#ff00a8, 20%)
       
 .i18n-title
   background-color #f50

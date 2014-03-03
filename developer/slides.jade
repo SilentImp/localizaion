@@ -827,8 +827,9 @@ html(lang="ru")
       //- i18n
       //- l20n
 
-      article.center.title
-        h1 Как происходит локализация?
+      article.center.cloud.pile
+        h1 
+          .wrapper Как<br>происходит локализация?
 
       article.center.engine.cloud
         h1
@@ -1014,7 +1015,83 @@ html(lang="ru")
           p http://handlebarsjs.com/
 
 
-      article.center
+      article.center.better-1.cloud
+          h1 
+            .wrapper Но ведь можно лучше?
+
+      article.center.i18next-title
+        h1  i18next
+
+      article.center.code-2
         .wrapper
-          h1 Можно лучше!
+          pre
+            code
+              = '<script src="js/jquery.js">\n'
+              = '</script>\n'
+              = '<script src="js/i18next-1.7.2.min.js">\n</script>\n'
+
+      article.center.code-2
+        .wrapper
+          pre
+            code
+              = '…\n'
+              = '<title data-i18n="app.name">Cайт</title>\n'
+              = '…\n'
+              = '<nav>\n'
+              = ' <a href="#" data-i18n="nav.about"></a>\n'
+              = ' <a href="#" data-i18n="nav.contacts"></a>\n'
+              = '</nav>\n'
+              = '…'
+
+      article.center.code-2
+        .wrapper
+          pre
+            code
+              | $.i18n.init({
+              |   lng: 'ru', 
+              |   fallbackLng: false
+              | }).done(function(){
+              |   $('html').i18n();
+              | });
+
+
+      article.center.jq-needed
+        .wrapper
+          img(src="svg/jq.svg", alt="Логотип jQ")
+
+      article.center.scrn
+        .wrapper
+          img(src="img/storify_scrn.png")
+          p http://storify.com/
+
+      article.cern
+
+      article.center.quote
+        .wrapper
+          p — Jan Mühlemann @jamuhl 
+            time (25.02.2014)
+          cite «@SilentImp looks interesting…if the demand for this raises i'm sure it will be added.»
+
+      article.center.i18n-links
+        .wrapper
+          img.link(src="svg/i18next.svg", alt="QRCODE cо ссылкой на i18next")
+          p http://i18next.com/
+
+      article.center.better-2.cloud
+          h1 
+            .wrapper Но ведь можно ещё лучше?
+
+      article.center.l20n-title
+        h1  l20n
+
+      article.center.mozilla-supported
+        .wrapper
+          img(src="svg/mozilla.svg", alt="Логотип Mozilla")
+
+      article.center.i18n-links
+        .wrapper
+          img.link(src="svg/l20n.svg", alt="QRCODE cо ссылкой на l20n")
+          p http://l20n.org/
+
+
 
