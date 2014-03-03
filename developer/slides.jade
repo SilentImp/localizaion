@@ -786,14 +786,6 @@ html(lang="ru")
         h1 
           .wrapper Ну давай же,<br>расскажи что-то<br>еще про стандарты!<br>Это так … мммм …<br>захватывающе!
 
-      //- article.center
-      //-   h1 
-      
-
-      //- скрытые блоки, handlebars, template, 
-      //- i18n
-      //- l20n
-
       article.center.title.links
         h1 Источники
 
@@ -826,3 +818,200 @@ html(lang="ru")
           img.logotype(src="svg/mlw-logotype.svg", alt="Логотип MultilingualWeb")
           img.link(src="svg/mlw-link.svg", alt="QRCODE cо ссылкой на MultilingualWeb")
           p http://multilingualweb.eu/
+
+      //- article.center
+      //-   h1 
+      
+
+      //- скрытые блоки, handlebars, template, 
+      //- i18n
+      //- l20n
+
+      article.center.title
+        h1 Как происходит локализация?
+
+      article.center.title
+        h1 Полностью отдельные версии проекта
+
+      article.center.title
+        h1 Шаблонизация
+
+      //- article.center.template-list
+      //-   .wrapper
+      //-     ul
+      //-       li Вели
+      //-       li
+      //-         pre
+      //-           code
+      //-             = '<template>'
+      //-       li Handlebars, etc.
+
+      //- article.center.handmade
+      //-   .wrapper
+      //-     img(src="svg/bi.svg")
+      //-     |&rarr;
+      //-     img(src="svg/uni.svg")
+      //-     |&rarr;
+      //-     img(src="svg/chair.svg")
+
+      article.center.code-2
+        .wrapper
+          pre
+            code
+              = '<section id="templates">\n'
+              = ' <section id="comment-template">\n'
+              = '   <article>\n'
+              = '     <img>\n'
+              = '     <p class="name"></p>\n'
+              = '     <p class="message"></p>!\n'
+              = '   </article>\n'
+              = ' </section>\n'
+              = '</section>'
+
+      article.center.code-1
+        .wrapper
+          pre
+            code
+              |#templates{
+              |   display:none;
+              |   }
+
+      article.center.code-5
+        .wrapper
+          pre
+            code.javascript
+              | var template = document.getElementById('comment-template'),
+              |     template = template.cloneNode(true),
+              |     img = template.querySelector('img'),
+              |     nameit = template.querySelector('.name'),
+              |     message = template.querySelector('.message');
+              | 
+              | img.setAttribute('src','http://goo.gl/nZ9uCF');
+              | nameit.textContent = 'Анна Франк';
+              | message.textContent = 'Комментарий';
+              | 
+              | document.body.appendChild(template);
+
+      article.center.uno
+        .wrapper
+          img(src="svg/chair.svg")
+
+      article.center.code-1
+        .wrapper
+          pre
+            code
+              = '<template></template>'
+
+      article.center.template-profit
+        .wrapper
+          ol
+            li До момента его активации шаблон инертен.
+            li Скрипты не запускаются, аудио и видео не играет, картинки не подгружаются
+            li Его невозможно напрямую получить
+            li Можно разместить где захочется
+
+
+      article.center.code-2
+        .wrapper
+          pre
+            code
+              = '<template id="comment-template">\n'
+              = '  <article>\n'
+              = '    <img/>\n'
+              = '    <p class="name"></p>\n'
+              = '    <p class="message"></p>\n'
+              = '  </article>\n'
+              = '</template>'
+
+
+      article.center.code-5
+        .wrapper
+          pre
+            code.javascript
+              | var template = document.getElementById('comment-template'),
+              |     template = template.content.cloneNode(true),
+              |     img = template.querySelector('img'),
+              |     nameit = template.querySelector('.name'),
+              |     message = template.querySelector('.message');
+              | 
+              | img.setAttribute('src','http://goo.gl/nZ9uCF');
+              | nameit.textContent = 'Анна Франк';
+              | message.textContent = 'Комментарий';
+              | 
+              | document.body.appendChild(template);
+
+
+      article.center.code-5.template-hilight
+        .wrapper
+          pre
+            code.javascript
+              | var template = document.getElementById('comment-template'),
+              |     template = template.content.cloneNode(true),
+              |     img = template.querySelector('img'),
+              |     nameit = template.querySelector('.name'),
+              |     message = template.querySelector('.message');
+              | 
+              | img.setAttribute('src','http://goo.gl/nZ9uCF');
+              | nameit.textContent = 'Анна Франк';
+              | message.textContent = 'Комментарий';
+              | 
+              | document.body.appendChild(template);
+
+      article.center.uno
+        .wrapper
+          img(src="svg/uni.svg")
+
+      article.center.i18n-links
+        .wrapper
+          img.logotype(src="svg/w3c-logotype.svg", alt="Логотип w3c")
+          img.link(src="svg/w3c-template.svg", alt="QRCODE cо ссылкой на template")
+          p http://goo.gl/EBy9pN
+
+      article.center.mustache.cloud
+        h1  Handlebars
+
+      article.center.code-2
+        .wrapper
+          pre
+            code
+              = '<script src="handlebars.min.js"></script>\n'
+              = '<template id="comment-template">\n'
+              = '  <article>\n'
+              = '    <img src="{{img.src}}" alt="{{img.alt}}"/>\n'
+              = '    <p class="name">{{name}}</p>\n'
+              = '    <p class="message">{{comment}}</p>\n'
+              = '  </article>\n'
+              = '</template>'
+
+      article.center.code-5
+        .wrapper
+          pre
+            code.javascript
+              | var template = document.getElementById('comment-template'),
+              |     template = Handlebars.compile(template.innerHTML),
+              |     data = {
+              |             img:{
+              |               src:"http://goo.gl/nZ9uCF",
+              |               alt:"Аватар"
+              |               },
+              |             name:"Анна Франк",
+              |             comment:"Комментарий"
+              |             };
+              | document.body.innerHTML+=template(data);
+        
+      article.center.uno
+        .wrapper
+          img(src="svg/bi.svg")          
+
+
+      article.center.i18n-links
+        .wrapper
+          img.logotype(src="svg/mustache.svg", alt="Логотип handlebarsjs")
+          img.link(src="svg/handlebarsjs.svg", alt="QRCODE cо ссылкой на handlebarsjs")
+          p http://handlebarsjs.com/
+
+
+      article.center
+        .wrapper
+          h1 Можно лучше!
+

@@ -1,3 +1,38 @@
+.template-hilight:before
+  content:".";
+  display block
+  position absolute
+  z-index 1 
+  left 0
+  right 0
+  height 36px
+  top 78px
+  box-shadow 0 0 0 1000px rgba(0,0,0, .25)
+
+.template-profit ol
+  font-size 36px
+  line-height 1.43
+
+.template-list ul
+  font-size 64px
+  
+.uno
+  .wrapper
+    width 100%
+    img
+      width 50%
+
+.handmade
+  font-size 48px
+  white-space nowrap
+  .wrapper
+    text-indent 30px
+    width 100%
+  img
+    width 25%
+    vertical-align middle
+
+
 .obsolete:before
   width 300px
   height 300px
@@ -113,6 +148,32 @@ body article.links
   background-position 50% 50%
   background-size cover
   background-repeat no-repeat
+
+article.mustache.cloud
+  background-image url('../img/mustache.jpg') 
+  background-position 50% 50%
+  background-size cover
+  background-repeat no-repeat
+  h1
+    top 0
+    right 40px
+    bottom 120px
+    margin auto
+    
+    width 250px
+    height 250px
+    line-height 250px
+    font-size 32px
+    &:after
+      transform-origin 10px -120px
+      transform rotate(55deg)
+    &>.wrapper
+      line-height 1.43
+      display inline-block
+      vertical-align middle
+      span
+        line-height 1.2
+        font-size 40px
   
 article.chinese.cloud
   background-image url('../img/chinese.jpg') 
@@ -666,3 +727,7 @@ article.different-4.cloud
 .code-4
   code
     font-size 24px
+    
+.code-5
+  code
+    font-size 20px

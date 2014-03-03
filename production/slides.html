@@ -141,4 +141,67 @@ plaintext — направленность без учета родителей 
                  center
                  space-between
                  space-around;
-    }</code></pre></div></article><article class="center cloud bored"><h1><div class="wrapper">Ну давай же,<br>расскажи что-то<br>еще про стандарты!<br>Это так … мммм …<br>захватывающе!</div></h1></article><article class="center title links"><h1>Источники</h1></article><article class="center i18n-links"><div class="wrapper"><img src="svg/w3c-logotype.svg" alt="Логотип w3c" class="logotype"><img src="svg/w3c-link-all.svg" alt="QRCODE cо ссылкой на w3c стандарты" class="link"><p>http://w3.org/TR/#tr_Internationalization__All_</p></div></article><article class="center i18n-links"><div class="wrapper"><img src="svg/w3c-logotype.svg" alt="Логотип w3c" class="logotype"><img src="svg/w3c-link-modes.svg" alt="QRCODE cо ссылкой на w3c спецификацию по режимам письма" class="link"><p>http://www.w3.org/TR/css3-writing-modes/</p></div></article><article class="center i18n-links"><div class="wrapper"><img src="svg/w3c-logotype.svg" alt="Логотип w3c" class="logotype"><img src="svg/w3c-link-ruby.svg" alt="QRCODE cо ссылкой на w3c спецификацию по руби начертанию" class="link"><p>http://www.w3.org/TR/css3-ruby/</p></div></article><article class="center i18n-links"><div class="wrapper"><img src="svg/w3c-logotype.svg" alt="Логотип w3c" class="logotype"><img src="svg/w3c-link.svg" alt="QRCODE cо ссылкой на w3c блог" class="link"><p>http://w3.org/blog/International/</p></div></article><article class="center i18n-links"><div class="wrapper"><img src="svg/mlw-logotype.svg" alt="Логотип MultilingualWeb" class="logotype"><img src="svg/mlw-link.svg" alt="QRCODE cо ссылкой на MultilingualWeb" class="link"><p>http://multilingualweb.eu/</p></div></article></section></body></html>
+    }</code></pre></div></article><article class="center cloud bored"><h1><div class="wrapper">Ну давай же,<br>расскажи что-то<br>еще про стандарты!<br>Это так … мммм …<br>захватывающе!</div></h1></article><article class="center title links"><h1>Источники</h1></article><article class="center i18n-links"><div class="wrapper"><img src="svg/w3c-logotype.svg" alt="Логотип w3c" class="logotype"><img src="svg/w3c-link-all.svg" alt="QRCODE cо ссылкой на w3c стандарты" class="link"><p>http://w3.org/TR/#tr_Internationalization__All_</p></div></article><article class="center i18n-links"><div class="wrapper"><img src="svg/w3c-logotype.svg" alt="Логотип w3c" class="logotype"><img src="svg/w3c-link-modes.svg" alt="QRCODE cо ссылкой на w3c спецификацию по режимам письма" class="link"><p>http://www.w3.org/TR/css3-writing-modes/</p></div></article><article class="center i18n-links"><div class="wrapper"><img src="svg/w3c-logotype.svg" alt="Логотип w3c" class="logotype"><img src="svg/w3c-link-ruby.svg" alt="QRCODE cо ссылкой на w3c спецификацию по руби начертанию" class="link"><p>http://www.w3.org/TR/css3-ruby/</p></div></article><article class="center i18n-links"><div class="wrapper"><img src="svg/w3c-logotype.svg" alt="Логотип w3c" class="logotype"><img src="svg/w3c-link.svg" alt="QRCODE cо ссылкой на w3c блог" class="link"><p>http://w3.org/blog/International/</p></div></article><article class="center i18n-links"><div class="wrapper"><img src="svg/mlw-logotype.svg" alt="Логотип MultilingualWeb" class="logotype"><img src="svg/mlw-link.svg" alt="QRCODE cо ссылкой на MultilingualWeb" class="link"><p>http://multilingualweb.eu/</p></div></article><article class="center title"><h1>Как происходит локализация?</h1></article><article class="center title"><h1>Полностью отдельные версии проекта</h1></article><article class="center title"><h1>Шаблонизация</h1></article><article class="center code-2"><div class="wrapper"><pre><code>&lt;section id=&quot;templates&quot;&gt;
+ &lt;section id=&quot;comment-template&quot;&gt;
+   &lt;article&gt;
+     &lt;img&gt;
+     &lt;p class=&quot;name&quot;&gt;&lt;/p&gt;
+     &lt;p class=&quot;message&quot;&gt;&lt;/p&gt;!
+   &lt;/article&gt;
+ &lt;/section&gt;
+&lt;/section&gt;</code></pre></div></article><article class="center code-1"><div class="wrapper"><pre><code>#templates{
+  display:none;
+  }</code></pre></div></article><article class="center code-5"><div class="wrapper"><pre><code class="javascript">var template = document.getElementById('comment-template'),
+    template = template.cloneNode(true),
+    img = template.querySelector('img'),
+    nameit = template.querySelector('.name'),
+    message = template.querySelector('.message');
+ 
+img.setAttribute('src','http://goo.gl/nZ9uCF');
+nameit.textContent = 'Анна Франк';
+message.textContent = 'Комментарий';
+ 
+document.body.appendChild(template);</code></pre></div></article><article class="center uno"><div class="wrapper"><img src="svg/chair.svg"></div></article><article class="center code-1"><div class="wrapper"><pre><code>&lt;template&gt;&lt;/template&gt;</code></pre></div></article><article class="center template-profit"><div class="wrapper"><ol><li>До момента его активации шаблон инертен.</li><li>Скрипты не запускаются, аудио и видео не играет, картинки не подгружаются</li><li>Его невозможно напрямую получить</li><li>Можно разместить где захочется</li></ol></div></article><article class="center code-2"><div class="wrapper"><pre><code>&lt;template id=&quot;comment-template&quot;&gt;
+  &lt;article&gt;
+    &lt;img/&gt;
+    &lt;p class=&quot;name&quot;&gt;&lt;/p&gt;
+    &lt;p class=&quot;message&quot;&gt;&lt;/p&gt;
+  &lt;/article&gt;
+&lt;/template&gt;</code></pre></div></article><article class="center code-5"><div class="wrapper"><pre><code class="javascript">var template = document.getElementById('comment-template'),
+    template = template.content.cloneNode(true),
+    img = template.querySelector('img'),
+    nameit = template.querySelector('.name'),
+    message = template.querySelector('.message');
+ 
+img.setAttribute('src','http://goo.gl/nZ9uCF');
+nameit.textContent = 'Анна Франк';
+message.textContent = 'Комментарий';
+ 
+document.body.appendChild(template);</code></pre></div></article><article class="center code-5 template-hilight"><div class="wrapper"><pre><code class="javascript">var template = document.getElementById('comment-template'),
+    template = template.content.cloneNode(true),
+    img = template.querySelector('img'),
+    nameit = template.querySelector('.name'),
+    message = template.querySelector('.message');
+ 
+img.setAttribute('src','http://goo.gl/nZ9uCF');
+nameit.textContent = 'Анна Франк';
+message.textContent = 'Комментарий';
+ 
+document.body.appendChild(template);</code></pre></div></article><article class="center uno"><div class="wrapper"><img src="svg/uni.svg"></div></article><article class="center i18n-links"><div class="wrapper"><img src="svg/w3c-logotype.svg" alt="Логотип w3c" class="logotype"><img src="svg/w3c-template.svg" alt="QRCODE cо ссылкой на template" class="link"><p>http://goo.gl/EBy9pN</p></div></article><article class="center mustache cloud"><h1> Handlebars</h1></article><article class="center code-2"><div class="wrapper"><pre><code>&lt;script src=&quot;handlebars.min.js&quot;&gt;&lt;/script&gt;
+&lt;template id=&quot;comment-template&quot;&gt;
+  &lt;article&gt;
+    &lt;img src=&quot;{{img.src}}&quot; alt=&quot;{{img.alt}}&quot;/&gt;
+    &lt;p class=&quot;name&quot;&gt;{{name}}&lt;/p&gt;
+    &lt;p class=&quot;message&quot;&gt;{{comment}}&lt;/p&gt;
+  &lt;/article&gt;
+&lt;/template&gt;</code></pre></div></article><article class="center code-5"><div class="wrapper"><pre><code class="javascript">var template = document.getElementById('comment-template'),
+    template = Handlebars.compile(template.innerHTML),
+    data = {
+            img:{
+              src:"http://goo.gl/nZ9uCF",
+              alt:"Аватар"
+              },
+            name:"Анна Франк",
+            comment:"Комментарий"
+            };
+document.body.innerHTML+=template(data);</code></pre></div></article><article class="center uno"><div class="wrapper"><img src="svg/bi.svg"></div></article><article class="center i18n-links"><div class="wrapper"><img src="svg/mustache.svg" alt="Логотип handlebarsjs" class="logotype"><img src="svg/handlebarsjs.svg" alt="QRCODE cо ссылкой на handlebarsjs" class="link"><p>http://handlebarsjs.com/</p></div></article><article class="center"><div class="wrapper"><h1>Можно лучше!</h1></div></article></section></body></html>
