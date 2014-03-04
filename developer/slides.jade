@@ -1022,6 +1022,10 @@ html(lang="ru")
       article.center.i18next-title
         h1  i18next
 
+      article.center.part-scrn
+        .wrapper
+          |Основы
+
       article.center.code-2
         .wrapper
           pre
@@ -1043,7 +1047,59 @@ html(lang="ru")
               = '</nav>\n'
               = '…'
 
-      article.center.code-2
+      article.center.code-3
+        .wrapper
+          pre
+            code
+              | ./locales/en/translation.json
+              |          /ru/translation.json
+              |          /ru-RU/translation.json
+
+      article.center.code-3
+        .wrapper
+          pre
+            code
+              | {"app": {
+              |     "name": "Сайт"
+              |   },
+              |   "nav": {
+              |     "about": "О проекте",
+              |     "contacts": "Контакты"
+              |  }}
+
+      article.center.code-1
+        .wrapper
+          pre
+            code.javascript
+              | i18n.t("article.title")
+
+      article.center.part-scrn
+        .wrapper
+          | Получение информации<br>о языке
+
+      article.center.code-1
+        .wrapper
+          pre
+            code.javascript
+              | i18n.detectLanguage()
+
+      article.center.code-1
+        .wrapper
+          pre
+            code.javascript
+              | i18n.lng("en-UK")
+
+      article.center.part-scrn
+        .wrapper
+          | Получение значений
+
+      article.center.code-1
+        .wrapper
+          pre
+            code.javascript
+              | i18n.t("article.title")
+
+      article.center.code-3
         .wrapper
           pre
             code
@@ -1054,6 +1110,154 @@ html(lang="ru")
               |   $('html').i18n();
               | });
 
+      article.center.part-scrn
+        .wrapper
+          |Переменные
+
+      article.center.code-3
+        .wrapper
+          pre
+            code
+              = '<p data-i18n="apple-count"></p>'
+
+      article.center.code-3
+        .wrapper
+          pre
+            code
+              | {
+              | "apple-count":
+              | "Количество яблок: __apple-count__"
+              | }
+
+      article.center.code-3
+        .wrapper
+          pre
+            code
+              | $.i18n.init({
+              |   lng: 'ru-RU'
+              | }).done(function(){
+              |   $('[apple-count]').i18n({
+              |     "apple-count":3
+              | });});
+
+      article.center.result-scrn
+        .wrapper
+          |Количество яблок: 3
+
+      article.center.part-scrn
+        .wrapper
+          |Падежи
+
+      article.center.code-3
+        .wrapper
+          pre
+            code
+              = '<p data-i18n="ihave"></p>'
+
+      article.center.code-4
+        .wrapper
+          pre
+            code
+              | {
+              |   "ihave":"У меня __count__ яблок",
+              |   "ihave_plural_1": "У меня __count__ яблоко",
+              |   "ihave_plural_2": "У меня __count__ яблока",
+              |   "ihave_plural_5": "У меня __count__ яблок",
+              | }
+
+      article.center.code-3
+        .wrapper
+          pre
+            code
+              | $.i18n.init({
+              |   lng: 'ru-RU'
+              | }).done(function(){
+              |   $('[ihave]').i18n({
+              |     "count":302
+              | });});
+
+      article.center.result-scrn
+        .wrapper
+          | У меня 302 яблока
+
+      article.center.result-scrn
+        .wrapper
+          | У меня 0 яблок
+
+
+      article.center.code-2
+        .wrapper
+          pre
+            code
+              | i18n.pluralExtensions.addRule("ru", {
+              |   "name": "Rusian", 
+              |   "numbers": [1,2,5],
+              |   "plurals": function (a){
+              |     return Number(1 … ?1:2);
+              |   }
+              | });
+
+      article.center.code-2
+        .wrapper
+          pre
+            code
+              | i18n.pluralExtensions.addRule("ru", {
+              |   "name": "Rusian", 
+              |   "numbers": [1,2,5,0],
+              |   "plurals": function (a){
+              |     return Number(0==a?3:1 … ?1:2);
+              |   }
+              | });
+
+      article.center.code-4
+        .wrapper
+          pre
+            code
+              | {
+              |   "ihave":"У меня __count__ яблок",
+              |   "ihave_plural_0": "У меня нет яблок",
+              |   "ihave_plural_1": "У меня __count__ яблоко",
+              |   "ihave_plural_2": "У меня __count__ яблока",
+              |   "ihave_plural_5": "У меня __count__ яблок"
+              | }
+
+      article.center.result-scrn
+        .wrapper
+          | У меня нет яблок
+
+      article.center.part-scrn
+        .wrapper
+          | Пол
+
+      article.center.code-3
+        .wrapper
+          pre
+            code
+              = '<p data-i18n="ipublish"></p>'
+
+      article.center.code-4
+        .wrapper
+          pre
+            code
+              | {
+              |   "ipublish":"__name__ опубликовало статью",
+              |   "ipublish_male":"__name__ опубликовал статью",
+              |   "ipublish_female":"__name__ опубликовала статью"
+              | }
+
+
+      article.center.code-1
+        .wrapper
+          pre
+            code.javascript
+              | $('.static, title').i18n({
+              |   context": "male", 
+              |   "name":"Костя"
+              | });
+
+      article.center.result-scrn
+        .wrapper
+          | Костя опубликовал статью
 
       article.center.jq-needed
         .wrapper

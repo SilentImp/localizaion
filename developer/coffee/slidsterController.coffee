@@ -60,6 +60,7 @@ define [], ()->
       @resize()
       @allSlidesCount = articles.length
       @progress = document.querySelector '.progress .value'
+
       @redrawProgress()
 
 
@@ -68,6 +69,7 @@ define [], ()->
         @current.classList.remove 'current'
         @current = event.currentTarget
         @current.classList.add 'current'
+      @redrawProgress()
 
 
     redrawProgress: (event)=>

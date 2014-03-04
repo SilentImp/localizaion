@@ -204,7 +204,7 @@ document.body.appendChild(template);</code></pre></div></article><article class=
             name:"Анна Франк",
             comment:"Комментарий"
             };
-document.body.innerHTML+=template(data);</code></pre></div></article><article class="center uno"><div class="wrapper"><img src="svg/bi.svg"></div></article><article class="center i18n-links"><div class="wrapper"><img src="svg/mustache.svg" alt="Логотип handlebarsjs" class="logotype"><img src="svg/handlebarsjs.svg" alt="QRCODE cо ссылкой на handlebarsjs" class="link"><p>http://handlebarsjs.com/</p></div></article><article class="center better-1 cloud"><h1><div class="wrapper">Но ведь можно лучше?</div></h1></article><article class="center i18next-title"><h1> i18next</h1></article><article class="center code-2"><div class="wrapper"><pre><code>&lt;script src=&quot;js/jquery.js&quot;&gt;
+document.body.innerHTML+=template(data);</code></pre></div></article><article class="center uno"><div class="wrapper"><img src="svg/bi.svg"></div></article><article class="center i18n-links"><div class="wrapper"><img src="svg/mustache.svg" alt="Логотип handlebarsjs" class="logotype"><img src="svg/handlebarsjs.svg" alt="QRCODE cо ссылкой на handlebarsjs" class="link"><p>http://handlebarsjs.com/</p></div></article><article class="center better-1 cloud"><h1><div class="wrapper">Но ведь можно лучше?</div></h1></article><article class="center i18next-title"><h1> i18next</h1></article><article class="center part-scrn"><div class="wrapper">Основы</div></article><article class="center code-2"><div class="wrapper"><pre><code>&lt;script src=&quot;js/jquery.js&quot;&gt;
 &lt;/script&gt;
 &lt;script src=&quot;js/i18next-1.7.2.min.js&quot;&gt;
 &lt;/script&gt;
@@ -215,9 +215,60 @@ document.body.innerHTML+=template(data);</code></pre></div></article><article cl
  &lt;a href=&quot;#&quot; data-i18n=&quot;nav.about&quot;&gt;&lt;/a&gt;
  &lt;a href=&quot;#&quot; data-i18n=&quot;nav.contacts&quot;&gt;&lt;/a&gt;
 &lt;/nav&gt;
-…</code></pre></div></article><article class="center code-2"><div class="wrapper"><pre><code>$.i18n.init({
+…</code></pre></div></article><article class="center code-3"><div class="wrapper"><pre><code>./locales/en/translation.json
+         /ru/translation.json
+         /ru-RU/translation.json</code></pre></div></article><article class="center code-3"><div class="wrapper"><pre><code>{"app": {
+    "name": "Сайт"
+  },
+  "nav": {
+    "about": "О проекте",
+    "contacts": "Контакты"
+ }}</code></pre></div></article><article class="center code-1"><div class="wrapper"><pre><code class="javascript">i18n.t("article.title")</code></pre></div></article><article class="center part-scrn"><div class="wrapper">Получение информации<br>о языке</div></article><article class="center code-1"><div class="wrapper"><pre><code class="javascript">i18n.detectLanguage()</code></pre></div></article><article class="center code-1"><div class="wrapper"><pre><code class="javascript">i18n.lng("en-UK")</code></pre></div></article><article class="center part-scrn"><div class="wrapper">Получение значений</div></article><article class="center code-1"><div class="wrapper"><pre><code class="javascript">i18n.t("article.title")</code></pre></div></article><article class="center code-3"><div class="wrapper"><pre><code>$.i18n.init({
   lng: 'ru', 
   fallbackLng: false
 }).done(function(){
   $('html').i18n();
-});</code></pre></div></article><article class="center jq-needed"><div class="wrapper"><img src="svg/jq.svg" alt="Логотип jQ"></div></article><article class="center scrn"><div class="wrapper"><img src="img/storify_scrn.png"><p>http://storify.com/</p></div></article><article class="cern"></article><article class="center quote"><div class="wrapper"><p>— Jan Mühlemann @jamuhl <time>(25.02.2014)</time></p><cite>«@SilentImp looks interesting…if the demand for this raises i'm sure it will be added.»</cite></div></article><article class="center i18n-links"><div class="wrapper"><img src="svg/i18next.svg" alt="QRCODE cо ссылкой на i18next" class="link"><p>http://i18next.com/</p></div></article><article class="center better-2 cloud"><h1><div class="wrapper">Но ведь можно ещё лучше?</div></h1></article><article class="center l20n-title"><h1> l20n</h1></article><article class="center mozilla-supported"><div class="wrapper"><img src="svg/mozilla.svg" alt="Логотип Mozilla"></div></article><article class="center i18n-links"><div class="wrapper"><img src="svg/l20n.svg" alt="QRCODE cо ссылкой на l20n" class="link"><p>http://l20n.org/</p></div></article></section></body></html>
+});</code></pre></div></article><article class="center part-scrn"><div class="wrapper">Переменные</div></article><article class="center code-3"><div class="wrapper"><pre><code>&lt;p data-i18n=&quot;apple-count&quot;&gt;&lt;/p&gt;</code></pre></div></article><article class="center code-3"><div class="wrapper"><pre><code>{
+"apple-count":
+"Количество яблок: __apple-count__"
+}</code></pre></div></article><article class="center code-3"><div class="wrapper"><pre><code>$.i18n.init({
+  lng: 'ru-RU'
+}).done(function(){
+  $('[apple-count]').i18n({
+    "apple-count":3
+});});</code></pre></div></article><article class="center result-scrn"><div class="wrapper">Количество яблок: 3</div></article><article class="center part-scrn"><div class="wrapper">Падежи</div></article><article class="center code-3"><div class="wrapper"><pre><code>&lt;p data-i18n=&quot;ihave&quot;&gt;&lt;/p&gt;</code></pre></div></article><article class="center code-4"><div class="wrapper"><pre><code>{
+  "ihave":"У меня __count__ яблок",
+  "ihave_plural_1": "У меня __count__ яблоко",
+  "ihave_plural_2": "У меня __count__ яблока",
+  "ihave_plural_5": "У меня __count__ яблок",
+}</code></pre></div></article><article class="center code-3"><div class="wrapper"><pre><code>$.i18n.init({
+  lng: 'ru-RU'
+}).done(function(){
+  $('[ihave]').i18n({
+    "count":302
+});});</code></pre></div></article><article class="center result-scrn"><div class="wrapper">У меня 302 яблока</div></article><article class="center result-scrn"><div class="wrapper">У меня 0 яблок</div></article><article class="center code-2"><div class="wrapper"><pre><code>i18n.pluralExtensions.addRule("ru", {
+  "name": "Rusian", 
+  "numbers": [1,2,5],
+  "plurals": function (a){
+    return Number(1 … ?1:2);
+  }
+});</code></pre></div></article><article class="center code-2"><div class="wrapper"><pre><code>i18n.pluralExtensions.addRule("ru", {
+  "name": "Rusian", 
+  "numbers": [1,2,5,0],
+  "plurals": function (a){
+    return Number(0==a?3:1 … ?1:2);
+  }
+});</code></pre></div></article><article class="center code-4"><div class="wrapper"><pre><code>{
+  "ihave":"У меня __count__ яблок",
+  "ihave_plural_0": "У меня нет яблок",
+  "ihave_plural_1": "У меня __count__ яблоко",
+  "ihave_plural_2": "У меня __count__ яблока",
+  "ihave_plural_5": "У меня __count__ яблок"
+}</code></pre></div></article><article class="center result-scrn"><div class="wrapper">У меня нет яблок</div></article><article class="center part-scrn"><div class="wrapper">Пол</div></article><article class="center code-3"><div class="wrapper"><pre><code>&lt;p data-i18n=&quot;ipublish&quot;&gt;&lt;/p&gt;</code></pre></div></article><article class="center code-4"><div class="wrapper"><pre><code>{
+  "ipublish":"__name__ опубликовало статью",
+  "ipublish_male":"__name__ опубликовал статью",
+  "ipublish_female":"__name__ опубликовала статью"
+}</code></pre></div></article><article class="center code-1"><div class="wrapper"><pre><code class="javascript">$('.static, title').i18n({
+  context": "male", 
+  "name":"Костя"
+});</code></pre></div></article><article class="center result-scrn"><div class="wrapper">Костя опубликовал статью</div></article><article class="center jq-needed"><div class="wrapper"><img src="svg/jq.svg" alt="Логотип jQ"></div></article><article class="center scrn"><div class="wrapper"><img src="img/storify_scrn.png"><p>http://storify.com/</p></div></article><article class="cern"></article><article class="center quote"><div class="wrapper"><p>— Jan Mühlemann @jamuhl <time>(25.02.2014)</time></p><cite>«@SilentImp looks interesting…if the demand for this raises i'm sure it will be added.»</cite></div></article><article class="center i18n-links"><div class="wrapper"><img src="svg/i18next.svg" alt="QRCODE cо ссылкой на i18next" class="link"><p>http://i18next.com/</p></div></article><article class="center better-2 cloud"><h1><div class="wrapper">Но ведь можно ещё лучше?</div></h1></article><article class="center l20n-title"><h1> l20n</h1></article><article class="center mozilla-supported"><div class="wrapper"><img src="svg/mozilla.svg" alt="Логотип Mozilla"></div></article><article class="center i18n-links"><div class="wrapper"><img src="svg/l20n.svg" alt="QRCODE cо ссылкой на l20n" class="link"><p>http://l20n.org/</p></div></article></section></body></html>

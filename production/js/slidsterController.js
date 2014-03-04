@@ -69,8 +69,9 @@
         if (!document.body.classList.contains('fs')) {
           this.current.classList.remove('current');
           this.current = event.currentTarget;
-          return this.current.classList.add('current');
+          this.current.classList.add('current');
         }
+        return this.redrawProgress();
       };
 
       slidsterController.prototype.redrawProgress = function(event) {
