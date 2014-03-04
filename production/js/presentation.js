@@ -1,4 +1,4 @@
-requirejs(['domReady','slidsterController', 'highlight.pack'], function(domReady, slidsterController){
+requirejs(['domReady','slidsterController', 'highlight.pack','l20n.min'], function(domReady, slidsterController){
   domReady(function () {
     new slidsterController();
     var code = document.querySelectorAll('pre code'),

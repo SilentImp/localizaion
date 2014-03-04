@@ -5,8 +5,8 @@ html(lang="ru")
     meta(http-equiv="X-UA-Compatible", content="IE=Edge,chrome=1")
     title Фреймворки локализации
     link(href="css/styles.css", rel="stylesheet")
-    script(data-main="js/presentation", src="js/require.js")
-
+    link(rel="localization", href="js/browser.json")
+    script(data-main="js/presentation", src="js/require.js")  
   body
     section.progress
       .value
@@ -834,8 +834,8 @@ html(lang="ru")
       article.center.engine.cloud
         h1
           .wrapper 
-            Отдельные версии 
-            span проекта
+            | Отдельные версии 
+            | span проекта
 
       article.center.template.cloud
         h1 Шаблонизация
@@ -1297,6 +1297,10 @@ html(lang="ru")
       article.center.l20n-title
         h1  l20n
 
+      article.center.mozilla-supported
+        .wrapper
+          img(src="svg/mozilla.svg", alt="Логотип Mozilla")
+
       article.center.part-scrn
         .wrapper
           |Основы
@@ -1341,12 +1345,15 @@ html(lang="ru")
             code
               = '<title "Простой пример">'
 
+      article.center.result-scrn
+        .wrapper
+          | Простой пример
 
       article.center.code-2
         .wrapper
           pre
             code
-              = '<input \n\tdata-l10n-id="nameinput" \n\tplaceholder="some placeholder">'
+              = '<input \n\tdata-l10n-id="nameinput" \n\tplaceholder="default placeholder">'
 
       article.center.code-2
         .wrapper
@@ -1354,9 +1361,132 @@ html(lang="ru")
             code
               = '<nameinput \n\tplaceholder: "What is your name?">'
 
-      article.center.mozilla-supported
+      article.center.input-example
         .wrapper
-          img(src="svg/mozilla.svg", alt="Логотип Mozilla")
+          <input data-l10n-id="nameinput" placeholder="default placeholder">
+
+      article.center.part-scrn
+        .wrapper
+          | Переменные<br> и многострочные<br>вставки
+
+      article.center.code-1
+        .wrapper
+          pre
+            code
+              = '<p data-l10n-id="message"></p>'
+
+      article.center.code-1
+        .wrapper
+          pre
+            code
+              = '<name "Настя">\n<message """\n\tПривет, {{ name }}!\n\t""">'
+
+      article.center.result-scrn
+        .wrapper
+          | Привет, Настя!
+
+      article.center.code-2
+        .wrapper
+          pre
+            code
+              = '<name {\n\tshort: "Настя"\n\tlong: "Настасья Николаевна"}>\n<message """\n\tПривет, {{ name.long }}!\n\t""">'
+
+      article.center.result-scrn
+        .wrapper
+          | Привет, Настасья Николаевна!
+
+      article.center.code-2
+        .wrapper
+          pre
+            code
+              = '<name {\n\t*short: "Настя"\n\t long: "Настасья Николаевна"}>\n<message """\n\tПривет, {{ name }}!\n\t""">'
+
+      article.center.result-scrn
+        .wrapper
+          | Привет, Настя!
+
+      article.center.code-1
+        .wrapper
+          pre
+            code
+              = '<title["long"] {\n\tshort: "L20n",\n\tlong: "Localization"\n}>'
+
+      article.center.result-scrn
+        .wrapper
+          | Привет, Настасья Николаевна!
+
+      article.center.code-2
+        .wrapper
+          pre
+            code
+              = '<script type="application/l10n-data+json">\n\t{\n\t\t"name": "Настя"\n\t}\n</script>'
+
+      article.center.code-4
+        .wrapper
+          pre
+            code.javascript
+              | document.l10n.ready(function() {
+              |   var message = document.querySelector(
+              |         '[data-l10n-id="message"]');
+              |   message.textContent = document.l10n.getSync(
+              |     "message",
+              |     {
+              |       "name": "Настя"
+              |     });
+              | });
+
+      article.center.result-scrn
+        .wrapper
+          | Привет, Настя
+
+      article.center.code-3
+        .wrapper
+          pre
+            code
+              = '<p data-l10n-id="publishing"></p>'
+
+      article.center.code-4
+        .wrapper
+          pre
+            code
+              = '<publishing[$gender] {\n\tmasculine: "{{$name}} написал вам сообщение",\n\tfeminine: "{{$name}} написала вам сообщение",\n\t*unknown: "{{$name}} написало вам сообщение"\n}>'
+
+
+      article.center.code-4
+        .wrapper
+          pre
+            code.javascript
+              | document.l10n.ready(function() {
+              |   var node = document.querySelector(
+              |         '[data-l10n-id="publishing"]');
+              |   node.textContent = document.l10n.getSync(
+              |     "publishing",
+              |     {
+              |     "name": "Настя",
+              |     "gender": "feminine"
+              |     });
+              | });
+
+      article.center.result-scrn
+        .wrapper
+          | Настя написала вам сообщение
+
+      article.center.code-5
+        .wrapper
+          pre
+            code.javascript
+              ='<formFactor($n) { \n'
+              ='   $n.px > 1200 ? "large" : \n'
+              ='   $n.px >  980 ? "desktop" : \n'
+              ='   $n.px >  768 ? "landscapeTablet" :  \n'
+              ='   $n.px >  480 ? "landscapePhone" :  \n'
+              ='                  "portraitPhone"  \n'
+              ='}>\n'
+              ='<dataSettings[formFactor(@screen.width)] {\n'
+              =' *wide: "Data Connectivity Settings",\n'
+              ='  landscapePhone: "Data Settings",\n'
+              ='  portraitPhone: "Data"\n'
+              ='}>'
 
       article.center.i18n-links
         .wrapper
