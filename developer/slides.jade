@@ -1297,6 +1297,63 @@ html(lang="ru")
       article.center.l20n-title
         h1  l20n
 
+      article.center.part-scrn
+        .wrapper
+          |Основы
+
+      article.center.code-3
+        .wrapper
+          pre
+            code
+              = '<h1 data-l10n-id="title"></h1>'
+
+      article.center.code-3
+        .wrapper
+          pre
+            code
+              = '<script \n'
+              = '   src="l20n.min.js">\n</script>\n'
+              = '<link \n'
+              = '   rel="localization" \n'
+              = '   href="browser.json">'
+
+      article.center.code-2
+        .wrapper
+          pre
+            code
+              | {
+              |   "locales": ["ru","en"],
+              |   "default_locale": "ru",
+              |   "resources": [
+              |     "locales/{{locale}}/website.l20n"
+              |   ]
+              | }
+
+      article.center.code-1
+        .wrapper
+          pre
+            code
+              = '<title "Simplest example">'
+
+      article.center.code-1
+        .wrapper
+          pre
+            code
+              = '<title "Простой пример">'
+
+
+      article.center.code-2
+        .wrapper
+          pre
+            code
+              = '<input \n\tdata-l10n-id="nameinput" \n\tplaceholder="some placeholder">'
+
+      article.center.code-2
+        .wrapper
+          pre
+            code
+              = '<nameinput \n\tplaceholder: "What is your name?">'
+
       article.center.mozilla-supported
         .wrapper
           img(src="svg/mozilla.svg", alt="Логотип Mozilla")
