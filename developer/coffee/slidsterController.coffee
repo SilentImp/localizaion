@@ -74,7 +74,7 @@ define [], ()->
 
     redrawProgress: (event)=>
       before = @allSlidesCount - @slides.querySelectorAll('.current~article').length
-      @progress.style.width = (before*100/@allSlidesCount)+"%"
+      @progress.style.width = (before*100/@allSlidesCount).toFixed(2)+"%"
 
 
     keyUp: (event)=>

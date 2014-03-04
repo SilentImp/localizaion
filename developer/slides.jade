@@ -1083,11 +1083,20 @@ html(lang="ru")
             code.javascript
               | i18n.detectLanguage()
 
+      article.center.lng-list
+        .wrapper
+          ol
+            li Параметр в url (?setLng=en-US)
+            li Cookie (i18next)
+            li Язык установленный в браузере по умолчанию
+            li fallbackLng, по умолчанию dev
+
       article.center.code-1
         .wrapper
           pre
             code.javascript
-              | i18n.lng("en-UK")
+              | i18next.setLng("en-UK", function(){   
+              | });
 
       article.center.part-scrn
         .wrapper

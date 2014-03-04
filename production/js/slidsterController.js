@@ -77,7 +77,7 @@
       slidsterController.prototype.redrawProgress = function(event) {
         var before;
         before = this.allSlidesCount - this.slides.querySelectorAll('.current~article').length;
-        return this.progress.style.width = (before * 100 / this.allSlidesCount) + "%";
+        return this.progress.style.width = (before * 100 / this.allSlidesCount).toFixed(2) + "%";
       };
 
       slidsterController.prototype.keyUp = function(event) {
