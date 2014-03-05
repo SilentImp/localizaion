@@ -51,6 +51,9 @@
         this.Home = 35;
         this.f5 = 116;
         this.scrolling = false;
+        this.max_scroll_time = 1500;
+        this.scroll_time_step = 100;
+        this.scroll_px_step = 1000;
         this.html = document.querySelector('html');
         this.controlsPressed = [];
         this.controls = [8, 9, 45, 46, 39, 37, this.esc, this.ctrl, this.alt, this.shift, this.enter, this.cmd];
@@ -97,9 +100,9 @@
           this.vector = -1;
         }
         this.toScroll = Math.abs(this.endPos - this.startPos);
-        this.duration = Math.round(this.toScroll * 100 / 1000);
-        if (this.duration > 1500) {
-          this.duration = 1500;
+        this.duration = Math.round(this.toScroll * this.scroll_time_step / this.scroll_px_step);
+        if (this.duration > this.max_scroll_time) {
+          this.duration = this.max_scroll_time;
         }
         this.scrollPerMS = this.toScroll / this.duration;
         this.endTime = this.startTime + this.duration;

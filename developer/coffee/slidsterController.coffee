@@ -42,6 +42,15 @@ define [], ()->
       #Скролим ли мы сейчас страницу
       @scrolling = false
 
+      #Максимальное время скрола в мс.
+      @max_scroll_time = 1500
+
+      #За сколько милисекунд
+      @scroll_time_step = 100
+
+      #Скролим сколько пикселей
+      @scroll_px_step = 1000
+
       #Для навешивания класса антиховера
       @html = document.querySelector 'html'
 
@@ -90,9 +99,9 @@ define [], ()->
       if @endPos<@startPos
         @vector = -1
       @toScroll = Math.abs(@endPos-@startPos)
-      @duration = Math.round(@toScroll*100/1000)
-      if @duration > 1500
-        @duration = 1500
+      @duration = Math.round(@toScroll*@scroll_time_step/@scroll_px_step)
+      if @duration > @max_scroll_time
+        @duration = @max_scroll_time
       @scrollPerMS = @toScroll/@duration
       @endTime = @startTime+@duration
       @animationLoop()
