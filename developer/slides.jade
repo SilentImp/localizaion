@@ -5,7 +5,6 @@ html(lang="ru")
     meta(http-equiv="X-UA-Compatible", content="IE=Edge,chrome=1")
     title Фреймворки локализации
     link(href="css/styles.css", rel="stylesheet")
-    link(rel="localization", href="js/browser.json")
     script(data-main="js/presentation", src="js/require.js")  
   body
     section.progress
@@ -42,7 +41,18 @@ html(lang="ru")
       article.title.center
         h1  Но есть и кое что общее
 
-      article.wallet.title.center
+      article.wallet
+
+      article.seller
+        p.cloud-1 
+          span.wrapper हलिबेट के लिए २० करोड़!<br>सस्ती!
+        p.cloud-2 
+          span.wrapper 
+            | Это он нам?
+            br
+            | Пошли-ка отсюда,
+            br
+            | милочка.
 
       article.title.center.vs
         .wrapper
@@ -335,6 +345,10 @@ html(lang="ru")
               = '<p dir="ltr"></p>\n'
               = '<p dir="auto"></p>'
 
+      article.center.book.cloud
+        h1 
+          .wrapper Сильно направленные
+
       article.center.code-1
         .wrapper
           pre
@@ -364,15 +378,20 @@ html(lang="ru")
             |  
             span три
 
+      article.center.book.cloud
+        h1 
+          .wrapper Нейтрально направленные
+
+
       article.center.code-3
         .wrapper
           pre
             code 
               = '<p>\n'
-              |   рас, اثنان, три, أربعة.
+              |   раз, اثنان, три, أربعة.
               = '\n</p>\n'
               = '<p dir="RTL">\n'
-              |   рас, اثنان, три, أربعة.
+              |   раз, اثنان, три, أربعة.
               = '\n</p>'
 
       article.center.rtl-demo-2
@@ -406,16 +425,16 @@ html(lang="ru")
           pre
             code 
               = '<p>\n'
-              |   рас, اثنان, три, четыри.
+              |   раз, اثنان, три, четыре.
               = '\n</p>\n'
               = '<p dir="RTL">\n'
-              |   рас, اثنان, три, четыри.
+              |   раз, اثنان, три, четыре.
               = '\n</p>'
 
       article.center.rtl-demo-2
         .wrapper
-          p раз, اثنان, три, четыри.
-          p(dir="RTL") раз, اثنان, три, четыри.
+          p раз, اثنان, три, четыре.
+          p(dir="RTL") раз, اثنان, три, четыре.
 
       article.center.rtl-demo-2
         .wrapper
@@ -426,7 +445,7 @@ html(lang="ru")
             span.wb , 
             span три
             span.ib , 
-            span четыри
+            span четыре
             span.wb .
           p(dir="RTL") 
             span раз
@@ -435,8 +454,12 @@ html(lang="ru")
             span.wb , 
             span три
             span.ib , 
-            span четыри
+            span четыре
             span.wb .
+
+      article.center.book.cloud
+        h1 
+          .wrapper Слабо направленные
 
       article.center.code-1
         .wrapper
@@ -469,6 +492,7 @@ html(lang="ru")
               span.ib , 
               | رسائل
 
+
       article.center.memonic
         .wrapper
           h1= '&lrm; и &rlm;'
@@ -478,16 +502,16 @@ html(lang="ru")
           pre
             code 
               = '<p dir="RTL">\n'
-              |   рас, اثنان, три, четыри.
+              |   раз, اثنان, три, четыре.
               = '\n</p>\n'
               = '<p dir="RTL">\n'
-              |   рас, اثنان, три, четыри.&amp;lrm;
+              |   раз, اثنان, три, четыре.&amp;lrm;
               = '\n</p>'
 
       article.center.rtl-demo-2
         .wrapper
-          p(dir="RTL") раз, اثنان, три, четыри.
-          p(dir="RTL") раз, اثنان, три, четыри.&lrm;
+          p(dir="RTL") раз, اثنان, три, четыре.
+          p(dir="RTL") раз, اثنان, три, четыре.&lrm;
 
       article.center.rtl-demo-2
         .wrapper
@@ -498,7 +522,7 @@ html(lang="ru")
             span.wb , 
             span три
             span.ib , 
-            span четыри
+            span четыре
             span.wb .
           p(dir="RTL")
             span раз
@@ -507,7 +531,7 @@ html(lang="ru")
             span.wb , 
             span три
             span.ib , 
-            span четыри
+            span четыре
             span.ib .
             span &lrm;
 
@@ -651,6 +675,10 @@ html(lang="ru")
               |                               all
               |                               digits [int];
               |     }
+
+      article.center.chinese.cloud.ruby
+        h1
+          .wrapper 
 
       article.center.code-1
         .wrapper
@@ -835,7 +863,7 @@ html(lang="ru")
         h1
           .wrapper 
             | Отдельные версии 
-            | span проекта
+            span проекта
 
       article.center.template.cloud
         h1 Шаблонизация
@@ -1034,19 +1062,6 @@ html(lang="ru")
               = '</script>\n'
               = '<script src="js/i18next-1.7.2.min.js">\n</script>\n'
 
-      article.center.code-2
-        .wrapper
-          pre
-            code
-              = '…\n'
-              = '<title data-i18n="app.name">Cайт</title>\n'
-              = '…\n'
-              = '<nav>\n'
-              = ' <a href="#" data-i18n="nav.about"></a>\n'
-              = ' <a href="#" data-i18n="nav.contacts"></a>\n'
-              = '</nav>\n'
-              = '…'
-
       article.center.code-3
         .wrapper
           pre
@@ -1060,7 +1075,7 @@ html(lang="ru")
           pre
             code
               | {"app": {
-              |     "name": "Сайт"
+              |     "name": "i18next эксперимент"
               |   },
               |   "nav": {
               |     "about": "О проекте",
@@ -1070,43 +1085,19 @@ html(lang="ru")
       article.center.code-1
         .wrapper
           pre
-            code.javascript
-              | i18n.t("article.title")
+            code
+              = '<title data-i18n="app.name">\n\tЗначение по умолчанию\n</title>\n'
 
-      article.center.part-scrn
-        .wrapper
-          | Получение информации<br>о языке
-
-      article.center.code-1
+      article.center.code-2
         .wrapper
           pre
             code.javascript
-              | i18n.detectLanguage()
-
-      article.center.lng-list
-        .wrapper
-          ol
-            li Параметр в url (?setLng=en-US)
-            li Cookie (i18next)
-            li Язык установленный в браузере по умолчанию
-            li fallbackLng, по умолчанию dev
-
-      article.center.code-1
-        .wrapper
-          pre
-            code.javascript
-              | i18next.setLng("en-UK", function(){   
+              | $.i18n.init().(function(){
+              |   var node = document.querySelector(
+              |         '[ddata-i18n="app.name"]');
+              |   node.textContent = document.i18n.t(
+              |         'app.name');
               | });
-
-      article.center.part-scrn
-        .wrapper
-          | Получение значений
-
-      article.center.code-1
-        .wrapper
-          pre
-            code.javascript
-              | i18n.t("article.title")
 
       article.center.code-3
         .wrapper
@@ -1118,6 +1109,45 @@ html(lang="ru")
               | }).done(function(){
               |   $('html').i18n();
               | });
+
+      article.center.result-scrn
+        .wrapper
+          | i18next эксперимент
+
+      //- article.center.code-1
+      //-   .wrapper
+      //-     pre
+      //-       code.javascript
+      //-         | i18n.t("article.title")
+
+      article.center.part-scrn
+        .wrapper
+          | Получение<br>информации<br>о языке
+
+      article.center.lng-list
+        .wrapper
+          ol
+            li Параметр в url (?setLng=en-US)
+            li Cookie (i18next)
+            li Язык установленный в браузере по умолчанию
+            li fallbackLng, по умолчанию — dev
+
+      article.center.code-1
+        .wrapper
+          pre
+            code.javascript
+              | i18n.detectLanguage();
+
+      article.center.result-scrn
+        .wrapper
+          | ru
+
+      article.center.code-1
+        .wrapper
+          pre
+            code.javascript
+              = 'i18next.setLng(\n\t"en-UK", \n\tfunction(){}\n);'
+
 
       article.center.part-scrn
         .wrapper
@@ -1157,7 +1187,7 @@ html(lang="ru")
         .wrapper
           |Падежи
 
-      article.center.code-3
+      article.center.code-1
         .wrapper
           pre
             code
@@ -1188,6 +1218,17 @@ html(lang="ru")
       article.center.result-scrn
         .wrapper
           | У меня 302 яблока
+
+      article.center.code-3
+        .wrapper
+          pre
+            code
+              | $.i18n.init({
+              |   lng: 'ru-RU'
+              | }).done(function(){
+              |   $('[ihave]').i18n({
+              |     "count": 0
+              | });});
 
       article.center.result-scrn
         .wrapper
@@ -1260,7 +1301,7 @@ html(lang="ru")
           pre
             code.javascript
               | $('.static, title').i18n({
-              |   context": "male", 
+              |   "context": "male", 
               |   "name":"Костя"
               | });
 
@@ -1278,12 +1319,6 @@ html(lang="ru")
           p http://storify.com/
 
       article.cern
-
-      article.center.quote
-        .wrapper
-          p — Jan Mühlemann @jamuhl 
-            time (25.02.2014)
-          cite «@SilentImp looks interesting…if the demand for this raises i'm sure it will be added.»
 
       article.center.i18n-links
         .wrapper
@@ -1359,15 +1394,39 @@ html(lang="ru")
         .wrapper
           pre
             code
-              = '<nameinput \n\tplaceholder: "What is your name?">'
+              = '<nameinput \n\tplaceholder: "Как тебя зовут?">'
 
       article.center.input-example
         .wrapper
-          <input data-l10n-id="nameinput" placeholder="default placeholder">
+          <input data-l10n-id="nameinput" placeholder="Как тебя зовут?">
 
       article.center.part-scrn
         .wrapper
-          | Переменные<br> и многострочные<br>вставки
+          | Многострочные вставки
+
+      article.center.code-2
+        .wrapper
+          pre
+            code
+              = '<p data-l10n-id="save">\n\t<input type="submit">\n\t<a href="#" class="btn-cancel"></a>\n</p>'
+
+      article.center.code-2
+        .wrapper
+          pre
+            code
+              = '<save """\n\t<input \n\t\tvalue="Сохранить" \n\t\ttype="text"> или\n\t<a title="Вернуться назад">\n\t\tотменить?</a>.\n""">'
+
+      article.center.button-example
+        .wrapper
+          p(data-l10n-id="save")
+            input(type="submit", value="Сохранить")
+            |  или 
+            a(href="#" title="Вернуться назад" class="btn-cancel")
+              | отменить?
+
+      article.center.part-scrn
+        .wrapper
+          | Переменные
 
       article.center.code-1
         .wrapper
@@ -1414,6 +1473,62 @@ html(lang="ru")
       article.center.result-scrn
         .wrapper
           | Привет, Настасья Николаевна!
+      
+      article.center.part-scrn
+        .wrapper
+          | Глобальные<br>переменные
+
+      article.center.code-1
+        .wrapper
+          pre
+            code
+              = '<p data-l10n-id="os"></p>'
+
+      article.center.code-1
+        .wrapper
+          pre
+            code
+              = '<os "ОС: {{ @os }}">'
+
+      article.center.result-scrn
+        .wrapper
+          | ОС: mac
+
+      article.center.code-1
+        .wrapper
+          pre
+            code
+              = '<p data-l10n-id="hour"></p>'
+
+      article.center.code-1
+        .wrapper
+          pre
+            code
+              = '<hour "Часов: {{ @hour }}">'
+
+      article.center.result-scrn
+        .wrapper
+          | Часов: 17
+
+      article.center.code-1
+        .wrapper
+          pre
+            code
+              = '<p data-l10n-id="screen"></p>'
+
+      article.center.code-3
+        .wrapper
+          pre
+            code
+              = '<screen "Ширина экрана: \n\t{{ @screen.width.px }} px">'
+
+      article.center.result-scrn
+        .wrapper
+          | Ширина экрана: 1263 px
+
+      article.center.part-scrn
+        .wrapper
+          | Как передать<br>данные из вне?
 
       article.center.code-2
         .wrapper
@@ -1439,6 +1554,10 @@ html(lang="ru")
         .wrapper
           | Привет, Настя
 
+      article.center.part-scrn
+        .wrapper
+          | Выбор перевода<br>взависимости<br>от переменной
+
       article.center.code-3
         .wrapper
           pre
@@ -1462,8 +1581,8 @@ html(lang="ru")
               |   node.textContent = document.l10n.getSync(
               |     "publishing",
               |     {
-              |     "name": "Настя",
-              |     "gender": "feminine"
+              |       "name": "Настя",
+              |       "gender": "feminine"
               |     });
               | });
 
@@ -1471,7 +1590,65 @@ html(lang="ru")
         .wrapper
           | Настя написала вам сообщение
 
-      article.center.code-5
+      article.center.part-scrn
+        .wrapper
+          | Падежи и макросы
+
+      article.center.code-4
+        .wrapper
+          pre
+            code
+              = '<plural($n) { \n\t$n == 0 ? "zero" : \n\t($n%100)>10&&($n%100)<20 ? "five" : \n\t($n%10) == 1 ? "one" :\n\t($n%10)>1&&($n%10)<5 ? "two" : "five"\n}>'
+
+
+      article.center.code-4
+        .wrapper
+          pre
+            code
+              ='<messages[plural($newmessages)] {\n\tzero: "У вас нет новых сообщений",\n\tone: "У вас {{$newmessages}} новое сообщение",\n\ttwo: "У вас {{$newmessages}} новых сообщения",\n\tfive: "У вас {{$newmessages}} новых сообщений"\n}>'
+
+      article.center.code-3
+        .wrapper
+          pre
+            code
+              = '<plural($n) { \n\t$n == 0 ? "zero" : \n\t$n == 1 ? "one": "many"\n}>'
+
+
+      article.center.code-4
+        .wrapper
+          pre
+            code
+              ='<messages[plural($newmessages)] {\n\tzero: "There are no new messages",\n\tone: "You have {{$newmessages}} new message",\n\tmany: "You have {{$newmessages}} new messages"\n}>'
+
+      article.center.code-4
+        .wrapper
+          pre
+            code.javascript
+              | document.l10n.ready(function() {
+              |   var node = document.querySelector(
+              |         '[data-l10n-id="messages"]');
+              |   node.textContent = document.l10n.getSync(
+              |     "messages",
+              |     {
+              |       newmessages: 1
+              |     });
+              | });
+
+      article.center.result-scrn
+        .wrapper
+          | У вас 1 новое сообщение
+
+      article.center.part-scrn
+        .wrapper
+          | Адаптивность
+
+      article.center.code-2
+        .wrapper
+          pre
+            code
+              = '<h1 data-l10n-id="settingsTitle"></h1>'
+
+      article.center.code-2
         .wrapper
           pre
             code.javascript
@@ -1482,16 +1659,27 @@ html(lang="ru")
               ='   $n.px >  480 ? "landscapePhone" :  \n'
               ='                  "portraitPhone"  \n'
               ='}>\n'
+
+      article.center.code-2
+        .wrapper
+          pre
+            code.javascript
               ='<dataSettings[formFactor(@screen.width)] {\n'
-              =' *wide: "Data Connectivity Settings",\n'
-              ='  landscapePhone: "Data Settings",\n'
-              ='  portraitPhone: "Data"\n'
+              =' *large: "Настройки оповещений",\n'
+              ='  portraitPhone: "Настройки"\n'
               ='}>'
+
+      article.phone
 
       article.center.i18n-links
         .wrapper
           img.link(src="svg/l20n.svg", alt="QRCODE cо ссылкой на l20n")
           p http://l20n.org/
 
+      article.center.quote
+        .wrapper
+          p — Jan Mühlemann @jamuhl 
+            time (25.02.2014)
+          cite «@SilentImp looks interesting…if the demand for this raises i'm sure it will be added.»
 
 

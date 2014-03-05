@@ -1,3 +1,34 @@
+.button-example
+  .wrapper
+    width 100%
+    font-size 48px
+    a
+      color #d00 
+    input
+      font-size 48px
+      background none
+      height 120px
+      padding 0 30px
+      vertical-align middle
+      display inline-block 
+      border-style none
+      color #383
+      box-shadow inset 0 0 0 10px #383 
+      
+
+.input-example 
+  .wrapper
+    width 100%
+    input
+      width 80%
+      height 80px
+      margin 0
+      padding 0 30px
+      font-size 32px
+      box-sizing border-box
+      outline none
+
+
 .lng-list
   ol
     line-height 1.43
@@ -5,7 +36,7 @@
 
 .result-scrn
   background-color #000
-  &:after
+  &:before
     content ""
     display block
     position absolute
@@ -16,6 +47,7 @@
     bottom 0
     left 0
     right 0
+    z-index 5
     
     background: -moz-linear-gradient(top,  rgba(0,0,0,0) 50%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, right top, color-stop(50%,rgba(0,0,0,0)), color-stop(50%,rgba(0,0,0,1)), color-stop(100%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
@@ -214,6 +246,12 @@ body article.links
     background none
     font-size 90px 
     text-shadow 0 0 10px darken(#080, 20%)
+
+.phone
+  background-image url('../img/phone.png') 
+  background-position 50% 50%
+  background-size cover
+  background-repeat no-repeat
     
 .flags
   background-image url('../img/flags.jpg') 
@@ -831,7 +869,79 @@ article.different-4.cloud
   background-size 60% auto
   background-repeat no-repeat
 
-
+.seller
+  background-image url('../img/seller.jpg') 
+  background-position 50% 50%
+  background-size cover
+  background-repeat no-repeat
+  .cloud-1
+    background-color #FFF
+    border-radius 100%
+    width 200px
+    height 200px
+    position absolute
+    bottom 140px
+    left 20px
+    line-height 200px
+    text-align center
+    font-size 18px
+    &:after
+      content "."
+      height 0
+      width 0
+      display block
+      overflow hidden
+      position absolute
+      border-color #fff transparent transparent
+      border-style solid
+      border-width 30px 10px 0 10px
+      top 100%
+      left 50%
+      margin -5px 0 0 -10px
+      transform-origin 10px -100px
+      transform rotate(-55deg)
+    .wrapper
+      display inline-block
+      vertical-align middle
+      line-height 1.43
+    
+  .cloud-2
+    background-color #FFF
+    border-radius 100%
+    width 200px
+    height 200px
+    position absolute
+    top 20px
+    right 180px
+    line-height 200px
+    text-align center
+    font-size 22px
+    &:after
+      content "."
+      height 0
+      width 0
+      display block
+      overflow hidden
+      position absolute
+      border-color #fff transparent transparent
+      border-style solid
+      border-width 30px 10px 0 10px
+      top 100%
+      left 50%
+      margin -5px 0 0 -10px
+      transform-origin 10px -100px
+      transform rotate(60deg)
+    .wrapper
+      display inline-block
+      vertical-align middle
+      line-height 1.43
+      
+article.center.chinese.cloud.ruby h1
+  background-image url('../img/RUBY.png') 
+  background-position 50% 50%
+  background-size 50% auto
+  background-repeat no-repeat
+    
 .vs
   font-size 36px
   &.short
