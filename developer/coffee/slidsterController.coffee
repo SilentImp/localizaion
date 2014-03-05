@@ -1,4 +1,4 @@
-define [], ()->
+define ['requestAnimationFramePolyfill'], ()->
   
   class slidsterController
     constructor: ->
@@ -10,7 +10,6 @@ define [], ()->
       @shift = 16
       @alt = 18
       @space = 32
-      @chars =  [@dash, @space]
       @r = 82
       
       # вверх
