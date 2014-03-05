@@ -9,6 +9,7 @@
         this.prev = __bind(this.prev, this);
         this.next = __bind(this.next, this);
         this.getCurrentSlide = __bind(this.getCurrentSlide, this);
+        this.markCurrent = __bind(this.markCurrent, this);
         this.resize = __bind(this.resize, this);
         this.fsState = __bind(this.fsState, this);
         this.fsStateOn = __bind(this.fsStateOn, this);
@@ -18,7 +19,13 @@
         this.keyUp = __bind(this.keyUp, this);
         this.redrawProgress = __bind(this.redrawProgress, this);
         this.selectSlide = __bind(this.selectSlide, this);
-        var articles, slide, _i, _len;
+        this.togglePageSelector = __bind(this.togglePageSelector, this);
+        this.hidePageSelector = __bind(this.hidePageSelector, this);
+        this.selectPage = __bind(this.selectPage, this);
+        this.renderScroll = __bind(this.renderScroll, this);
+        this.animationLoop = __bind(this.animationLoop, this);
+        this.scrollToCurrent = __bind(this.scrollToCurrent, this);
+        var page_number, slide, _i, _len, _ref;
         this.enter = 13;
         this.esc = 27;
         this.dash = 189;
@@ -34,6 +41,7 @@
         this.Left = 37;
         this.H = 72;
         this.K = 75;
+        this.P = 80;
         this.PgDown = 34;
         this.Down = 40;
         this.Right = 39;
@@ -42,36 +50,134 @@
         this.Home = 36;
         this.Home = 35;
         this.f5 = 116;
+        this.scrolling = false;
+        this.html = document.querySelector('html');
         this.controlsPressed = [];
         this.controls = [8, 9, 45, 46, 39, 37, this.esc, this.ctrl, this.alt, this.shift, this.enter, this.cmd];
         this.nextKeys = [this.PgDown, this.Down, this.Right, this.L, this.J];
         this.prevKeys = [this.PgUp, this.Up, this.Left, this.H, this.K];
         this.slides = document.getElementById('slides');
-        articles = this.slides.querySelectorAll('article');
+        this.articles = this.slides.querySelectorAll('article');
+        this.allSlidesCount = this.articles.length;
+        this.progress = document.querySelector('.progress .value');
         document.addEventListener('dblclick', this.fsState);
         window.addEventListener('resize', this.resize);
         document.addEventListener('fullscreenchange', this.fsChange);
         document.addEventListener('webkitfullscreenchange', this.fsChange);
         document.addEventListener('mozfullscreenchange', this.fsChange);
         document.addEventListener("keydown", this.keyDown);
-        for (_i = 0, _len = articles.length; _i < _len; _i++) {
-          slide = articles[_i];
+        _ref = this.articles;
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          slide = _ref[_i];
           slide.addEventListener("click", this.selectSlide);
+        }
+        this.pageSelector = document.querySelector('.go-to-page');
+        this.pageSelectorInput = this.pageSelector.querySelector('input');
+        this.pageSelector.addEventListener("submit", this.selectPage);
+        page_number = parseInt(window.location.hash.replace("#slide-", ""), 10) - 1;
+        if (!isNaN(page_number) && page_number > -1 && page_number < this.allSlidesCount) {
+          this.markCurrent(this.articles[page_number]);
+          if (!window.document.body.classList.contains('fs')) {
+            this.scrollToCurrent();
+          }
         }
         this.current = this.getCurrentSlide();
         this.resize();
-        this.allSlidesCount = articles.length;
-        this.progress = document.querySelector('.progress .value');
         this.redrawProgress();
       }
 
+      slidsterController.prototype.scrollToCurrent = function() {
+        this.scrolling = true;
+        this.html.classList.add('scrolling');
+        this.startTime = parseInt(new Date().getTime().toString().substr(-5), 10);
+        this.startPos = window.pageYOffset;
+        this.endPos = this.current.offsetTop;
+        this.vector = 1;
+        if (this.endPos < this.startPos) {
+          this.vector = -1;
+        }
+        this.toScroll = Math.abs(this.endPos - this.startPos);
+        this.duration = Math.round(this.toScroll * 100 / 1000);
+        if (this.duration > 1500) {
+          this.duration = 1500;
+        }
+        this.scrollPerMS = this.toScroll / this.duration;
+        this.endTime = this.startTime + this.duration;
+        return this.animationLoop();
+      };
+
+      slidsterController.prototype.animationLoop = function() {
+        if (!this.renderScroll()) {
+          this.scrolling = false;
+          this.html.classList.remove('scrolling');
+          return;
+        }
+        return requestAnimationFrame(this.animationLoop);
+      };
+
+      slidsterController.prototype.renderScroll = function() {
+        var currentTime, time;
+        time = parseInt(new Date().getTime().toString().substr(-5), 10);
+        if (time > this.endTime) {
+          time = this.endTime;
+        }
+        currentTime = time - this.startTime;
+        window.scroll(0, Math.round((this.vector * this.scrollPerMS * currentTime) + this.startPos));
+        if (this.endTime <= time) {
+          return false;
+        }
+        if (window.pageYOffset === this.endPos) {
+          return false;
+        }
+        if (window.document.body.classList.contains('fs')) {
+          window.scroll(0, 0);
+          return false;
+        }
+        return true;
+      };
+
+      slidsterController.prototype.selectPage = function(event) {
+        var page;
+        event.preventDefault();
+        page = parseInt(this.pageSelectorInput.value, 10);
+        if (isNaN(page)) {
+          this.pageSelectorInput.value = "";
+        }
+        page--;
+        if (page < 0) {
+          page = 0;
+        }
+        if (page >= this.allSlidesCount) {
+          page = this.allSlidesCount - 1;
+        }
+        this.markCurrent(this.articles[page]);
+        this.hidePageSelector();
+        this.pageSelectorInput.blur();
+        this.pageSelectorInput.value = "";
+        if (!window.document.body.classList.contains('fs')) {
+          return this.scrollToCurrent();
+        }
+      };
+
+      slidsterController.prototype.hidePageSelector = function(event) {
+        return this.pageSelector.classList.remove("open");
+      };
+
+      slidsterController.prototype.togglePageSelector = function(event) {
+        this.pageSelector.classList.toggle("open");
+        if (this.pageSelector.classList.contains("open")) {
+          this.pageSelectorInput.value = "";
+          return this.pageSelectorInput.focus();
+        } else {
+          this.pageSelectorInput.blur();
+          return this.pageSelectorInput.value = "";
+        }
+      };
+
       slidsterController.prototype.selectSlide = function(event) {
         if (!document.body.classList.contains('fs')) {
-          this.current.classList.remove('current');
-          this.current = event.currentTarget;
-          this.current.classList.add('current');
+          return this.markCurrent(event.currentTarget);
         }
-        return this.redrawProgress();
       };
 
       slidsterController.prototype.redrawProgress = function(event) {
@@ -100,15 +206,28 @@
           this.prev();
         }
         switch (event.which) {
+          case this.P:
+            if (!this.scrolling === true) {
+              this.togglePageSelector();
+            }
+            return event.preventDefault();
           case this.enter:
-            return this.fsState();
+            if (!this.pageSelector.classList.contains("open")) {
+              this.fsState();
+              return event.preventDefault();
+            }
+            break;
           case this.esc:
-            return this.fsStateOff();
+            this.fsStateOff();
+            return event.preventDefault();
         }
       };
 
       slidsterController.prototype.fsChange = function() {
-        return window.document.body.classList.toggle('fs');
+        window.document.body.classList.toggle('fs');
+        if (!window.document.body.classList.contains('fs')) {
+          return this.scrollToCurrent();
+        }
       };
 
       slidsterController.prototype.fsStateOff = function() {
@@ -156,34 +275,48 @@
         })(this));
       };
 
+      slidsterController.prototype.markCurrent = function(element) {
+        var before;
+        this.slides.querySelector('.current').classList.remove('current');
+        element.classList.add('current');
+        this.current = element;
+        before = this.allSlidesCount - this.slides.querySelectorAll('.current~article').length;
+        this.redrawProgress();
+        return history.pushState({}, "Слайд " + before, "slides.html#slide-" + before);
+      };
+
       slidsterController.prototype.getCurrentSlide = function() {
-        var current;
-        current = this.slides.querySelector('.current');
-        if (current === null) {
-          current = this.slides.querySelector('article');
-          current.classList.add('current');
+        var element;
+        element = this.slides.querySelector('.current');
+        if (element === null) {
+          element = this.slides.querySelector('article');
         }
-        return current;
+        this.markCurrent(element);
+        return element;
       };
 
       slidsterController.prototype.next = function() {
-        this.current.classList.remove('current');
-        this.current = this.current.nextElementSibling;
-        if (this.current === null) {
-          this.current = this.slides.querySelector('article');
+        var element;
+        element = this.current.nextElementSibling;
+        if (element === null) {
+          element = this.slides.querySelector('article');
         }
-        this.current.classList.add('current');
-        return this.redrawProgress();
+        this.markCurrent(element);
+        if (!window.document.body.classList.contains('fs')) {
+          return this.scrollToCurrent();
+        }
       };
 
       slidsterController.prototype.prev = function() {
-        this.current.classList.remove('current');
-        this.current = this.current.previousElementSibling;
-        if (this.current === null) {
-          this.current = this.slides.querySelector('article:last-child');
+        var element;
+        element = this.current.previousElementSibling;
+        if (element === null) {
+          element = this.slides.querySelector('article:last-child');
         }
-        this.current.classList.add('current');
-        return this.redrawProgress();
+        this.markCurrent(element);
+        if (!window.document.body.classList.contains('fs')) {
+          return this.scrollToCurrent();
+        }
       };
 
       return slidsterController;

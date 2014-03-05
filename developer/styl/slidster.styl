@@ -8,6 +8,53 @@ slide-bgc = #fff
 dark-color = #fff
 light-color = #000
 
+html.scrolling,
+html.scrolling *
+  pointer-events none !important
+  
+section#slides article *
+  pointer-events none !important
+
+.go-to-page
+  position fixed
+  top 0
+  left 0
+  bottom 0
+  right 0
+  z-index 1000
+  margin auto
+  background rgba(0,0,0,.75) 
+  opacity 0
+  pointer-events none
+  transition opacity .25s
+  &.open
+    pointer-events auto
+    opacity 1 
+  input
+    pointer-events inherit
+    outline none
+    -webkit-appearance none
+    -moz-appearance none
+    border-style none
+    margin auto
+    position absolute
+    top 0
+    left 0
+    bottom 0
+    right 0
+    width 140px
+    height 140px
+    background darken(#FFF,10%)
+    transition background-color .25s
+    border-radius 100%
+    padding 20px 
+    box-sizing border-box
+    text-align center
+    line-height 60px
+    font-size 42px
+    &:focus
+      background-color #FFF 
+
 pre
   display inline-block
   vertical-align middle

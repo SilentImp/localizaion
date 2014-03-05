@@ -7,6 +7,11 @@ html(lang="ru")
     link(href="css/styles.css", rel="stylesheet")
     script(data-main="js/presentation", src="js/require.js")  
   body
+
+    form.go-to-page(action="/select/slide", method="post")
+      firldset
+        input(type="text", maxlength="3", value="", placeholder="1")
+
     section.progress
       .value
 
@@ -45,12 +50,12 @@ html(lang="ru")
 
       article.seller
         p.cloud-1 
-          span.wrapper हलिबेट के लिए २० करोड़!<br>सस्ती!
+          span.wrapper सस्ती!
         p.cloud-2 
           span.wrapper 
             | Это он нам?
             br
-            | Пошли-ка отсюда,
+            | Пойдемте-ка отсюда,
             br
             | милочка.
 
@@ -676,9 +681,12 @@ html(lang="ru")
               |                               digits [int];
               |     }
 
-      article.center.chinese.cloud.ruby
+      article.center.japan.cloud.ruby
         h1
           .wrapper 
+
+      //- Руби это термин, которым обозначают текстовый поток, ассоциированный с другим, основным. Руби используется для создания аннотаций к основному тексту и чаще всего поясняет его значение или то, как его следует читать. В основном руби используют Японцы, в Китае он используется, например, в учебниках.
+
 
       article.center.code-1
         .wrapper
@@ -755,15 +763,15 @@ html(lang="ru")
               = ' <rtc><rt>ガバメント・セクシヨン</rt></rtc>\n'
               = '</ruby>'
 
-      article.center.code-2
+      article.center.ruby-demo-montage
         .wrapper
-          pre
-            code
-              = '<ruby>\n'
-              = ' <rbc><rb>民政局</rb></rbc>\n'
-              = ' <rtc><rt>みんせいきょく</rt></rtc>\n'
-              = ' <rtc><rt>ガバメント・セクシヨン</rt></rtc>\n'
-              = '</ruby>'
+          ruby
+            rbc
+              rb 民 政 局
+            rtc
+              rt みんせいきょく
+            rtc
+              rt ガバメント・セクシヨン
 
       article.center.code-2
         .wrapper
@@ -800,15 +808,6 @@ html(lang="ru")
               |                  space-around;
               |     }
             
-      //- article.center.ruby-demo-montage
-      //-   .wrapper
-      //-     ruby
-      //-       rbc
-      //-         rb 民 政 局
-      //-       rtc
-      //-         rt みんせいきょく
-      //-       rtc
-      //-         rt ガバメント・セクシヨン
 
       article.center.cloud.bored
         h1 
@@ -1325,6 +1324,7 @@ html(lang="ru")
           img.link(src="svg/i18next.svg", alt="QRCODE cо ссылкой на i18next")
           p http://i18next.com/
 
+
       article.center.better-2.cloud
           h1 
             .wrapper Но ведь можно ещё лучше?
@@ -1676,10 +1676,38 @@ html(lang="ru")
           img.link(src="svg/l20n.svg", alt="QRCODE cо ссылкой на l20n")
           p http://l20n.org/
 
+
+      article.center.i18n-links
+        .wrapper
+          h1 Jed
+          img.link(src="svg/i18next.svg", alt="QRCODE cо ссылкой на JED")
+          p http://slexaxton.github.io/Jed/
+
+
+      article.center.i18n-links
+        .wrapper
+          h2 Message<br>Format
+          img.link(src="svg/i18next.svg", alt="QRCODE cо ссылкой на messageformat")
+          p http://github.com/SlexAxton/messageformat.js
+
       article.center.quote
         .wrapper
           p — Jan Mühlemann @jamuhl 
             time (25.02.2014)
           cite «@SilentImp looks interesting…if the demand for this raises i'm sure it will be added.»
+
+      article.center.cloud.questions
+        h1 О, да, вопросы!
+
+      article.contacts.center.i18n-links
+        .wrapper
+          .about-speaker
+            p.name Антон Немцев
+            p.twitter @silentimp
+            p.email thesilentimp@gmail.com
+            p.skype skype: ravencry
+          img.link(src="svg/git.svg", alt="QRCODE cо ссылкой на доклад")
+          p http://github.com/SilentImp/localizaion
+
 
 

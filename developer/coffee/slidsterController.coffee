@@ -19,6 +19,9 @@ define [], ()->
       @Left = 37
       @H = 72
       @K = 75
+
+      # выбрать страницу
+      @P = 80
       
       # вниз
       @PgDown = 34
@@ -36,13 +39,21 @@ define [], ()->
       #f5
       @f5 = 116
 
+      #Скролим ли мы сейчас страницу
+      @scrolling = false
+
+      #Для навешивания класса антиховера
+      @html = document.querySelector 'html'
+
       @controlsPressed = []
       @controls = [8, 9, 45, 46, 39, 37, @esc, @ctrl, @alt, @shift, @enter, @cmd]
       @nextKeys = [@PgDown, @Down, @Right, @L, @J]
       @prevKeys = [@PgUp, @Up, @Left, @H, @K]
 
       @slides = document.getElementById 'slides'
-      articles = @slides.querySelectorAll 'article'
+      @articles = @slides.querySelectorAll 'article'
+      @allSlidesCount = @articles.length
+      @progress = document.querySelector '.progress .value'
 
       document.addEventListener 'dblclick', @fsState
       window.addEventListener 'resize', @resize
@@ -51,25 +62,108 @@ define [], ()->
       document.addEventListener 'mozfullscreenchange', @fsChange
       document.addEventListener "keydown", @keyDown
       
-      for slide in articles
+      for slide in @articles
         slide.addEventListener "click", @selectSlide
 
+      @pageSelector = document.querySelector '.go-to-page'
+      @pageSelectorInput = @pageSelector.querySelector 'input'
+      @pageSelector.addEventListener "submit", @selectPage
 
-
+      page_number = parseInt(window.location.hash.replace("#slide-",""),10)-1
+      if not isNaN(page_number) and page_number>-1 and page_number<@allSlidesCount
+        @markCurrent @articles[page_number]
+        if not window.document.body.classList.contains 'fs'
+          @scrollToCurrent()
+      
       @current = @getCurrentSlide()
       @resize()
-      @allSlidesCount = articles.length
-      @progress = document.querySelector '.progress .value'
 
       @redrawProgress()
+
+    scrollToCurrent: =>
+      @scrolling = true
+      @html.classList.add 'scrolling'
+      @startTime = parseInt(new Date().getTime().toString().substr(-5),10)
+      @startPos = window.pageYOffset
+      @endPos = @current.offsetTop
+      @vector = 1
+      if @endPos<@startPos
+        @vector = -1
+      @toScroll = Math.abs(@endPos-@startPos)
+      @duration = Math.round(@toScroll*100/1000)
+      if @duration > 1500
+        @duration = 1500
+      @scrollPerMS = @toScroll/@duration
+      @endTime = @startTime+@duration
+      @animationLoop()
+    
+    animationLoop: =>
+      
+      if not @renderScroll()
+        @scrolling = false
+        @html.classList.remove 'scrolling'
+        return
+      
+      requestAnimationFrame @animationLoop
+
+
+    renderScroll: =>
+
+      time = parseInt(new Date().getTime().toString().substr(-5),10)
+      if time>@endTime
+        time = @endTime
+
+      currentTime = time-@startTime
+
+      window.scroll 0, Math.round((@vector*@scrollPerMS*currentTime)+@startPos)
+
+      if @endTime<=time
+        return false
+
+      if window.pageYOffset==@endPos
+        return false
+
+      if window.document.body.classList.contains('fs')
+        window.scroll 0, 0
+        return false
+
+      return true
+
+
+    selectPage: (event)=>
+      event.preventDefault()
+      page = parseInt @pageSelectorInput.value, 10
+      if isNaN(page)
+        @pageSelectorInput.value = ""
+      page--
+      if page < 0
+        page = 0
+      if page>=@allSlidesCount
+        page = @allSlidesCount-1
+
+      @markCurrent @articles[page]
+      @hidePageSelector()
+      @pageSelectorInput.blur()
+      @pageSelectorInput.value = ""
+      if not window.document.body.classList.contains 'fs'
+        @scrollToCurrent()
+
+    hidePageSelector: (event)=>
+      @pageSelector.classList.remove "open"
+
+    togglePageSelector: (event)=>
+      @pageSelector.classList.toggle "open"
+      if @pageSelector.classList.contains "open"
+        @pageSelectorInput.value = ""
+        @pageSelectorInput.focus()
+      else
+        @pageSelectorInput.blur()
+        @pageSelectorInput.value = ""
 
 
     selectSlide: (event)=>
       if not document.body.classList.contains 'fs'
-        @current.classList.remove 'current'
-        @current = event.currentTarget
-        @current.classList.add 'current'
-      @redrawProgress()
+        @markCurrent event.currentTarget
 
 
     redrawProgress: (event)=>
@@ -94,14 +188,25 @@ define [], ()->
         @prev()
 
       switch event.which 
+        
+        when @P
+          if not @scrolling == true
+            @togglePageSelector()
+          event.preventDefault()
+
         when @enter
-          @fsState()
+          if not @pageSelector.classList.contains "open"
+            @fsState()
+            event.preventDefault()
 
         when @esc
           @fsStateOff()
+          event.preventDefault()
 
     fsChange: =>
       window.document.body.classList.toggle 'fs'
+      if not window.document.body.classList.contains 'fs'
+        @scrollToCurrent()
 
     fsStateOff: =>
       if window.document.exitFullscreen
@@ -144,45 +249,36 @@ define [], ()->
       ].forEach (prop)=>
         @slides.style[prop] = 'scale(' + scale + ')'
 
+    markCurrent: (element)=>
+      @slides.querySelector('.current').classList.remove 'current'
+      element.classList.add 'current'
+      @current = element
+      before = @allSlidesCount - @slides.querySelectorAll('.current~article').length
+      @redrawProgress()
+      history.pushState {}, "Слайд "+before, "slides.html#slide-"+before
+
     getCurrentSlide: =>
-      current = @slides.querySelector '.current'
-      if current == null
-        current = @slides.querySelector 'article'
-        current.classList.add 'current'
-      return current
+      element = @slides.querySelector '.current'
+      if element == null
+        element = @slides.querySelector 'article'
+      @markCurrent element
+      return element
 
     next: =>
-      @current.classList.remove 'current'
-      @current = @current.nextElementSibling
-      if @current == null
-        @current = @slides.querySelector 'article'
-      @current.classList.add 'current'
-      @redrawProgress()
+      element = @current.nextElementSibling
+      if element == null
+        element = @slides.querySelector 'article'
+      @markCurrent element
+      if not window.document.body.classList.contains 'fs'
+        @scrollToCurrent()
 
     prev: =>
-      @current.classList.remove 'current'
-      @current = @current.previousElementSibling
-      if @current == null
-        @current = @slides.querySelector 'article:last-child'
-      @current.classList.add 'current'
-      @redrawProgress()
-
-    #   document.addEventListener 'keydown', @keyHandling.bind(this)
-
-    # keyHandling: (e)->
-    #   switch e.which
-    #     when 80 then # P Alt Cmd
-    #     when 116 then # f5
-    #     when 13 then # enter
-    #     when 27 then # esc
-    #     when 33 then # PgUp
-    #     when 38 then # Up
-    #     when 37 then # Left
-    #     when 72 then # H
-    #     when 75 # K
-    #       if e.altKey || e.ctrlKey || e.metaKey
-    #         return
-    #       console.log e.altKey +' ' + e.which+' key pressed'
+      element = @current.previousElementSibling
+      if element == null
+        element = @slides.querySelector 'article:last-child'
+      @markCurrent element
+      if not window.document.body.classList.contains 'fs'
+        @scrollToCurrent()
 
 
   return slidsterController
