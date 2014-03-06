@@ -284,7 +284,7 @@
         this.current = element;
         before = this.allSlidesCount - this.slides.querySelectorAll('.current~article').length;
         this.redrawProgress();
-        return history.pushState({}, "Слайд " + before, "slides.html#slide-" + before);
+        return history.pushState({}, "Слайд " + before, "index.html#slide-" + before);
       };
 
       slidsterController.prototype.getCurrentSlide = function() {
