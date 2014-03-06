@@ -1,0 +1,1713 @@
+doctype html
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=Edge,chrome=1")
+    title Фреймворки локализации
+    link(href="css/styles.css", rel="stylesheet")
+    script(data-main="js/presentation", src="js/require.js")  
+  body
+
+    form.go-to-page(action="/select/slide", method="post")
+      firldset
+        input(type="text", maxlength="3", value="", placeholder="1")
+
+    section.progress
+      .value
+
+    section#slides.dark
+
+      article.cover.center.cloud.current
+        h1.alien
+
+      article.cover.center.cloud
+        h1  
+          .wrapper i18n<br>l10n
+
+      article.different-1.cloud.center
+        h1  Все мы разные!
+
+      article.different-2.cloud.center
+        h1  Язык и валюта
+
+      article.different-3.cloud.center
+        h1  
+          .wrapper Культурные особенности
+
+      article.different-4.cloud.center
+        h1  
+          .wrapper
+            |Символы 
+            br
+            |иконки
+            br
+            |цвета
+
+      article.title.center
+        h1  Но есть и кое что общее
+
+      article.wallet
+
+      article.seller
+        p.cloud-1 
+          span.wrapper सस्ती!
+        p.cloud-2 
+          span.wrapper 
+            | Это он нам?
+            br
+            | Пойдемте-ка отсюда,
+            br
+            | милочка.
+
+      article.title.center.vs
+        .wrapper
+          .half localization
+          .half internationalization
+
+      article.title.center.vs.short
+        .wrapper
+          .half l10n
+          .half i18n
+
+      article.center.l10n-title
+        h1 l10n
+
+      article.center.l10n-abstract
+        .wrapper
+          p l10n это адаптация продукта для его соответствия языковым, культурным и прочим требованиям конкретного рынка.
+
+      article.center.l10n-abstract
+        .wrapper
+          ul
+            li Cистема счисления, форматы даты и времени
+            li Валюта
+            li Использование систем ввода
+            li Символы, иконки, цвета
+            li Текст и графика, содержащие отсылки к идеям и действиям
+            li Различие легислативный требований
+            li …
+
+      article.center.i18n-title
+        h1  i18n
+
+      article.center.i18n-abstract
+        .wrapper
+          p i18n это процесс, в результате которого получается продукт, предусматривающий его простую локализацию для целевой аудитории в рамках многообразия её культур, регионов и языков.
+
+      article.center.i18n-abstract
+        .wrapper
+          ul
+            li Разработка продукта таким образом, что бы устранить барьеры для для его локализации.
+              //- например unicode и отсутствие зависимости интерфейса от языка
+            li Реализовать функционал, который не потребуются, пока не начнется локализация.
+              //- например поддержка двунаправленного письма в css
+            li Писать код, который позволяет реализовать поддержку локальных, языковых и культурных особенностей.
+              //- форматы даты, времени, адреса
+            li Отделение элементов, которые требуют локализации от остальных.
+              //- что бы подгрузить элемент который отвечает предпочтениям пользователя
+
+      //- article.center.tips
+      //-   .wrapper
+      //-     ul
+      //-       li Используйте символы вместо мнемоник и кодов, если это возможно.
+      //-       //- они хорощи если надо набрать невидимый символ или вы не можете набрать нужный с помощью клавиатуры, но в остальном лучше использовать обычные
+      //-       li Объявляйте язык документа и язык элементов, в которых он отличается.
+      //-       //- Это важно для улучшения доступности материалов, упрощения их стилизации и для интернета машин
+      //-       li Разделяйте представление и данные
+      //-       li Адаптируйте изображения, анимации, примеры
+      
+      //- article.center.tips
+      //-   .wrapper
+      //-     ul
+      //-       li Поддерживайте соответствующую кодировку и на стороне клиента и на стороне сервера. 
+      //-       li Используйте местные форматы даты и времени, имен и адресов.
+      //-       li Используйте простой, понятный текст.
+      //-       li На каждой странице должна быть легко заметный навигационный блок, который позволит сменить язык. 
+
+      article.center.encoding.cloud
+        h1 
+          .wrapper Как задать<br>кодировку?
+
+      article.center.code-2
+        .wrapper
+          pre
+            code 
+              | Content-Type: text/html; charset=UTF-8
+
+      article.center.code-2
+        .wrapper
+          pre
+            code 
+              = '<meta \n'
+              = '   http-equiv="Content-type" \n'
+              = '   content="text/html;charset=UTF-8">'
+
+      article.center.code-1
+        .wrapper
+          pre
+            code 
+              = '<meta charset="UTF-8">'
+
+      article.center.code-1
+        .wrapper
+          pre
+            code 
+              = '1024'
+
+      article.center.code-4
+        .wrapper
+          pre
+            code 
+              = '<link charset="Windows-1251"\n rel="stylesheet" type="text/css"\n href="styles.css"/>\n\n'
+              = '<script charset="UTF-8"\n src="script.js"></script>\n\n'
+              = '<a charset="ISO-8859-1"\n href="page.html"></a>\n'
+
+      article.center.code-4.obsolete
+        .wrapper
+          pre
+            code 
+              = '<link charset="Windows-1251"\n rel="stylesheet" type="text/css"\n href="styles.css"/>\n\n'
+              = '<script charset="UTF-8"\n src="script.js"></script>\n\n'
+              = '<a charset="ISO-8859-1"\n href="page.html"></a>\n'
+
+      article.center.code-2
+        .wrapper
+          pre
+            code 
+              | Content-Type: text/css; charset=UTF-8
+
+      article.center.code-1
+        .wrapper
+          pre
+            code 
+              = '@charset "UTF-8";'
+
+      article.center.tongue.cloud
+        h1 
+          .wrapper Как обозначить<br> язык материалов?
+
+      article.center.code-1
+        .wrapper
+          pre
+            code 
+              | Content-Language: de, fr, it
+
+      article.center.code-3
+        .wrapper
+          pre
+            code 
+              = '<meta \n'
+              = '   http-equiv="Content-Language" \n' 
+              = '   content="de, fr, it" />\n'
+
+      article.center.code-3.obsolete
+        .wrapper
+          pre
+            code 
+              = '<meta \n'
+              = '   http-equiv="Content-Language" \n' 
+              = '   content="de, fr, it" />\n'
+
+      article.center.code-3
+        .wrapper
+          pre
+            code 
+              = '<meta \n'
+              = '   name="dc.language" \n' 
+              = '   content="en" />\n'
+
+      article.center.code-3.wtf
+        .wrapper
+          pre
+            code 
+              = '<meta \n'
+              = '   name="dc.language" \n' 
+              = '   content="en" />\n'
+
+      article.center.code-1
+        .wrapper
+          pre
+            code 
+              = '<html lang="en-UK">\n'
+              = '</html>'
+
+      article.center.code-1
+        .wrapper
+          pre
+            code 
+              = '<article lang="und">\n'
+              = '</article>'
+
+      article.center.code-1
+        .wrapper
+          pre
+            code 
+              = '<article lang="zxx">\n'
+              = '</article>'
+
+      article.center.code-2
+        .wrapper
+          pre
+            code 
+              | :lang(en-UK){
+              |   font-family: "PT Sans", sans-serif;
+              |   }
+              | :lang(zh-Hans){
+              |   font-family: "SimSum-18030", 
+              |                SimHei, serif;
+              |   }
+
+      article.center.code-3
+        .wrapper
+          pre
+            code 
+              = '<a \n'
+              = '   href="http://goo.gl/GJ2MeM" \n'
+              = '   hreflang="en">\n'
+              = '   The Battle for the Body Field\n'
+              = '</a>'
+
+      article.center.code-1
+        .wrapper
+          pre
+            code 
+              | a[hreflang = 'sv']:after { 
+              |     content: " [Swedish] "; 
+              |     }
+
+      article.center.definition
+        .wrapper
+          ol
+            li language
+              b  язык, en
+            //- en, ru, первое, 2-3 символа
+            li extlang 
+              b  уточнение, zh-yue
+            //- идет сразу за основным языком zh-yue (Cantonese Chinese), ar-afb (Gulf Arabic), всегда 3 симовла
+            li script 
+              b  начертание, zh-Hans
+            //- zh-Hans сразу после уточнения и всегда 4 символа
+            li region 
+              b  регион, en-US, en-UK
+            //- двубуквенный код страны, или код из 3х чисел
+            li variant 
+              b  диалект, sl-nedis, sl-rozaj
+            //- если остальные не смогли точно охарактеризовать язык 
+            li extension 
+              b  расширенное определение
+            li privateuse 
+              b  для частного использования
+
+
+      article.center.flags.obsolete
+
+
+      article.center.robot.cloud
+        h1 
+          .wrapper Как управлять роботами?
+
+      article.center.code-3
+        .wrapper
+          pre
+            code 
+              = '<meta \n'
+              = '     name="google" \n'
+              = '     value="notranslate"/>'
+
+      article.center.code-3
+        .wrapper
+          pre
+            code 
+              = '<article class="notranslate">\n'
+              = '</article>'
+
+      article.center.code-1
+        .wrapper
+          pre
+            code 
+              = '<article translate="no">\n'
+              = '</article>'
+
+      article.center.book.cloud
+        h1 
+          .wrapper Направление<br>письма
+
+      article.center.dir-type
+        .wrapper
+          ul
+            li Сильно направленные
+            //- большинство букв
+            li Нейтрально направленные
+            //- пробелы и пунктуация, если находятся между двумя разнонаправленными блоками, ведут себя согласно оснвному направлению блока
+            li Слабо направленные
+            //- числа
+
+      article.center.code-1
+        .wrapper
+          pre
+            code 
+              = '<p dir="rtl"></p>\n'
+              = '<p dir="ltr"></p>\n'
+              = '<p dir="auto"></p>'
+
+      article.center.book.cloud
+        h1 
+          .wrapper Сильно направленные
+
+      article.center.code-1
+        .wrapper
+          pre
+            code 
+              = '<p>раз اثنان три</p>\n'
+              = '<p dir="RTL">раз اثنان три</p>'
+
+      //- В рамках направленного блока поддеоживается ествественный порядок, dir влияет на порядок блоков.
+
+      article.center.rtl-demo
+        .wrapper
+          p раз اثنان три
+          p(dir="RTL") раз اثنان три
+
+      article.center.rtl-demo
+        .wrapper
+          p 
+            span раз
+            |  
+            span.rtl اثنان
+            |  
+            span три
+          p(dir="RTL")
+            span раз
+            |  
+            span.rtl اثنان
+            |  
+            span три
+
+      article.center.book.cloud
+        h1 
+          .wrapper Нейтрально направленные
+
+
+      article.center.code-3
+        .wrapper
+          pre
+            code 
+              = '<p>\n'
+              |   раз, اثنان, три, أربعة.
+              = '\n</p>\n'
+              = '<p dir="RTL">\n'
+              |   раз, اثنان, три, أربعة.
+              = '\n</p>'
+
+      article.center.rtl-demo-2
+        .wrapper
+          p раз, اثنان, три, أربعة.
+          p(dir="RTL") раз, اثنان, три, أربعة.
+
+      article.center.rtl-demo-2
+        .wrapper
+          p
+            span раз
+            span.wb , 
+            span.rtl اثنان
+            span.wb , 
+            span три
+            span.wb , 
+            span.rtl أربعة
+            span.wb .
+          p(dir="RTL")
+            span раз
+            span.wb , 
+            span.rtl اثنان
+            span.wb , 
+            span три
+            span.wb , 
+            span.rtl أربعة
+            span.wb .
+
+      article.center.code-3
+        .wrapper
+          pre
+            code 
+              = '<p>\n'
+              |   раз, اثنان, три, четыре.
+              = '\n</p>\n'
+              = '<p dir="RTL">\n'
+              |   раз, اثنان, три, четыре.
+              = '\n</p>'
+
+      article.center.rtl-demo-2
+        .wrapper
+          p раз, اثنان, три, четыре.
+          p(dir="RTL") раз, اثنان, три, четыре.
+
+      article.center.rtl-demo-2
+        .wrapper
+          p 
+            span раз
+            span.wb , 
+            span.rtl اثنان
+            span.wb , 
+            span три
+            span.ib , 
+            span четыре
+            span.wb .
+          p(dir="RTL") 
+            span раз
+            span.wb , 
+            span.rtl اثنان
+            span.wb , 
+            span три
+            span.ib , 
+            span четыре
+            span.wb .
+
+      article.center.book.cloud
+        h1 
+          .wrapper Слабо направленные
+
+      article.center.code-1
+        .wrapper
+          pre
+            code 
+              = '<p>Оруэл عربي ١٩٨٤, رسائل</p>\n'
+              = '<p>Оруэл عربي 1984, رسائل</p>'
+
+      article.center.rtl-demo-3
+        .wrapper
+          p Оруэл عربي ١٩٨٤, رسائل
+          p Оруэл عربي 1984, رسائل
+
+      article.center.rtl-demo-3
+        .wrapper
+          p 
+            span Оруэл
+            span.wb  
+            span.rtl 
+              | عربي  
+              span.wn 1984
+              span.ib , 
+              | رسائل
+          p 
+            span Оруэл
+            span.wb  
+            span.rtl 
+              | عربي  
+              span.wn 1984
+              span.ib , 
+              | رسائل
+
+
+      article.center.memonic
+        .wrapper
+          h1= '&lrm; и &rlm;'
+
+      article.center.code-3
+        .wrapper
+          pre
+            code 
+              = '<p dir="RTL">\n'
+              |   раз, اثنان, три, четыре.
+              = '\n</p>\n'
+              = '<p dir="RTL">\n'
+              |   раз, اثنان, три, четыре.&amp;lrm;
+              = '\n</p>'
+
+      article.center.rtl-demo-2
+        .wrapper
+          p(dir="RTL") раз, اثنان, три, четыре.
+          p(dir="RTL") раз, اثنان, три, четыре.&lrm;
+
+      article.center.rtl-demo-2
+        .wrapper
+          p(dir="RTL")
+            span раз
+            span.wb , 
+            span.rtl اثنان
+            span.wb , 
+            span три
+            span.ib , 
+            span четыре
+            span.wb .
+          p(dir="RTL")
+            span раз
+            span.wb , 
+            span.rtl اثنان
+            span.wb , 
+            span три
+            span.ib , 
+            span четыре
+            span.ib .
+            span &lrm;
+
+      article.center.code-1
+        .wrapper
+          pre
+            code 
+              = '<bdi></bdi>'
+
+      article.center.code-1
+        .wrapper
+          pre
+            code 
+              = '<bdo dir="rtl">\n'
+              = ' Интересно, что получится?\n'
+              = '</bdo>'
+
+      article.center.bdo-example
+        .wrapper
+          p
+            bdo(dir="rtl") Интересно, что получится?
+
+      article.center.code-3
+        .wrapper
+          pre
+            code 
+              | .some{
+              |   direction: ltr
+              |              rtl
+              |              inherit;}
+
+      article.center.code-2
+        .wrapper
+          pre
+            code 
+              | .some{
+              |   unicode-bidi: normal 
+              |                 embed
+              |                 isolate
+              |                 bidi-override
+              |                 isolate-override
+              |                 plaintext
+              |                 inherit;}
+
+              //
+                normal — собственно, нихуя
+                embed — если элемент строчный, то появляется новый контекст направления
+                bidi-override — игнорируя алгоритм двунаправленного письма unicode в рамках элемента ориентирует все строчные элементы согласно direction
+                isolate — блок рассматривается как Object Replacement Character (картинка) и позиционируется вне зависимости от содержимого
+                isolate-override — то же, + внутренности блока перезаписываем bidi-override
+                plaintext — направленность без учета родителей или direction
+
+      article.center.chinese.cloud
+        h1
+          .wrapper и тут врываются 
+            span китайцы
+
+      article.center.code-3
+        .wrapper
+          pre
+            code 
+              | .some{
+              |     writing-mode: horizontal-tb
+              |                   vertical-rl
+              |                   vertical-lr;
+              |     }
+
+      article.center.vertical-demo
+        .half
+          h1 时事专栏
+          p 台湾来鸿：升温中的台北市长选举
+          p 随着国民党荣誉主席连战之子连胜文正式宣布参选，台北市长选举选战逐渐升温。
+        .half
+          h1 时事专栏
+          p 台湾来鸿：升温中的台北市长选举
+          p 随着国民党荣誉主席连战之子连胜文正式宣布参选，台北市长选举选战逐渐升温。
+
+      article.center.vertical-demo-ru
+        .half
+          h1 МИД РФ возмущен "неуважением" НАТО к Украине
+          p Российский МИД выпустил пространное заявление, в котором посоветовал Брюсселю уважать внеблоковый статус Киева и отказаться от заявлений в адрес Украины, которые Москва считает провокационными.
+        .half
+          h1 МИД РФ возмущен "неуважением" НАТО к Украине
+          p Российский МИД выпустил пространное заявление, в котором посоветовал Брюсселю уважать внеблоковый статус Киева и отказаться от заявлений в адрес Украины, которые Москва считает провокационными.
+
+      article.center.vertical-demo-ru-2
+        .half
+          h1 МИД РФ возмущен "неуважением" НАТО к Украине
+          p Российский МИД выпустил пространное заявление, в котором посоветовал Брюсселю уважать внеблоковый статус Киева и отказаться от заявлений в адрес Украины, которые Москва считает провокационными.
+        .half
+          h1 МИД РФ возмущен "неуважением" НАТО к Украине
+          p Российский МИД выпустил пространное заявление, в котором посоветовал Брюсселю уважать внеблоковый статус Киева и отказаться от заявлений в адрес Украины, которые Москва считает провокационными.
+
+      article.center.code-2
+        .wrapper
+          pre
+            code 
+              | .some{
+              |     text-orientation: mixed
+              |                       upright
+              |                       sideways-right
+              |                       sideways-left
+              |                       sideways
+              |                       use-glyph-orientation;
+              |     }
+      
+      article.center.orientation-demo
+        .half
+          h1 МИД РФ возмущен
+          p 台湾来鸿：升温中的
+            span  20 
+            | 台北市长选举
+          p 随着国民党荣誉主席连战之子连胜文正式宣布参选，台北市长选举选战逐渐升温。
+        .half
+          h1 МИД РФ возмущен
+          p 台湾来鸿：升温中的
+            span  20 
+            | 台北市长选举
+          p 随着国民党荣誉主席连战之子连胜文正式宣布参选，台北市长选举选战逐渐升温。
+
+      article.center.orientation-demo-2
+        .half
+          h1 МИД РФ возмущен
+          p 台湾来鸿：升温中的
+            span  20 
+            | 台北市长选举
+          p 随着国民党荣誉主席连战之子连胜文正式宣布参选，台北市长选举选战逐渐升温。
+        .half
+          h1 МИД РФ возмущен
+          p 台湾来鸿：升温中的
+            span  20 
+            | 台北市长选举
+          p 随着国民党荣誉主席连战之子连胜文正式宣布参选，台北市长选举选战逐渐升温。
+
+      article.center.code-2
+        .wrapper
+          pre
+            code 
+              | .some{
+              |     text-combine-horizontal:  none
+              |                               all
+              |                               digits [int];
+              |     }
+
+      article.center.japan.cloud.ruby
+        h1
+          .wrapper 
+
+      //- Руби это термин, которым обозначают текстовый поток, ассоциированный с другим, основным. Руби используется для создания аннотаций к основному тексту и чаще всего поясняет его значение или то, как его следует читать. В основном руби используют Японцы, в Китае он используется, например, в учебниках.
+
+
+      article.center.code-1
+        .wrapper
+          pre
+            code
+              = '<ruby>\n'
+              = ' <rb>Наш текст<rb>\n'
+              = ' <rt>Как читать</rt>\n'
+              = '</ruby>'
+
+      article.center.ruby-demo
+        .half
+          ruby
+            rb 紙芝居
+            rt かみしばい
+        .half
+          ruby
+            rb Наш текст
+            rt Как читать
+
+      article.center.ruby-demo-2
+        .half
+          ruby
+            rb 紙芝居
+            rt かみしばい
+        .half
+          ruby
+            rb Наш текст
+            rt Как читать
+
+      article.center.code-3
+        .wrapper
+          pre
+            code
+              = '<ruby>\n'
+              = ' <rb>紙芝居<rb>\n'
+              = ' <rp>(<rp>\n'
+              = ' <rt>かみしばい</rt>\n'
+              = ' <rp>)<rp>\n'
+              = '</ruby>'
+
+      article.center.ruby-demo-rp
+        .wrapper
+          | 紙芝居 (かみしばい)
+
+      article.center.ruby-demo-rp
+        .wrapper
+          ruby
+            rb 紙芝居
+            rp (
+            rt かみしばい
+            rp )
+
+      article.center.code-2
+        .wrapper
+          pre
+            code
+              = '<ruby>\n'
+              = ' <rbc>\n'
+              = '   <rb>林<rb><rb>和</rb><rb>代</rb>\n'
+              = ' </rbc>\n'
+              = ' <rtc>\n'
+              = '   <rt>はやし</rt><rt rbspan="2">かず</rt>\n'
+              = ' </rtc>\n'
+              = '</ruby>'
+
+      article.center.code-2
+        .wrapper
+          pre
+            code
+              = '<ruby>\n'
+              = ' <rbc><rb>民政局</rb></rbc>\n'
+              = ' <rtc><rt>みんせいきょく</rt></rtc>\n'
+              = ' <rtc><rt>ガバメント・セクシヨン</rt></rtc>\n'
+              = '</ruby>'
+
+      article.center.ruby-demo-montage
+        .wrapper
+          ruby
+            rbc
+              rb 民 政 局
+            rtc
+              rt みんせいきょく
+            rtc
+              rt ガバメント・セクシヨン
+
+      article.center.code-2
+        .wrapper
+          pre
+            code 
+              | .some{
+              |     ruby-position:  over
+              |                     under
+              |                     
+              |                     inter-character
+              |                      
+              |                     right
+              |                     left;
+              |     }
+
+      article.center.code-1
+        .wrapper
+          pre
+            code 
+              | .some{
+              |     ruby-merge:  separate
+              |                  collapse
+              |                  auto;
+              |     }
+
+      article.center.code-3
+        .wrapper
+          pre
+            code 
+              | .some{
+              |     ruby-align:  start
+              |                  center
+              |                  space-between
+              |                  space-around;
+              |     }
+            
+
+      article.center.cloud.bored
+        h1 
+          .wrapper Ну давай же,<br>расскажи что-то<br>еще про стандарты!<br>Это так … мммм …<br>захватывающе!
+
+      article.center.title.links
+        h1 Источники
+
+      article.center.i18n-links
+        .wrapper
+          img.logotype(src="svg/w3c-logotype.svg", alt="Логотип w3c")
+          img.link(src="svg/w3c-link-all.svg", alt="QRCODE cо ссылкой на w3c стандарты")
+          p http://w3.org/TR/#tr_Internationalization__All_
+
+      article.center.i18n-links
+        .wrapper
+          img.logotype(src="svg/w3c-logotype.svg", alt="Логотип w3c")
+          img.link(src="svg/w3c-link-modes.svg", alt="QRCODE cо ссылкой на w3c спецификацию по режимам письма")
+          p http://www.w3.org/TR/css3-writing-modes/
+
+      article.center.i18n-links
+        .wrapper
+          img.logotype(src="svg/w3c-logotype.svg", alt="Логотип w3c")
+          img.link(src="svg/w3c-link-ruby.svg", alt="QRCODE cо ссылкой на w3c спецификацию по руби начертанию")
+          p http://www.w3.org/TR/css3-ruby/
+
+      article.center.i18n-links
+        .wrapper
+          img.logotype(src="svg/w3c-logotype.svg", alt="Логотип w3c")
+          img.link(src="svg/w3c-link.svg", alt="QRCODE cо ссылкой на w3c блог")
+          p http://w3.org/blog/International/
+
+      article.center.i18n-links
+        .wrapper
+          img.logotype(src="svg/mlw-logotype.svg", alt="Логотип MultilingualWeb")
+          img.link(src="svg/mlw-link.svg", alt="QRCODE cо ссылкой на MultilingualWeb")
+          p http://multilingualweb.eu/
+
+      //- article.center
+      //-   h1 
+      
+
+      //- скрытые блоки, handlebars, template, 
+      //- i18n
+      //- l20n
+
+      article.center.cloud.pile
+        h1 
+          .wrapper Как<br>происходит локализация?
+
+      article.center.engine.cloud
+        h1
+          .wrapper 
+            | Отдельные версии 
+            span проекта
+
+      article.center.template.cloud
+        h1 Шаблонизация
+
+      //- article.center.template-list
+      //-   .wrapper
+      //-     ul
+      //-       li Вели
+      //-       li
+      //-         pre
+      //-           code
+      //-             = '<template>'
+      //-       li Handlebars, etc.
+
+      //- article.center.handmade
+      //-   .wrapper
+      //-     img(src="svg/bi.svg")
+      //-     |&rarr;
+      //-     img(src="svg/uni.svg")
+      //-     |&rarr;
+      //-     img(src="svg/chair.svg")
+
+      article.center.code-2
+        .wrapper
+          pre
+            code
+              = '<section id="templates">\n'
+              = ' <section id="comment-template">\n'
+              = '   <article>\n'
+              = '     <img>\n'
+              = '     <p class="name"></p>\n'
+              = '     <p class="message"></p>!\n'
+              = '   </article>\n'
+              = ' </section>\n'
+              = '</section>'
+
+      article.center.code-1
+        .wrapper
+          pre
+            code
+              |#templates{
+              |   display:none;
+              |   }
+
+      article.center.code-5
+        .wrapper
+          pre
+            code.javascript
+              | var template = document.getElementById('comment-template'),
+              |     template = template.cloneNode(true),
+              |     img = template.querySelector('img'),
+              |     nameit = template.querySelector('.name'),
+              |     message = template.querySelector('.message');
+              | 
+              | img.setAttribute('src','http://goo.gl/nZ9uCF');
+              | nameit.textContent = 'Анна Франк';
+              | message.textContent = 'Комментарий';
+              | 
+              | document.body.appendChild(template);
+
+      article.center.uno
+        .wrapper
+          img(src="svg/chair.svg")
+
+      article.center.code-1
+        .wrapper
+          pre
+            code
+              = '<template></template>'
+
+      article.center.template-profit
+        .wrapper
+          ol
+            li До момента его активации шаблон инертен.
+            li Скрипты не запускаются, аудио и видео не играет, картинки не подгружаются
+            li Его невозможно напрямую получить
+            li Можно разместить где захочется
+
+
+      article.center.code-2
+        .wrapper
+          pre
+            code
+              = '<template id="comment-template">\n'
+              = '  <article>\n'
+              = '    <img/>\n'
+              = '    <p class="name"></p>\n'
+              = '    <p class="message"></p>\n'
+              = '  </article>\n'
+              = '</template>'
+
+
+      article.center.code-5
+        .wrapper
+          pre
+            code.javascript
+              | var template = document.getElementById('comment-template'),
+              |     template = template.content.cloneNode(true),
+              |     img = template.querySelector('img'),
+              |     nameit = template.querySelector('.name'),
+              |     message = template.querySelector('.message');
+              | 
+              | img.setAttribute('src','http://goo.gl/nZ9uCF');
+              | nameit.textContent = 'Анна Франк';
+              | message.textContent = 'Комментарий';
+              | 
+              | document.body.appendChild(template);
+
+
+      article.center.code-5.template-hilight
+        .wrapper
+          pre
+            code.javascript
+              | var template = document.getElementById('comment-template'),
+              |     template = template.content.cloneNode(true),
+              |     img = template.querySelector('img'),
+              |     nameit = template.querySelector('.name'),
+              |     message = template.querySelector('.message');
+              | 
+              | img.setAttribute('src','http://goo.gl/nZ9uCF');
+              | nameit.textContent = 'Анна Франк';
+              | message.textContent = 'Комментарий';
+              | 
+              | document.body.appendChild(template);
+
+      article.center.uno
+        .wrapper
+          img(src="svg/uni.svg")
+
+      article.center.i18n-links
+        .wrapper
+          img.logotype(src="svg/w3c-logotype.svg", alt="Логотип w3c")
+          img.link(src="svg/w3c-template.svg", alt="QRCODE cо ссылкой на template")
+          p http://goo.gl/EBy9pN
+
+      article.center.mustache.cloud
+        h1  Handlebars
+
+      article.center.code-2
+        .wrapper
+          pre
+            code
+              = '<script src="handlebars.min.js"></script>\n'
+              = '<template id="comment-template">\n'
+              = '  <article>\n'
+              = '    <img src="{{img.src}}" alt="{{img.alt}}"/>\n'
+              = '    <p class="name">{{name}}</p>\n'
+              = '    <p class="message">{{comment}}</p>\n'
+              = '  </article>\n'
+              = '</template>'
+
+      article.center.code-5
+        .wrapper
+          pre
+            code.javascript
+              | var template = document.getElementById('comment-template'),
+              |     template = Handlebars.compile(template.innerHTML),
+              |     data = {
+              |             img:{
+              |               src:"http://goo.gl/nZ9uCF",
+              |               alt:"Аватар"
+              |               },
+              |             name:"Анна Франк",
+              |             comment:"Комментарий"
+              |             };
+              | document.body.innerHTML+=template(data);
+        
+      article.center.uno
+        .wrapper
+          img(src="svg/bi.svg")          
+
+
+      article.center.i18n-links
+        .wrapper
+          img.logotype(src="svg/mustache.svg", alt="Логотип handlebarsjs")
+          img.link(src="svg/handlebarsjs.svg", alt="QRCODE cо ссылкой на handlebarsjs")
+          p http://handlebarsjs.com/
+
+
+      article.center.better-1.cloud
+          h1 
+            .wrapper Но ведь можно лучше?
+
+      article.center.i18next-title
+        h1  i18next
+
+      article.center.part-scrn
+        .wrapper
+          |Основы
+
+      article.center.code-2
+        .wrapper
+          pre
+            code
+              = '<script src="js/jquery.js">\n'
+              = '</script>\n'
+              = '<script src="js/i18next-1.7.2.min.js">\n</script>\n'
+
+      article.center.code-3
+        .wrapper
+          pre
+            code
+              | ./locales/en/translation.json
+              |          /ru/translation.json
+              |          /ru-RU/translation.json
+
+      article.center.code-3
+        .wrapper
+          pre
+            code
+              | {"app": {
+              |     "name": "i18next эксперимент"
+              |   },
+              |   "nav": {
+              |     "about": "О проекте",
+              |     "contacts": "Контакты"
+              |  }}
+
+      article.center.code-1
+        .wrapper
+          pre
+            code
+              = '<title data-i18n="app.name">\n\tЗначение по умолчанию\n</title>\n'
+
+      article.center.code-2
+        .wrapper
+          pre
+            code.javascript
+              | $.i18n.init().(function(){
+              |   var node = document.querySelector(
+              |         '[ddata-i18n="app.name"]');
+              |   node.textContent = document.i18n.t(
+              |         'app.name');
+              | });
+
+      article.center.code-3
+        .wrapper
+          pre
+            code
+              | $.i18n.init({
+              |   lng: 'ru', 
+              |   fallbackLng: false
+              | }).done(function(){
+              |   $('html').i18n();
+              | });
+
+      article.center.result-scrn
+        .wrapper
+          | i18next эксперимент
+
+      //- article.center.code-1
+      //-   .wrapper
+      //-     pre
+      //-       code.javascript
+      //-         | i18n.t("article.title")
+
+      article.center.part-scrn
+        .wrapper
+          | Получение<br>информации<br>о языке
+
+      article.center.lng-list
+        .wrapper
+          ol
+            li Параметр в url (?setLng=en-US)
+            li Cookie (i18next)
+            li Язык установленный в браузере по умолчанию
+            li fallbackLng, по умолчанию — dev
+
+      article.center.code-1
+        .wrapper
+          pre
+            code.javascript
+              | i18n.detectLanguage();
+
+      article.center.result-scrn
+        .wrapper
+          | ru
+
+      article.center.code-1
+        .wrapper
+          pre
+            code.javascript
+              = 'i18next.setLng(\n\t"en-UK", \n\tfunction(){}\n);'
+
+
+      article.center.part-scrn
+        .wrapper
+          |Переменные
+
+      article.center.code-3
+        .wrapper
+          pre
+            code
+              = '<p data-i18n="apple-count"></p>'
+
+      article.center.code-3
+        .wrapper
+          pre
+            code
+              | {
+              | "apple-count":
+              | "Количество яблок: __apple-count__"
+              | }
+
+      article.center.code-3
+        .wrapper
+          pre
+            code
+              | $.i18n.init({
+              |   lng: 'ru-RU'
+              | }).done(function(){
+              |   $('[apple-count]').i18n({
+              |     "apple-count":3
+              | });});
+
+      article.center.result-scrn
+        .wrapper
+          |Количество яблок: 3
+
+      article.center.part-scrn
+        .wrapper
+          |Падежи
+
+      article.center.code-1
+        .wrapper
+          pre
+            code
+              = '<p data-i18n="ihave"></p>'
+
+      article.center.code-4
+        .wrapper
+          pre
+            code
+              | {
+              |   "ihave":"У меня __count__ яблок",
+              |   "ihave_plural_1": "У меня __count__ яблоко",
+              |   "ihave_plural_2": "У меня __count__ яблока",
+              |   "ihave_plural_5": "У меня __count__ яблок",
+              | }
+
+      article.center.code-3
+        .wrapper
+          pre
+            code
+              | $.i18n.init({
+              |   lng: 'ru-RU'
+              | }).done(function(){
+              |   $('[ihave]').i18n({
+              |     "count":302
+              | });});
+
+      article.center.result-scrn
+        .wrapper
+          | У меня 302 яблока
+
+      article.center.code-3
+        .wrapper
+          pre
+            code
+              | $.i18n.init({
+              |   lng: 'ru-RU'
+              | }).done(function(){
+              |   $('[ihave]').i18n({
+              |     "count": 0
+              | });});
+
+      article.center.result-scrn
+        .wrapper
+          | У меня 0 яблок
+
+
+      article.center.code-2
+        .wrapper
+          pre
+            code
+              | i18n.pluralExtensions.addRule("ru", {
+              |   "name": "Rusian", 
+              |   "numbers": [1,2,5],
+              |   "plurals": function (a){
+              |     return Number(1 … ?1:2);
+              |   }
+              | });
+
+      article.center.code-2
+        .wrapper
+          pre
+            code
+              | i18n.pluralExtensions.addRule("ru", {
+              |   "name": "Rusian", 
+              |   "numbers": [1,2,5,0],
+              |   "plurals": function (a){
+              |     return Number(0==a?3:1 … ?1:2);
+              |   }
+              | });
+
+      article.center.code-4
+        .wrapper
+          pre
+            code
+              | {
+              |   "ihave":"У меня __count__ яблок",
+              |   "ihave_plural_0": "У меня нет яблок",
+              |   "ihave_plural_1": "У меня __count__ яблоко",
+              |   "ihave_plural_2": "У меня __count__ яблока",
+              |   "ihave_plural_5": "У меня __count__ яблок"
+              | }
+
+      article.center.result-scrn
+        .wrapper
+          | У меня нет яблок
+
+      article.center.part-scrn
+        .wrapper
+          | Пол
+
+      article.center.code-3
+        .wrapper
+          pre
+            code
+              = '<p data-i18n="ipublish"></p>'
+
+      article.center.code-4
+        .wrapper
+          pre
+            code
+              | {
+              |   "ipublish":"__name__ опубликовало статью",
+              |   "ipublish_male":"__name__ опубликовал статью",
+              |   "ipublish_female":"__name__ опубликовала статью"
+              | }
+
+
+      article.center.code-1
+        .wrapper
+          pre
+            code.javascript
+              | $('.static, title').i18n({
+              |   "context": "male", 
+              |   "name":"Костя"
+              | });
+
+      article.center.result-scrn
+        .wrapper
+          | Костя опубликовал статью
+
+      article.center.jq-needed
+        .wrapper
+          img(src="svg/jq.svg", alt="Логотип jQ")
+
+      article.center.scrn
+        .wrapper
+          img(src="img/storify_scrn.png")
+          p http://storify.com/
+
+      article.cern
+
+      article.center.i18n-links
+        .wrapper
+          img.link(src="svg/i18next.svg", alt="QRCODE cо ссылкой на i18next")
+          p http://i18next.com/
+
+
+      article.center.better-2.cloud
+          h1 
+            .wrapper Но ведь можно ещё лучше?
+
+      article.center.l20n-title
+        h1  l20n
+
+      article.center.mozilla-supported
+        .wrapper
+          img(src="svg/mozilla.svg", alt="Логотип Mozilla")
+
+      article.center.part-scrn
+        .wrapper
+          |Основы
+
+      article.center.code-3
+        .wrapper
+          pre
+            code
+              = '<h1 data-l10n-id="title"></h1>'
+
+      article.center.code-3
+        .wrapper
+          pre
+            code
+              = '<script \n'
+              = '   src="l20n.min.js">\n</script>\n'
+              = '<link \n'
+              = '   rel="localization" \n'
+              = '   href="browser.json">'
+
+      article.center.code-2
+        .wrapper
+          pre
+            code
+              | {
+              |   "locales": ["ru","en"],
+              |   "default_locale": "ru",
+              |   "resources": [
+              |     "locales/{{locale}}/website.l20n"
+              |   ]
+              | }
+
+      article.center.code-1
+        .wrapper
+          pre
+            code
+              = '<title "Simplest example">'
+
+      article.center.code-1
+        .wrapper
+          pre
+            code
+              = '<title "Простой пример">'
+
+      article.center.result-scrn
+        .wrapper
+          | Простой пример
+
+      article.center.code-2
+        .wrapper
+          pre
+            code
+              = '<input \n\tdata-l10n-id="nameinput" \n\tplaceholder="default placeholder">'
+
+      article.center.code-2
+        .wrapper
+          pre
+            code
+              = '<nameinput \n\tplaceholder: "Как тебя зовут?">'
+
+      article.center.input-example
+        .wrapper
+          <input data-l10n-id="nameinput" placeholder="Как тебя зовут?">
+
+      article.center.part-scrn
+        .wrapper
+          | Многострочные вставки
+
+      article.center.code-2
+        .wrapper
+          pre
+            code
+              = '<p data-l10n-id="save">\n\t<input type="submit">\n\t<a href="#" class="btn-cancel"></a>\n</p>'
+
+      article.center.code-2
+        .wrapper
+          pre
+            code
+              = '<save """\n\t<input \n\t\tvalue="Сохранить" \n\t\ttype="text"> или\n\t<a title="Вернуться назад">\n\t\tотменить?</a>.\n""">'
+
+      article.center.button-example
+        .wrapper
+          p(data-l10n-id="save")
+            input(type="submit", value="Сохранить")
+            |  или 
+            a(href="#" title="Вернуться назад" class="btn-cancel")
+              | отменить?
+
+      article.center.part-scrn
+        .wrapper
+          | Переменные
+
+      article.center.code-1
+        .wrapper
+          pre
+            code
+              = '<p data-l10n-id="message"></p>'
+
+      article.center.code-1
+        .wrapper
+          pre
+            code
+              = '<name "Настя">\n<message """\n\tПривет, {{ name }}!\n\t""">'
+
+      article.center.result-scrn
+        .wrapper
+          | Привет, Настя!
+
+      article.center.code-2
+        .wrapper
+          pre
+            code
+              = '<name {\n\tshort: "Настя"\n\tlong: "Настасья Николаевна"}>\n<message """\n\tПривет, {{ name.long }}!\n\t""">'
+
+      article.center.result-scrn
+        .wrapper
+          | Привет, Настасья Николаевна!
+
+      article.center.code-2
+        .wrapper
+          pre
+            code
+              = '<name {\n\t*short: "Настя"\n\t long: "Настасья Николаевна"}>\n<message """\n\tПривет, {{ name }}!\n\t""">'
+
+      article.center.result-scrn
+        .wrapper
+          | Привет, Настя!
+
+      article.center.code-1
+        .wrapper
+          pre
+            code
+              = '<title["long"] {\n\tshort: "L20n",\n\tlong: "Localization"\n}>'
+
+      article.center.result-scrn
+        .wrapper
+          | Привет, Настасья Николаевна!
+      
+      article.center.part-scrn
+        .wrapper
+          | Глобальные<br>переменные
+
+      article.center.code-1
+        .wrapper
+          pre
+            code
+              = '<p data-l10n-id="os"></p>'
+
+      article.center.code-1
+        .wrapper
+          pre
+            code
+              = '<os "ОС: {{ @os }}">'
+
+      article.center.result-scrn
+        .wrapper
+          | ОС: mac
+
+      article.center.code-1
+        .wrapper
+          pre
+            code
+              = '<p data-l10n-id="hour"></p>'
+
+      article.center.code-1
+        .wrapper
+          pre
+            code
+              = '<hour "Часов: {{ @hour }}">'
+
+      article.center.result-scrn
+        .wrapper
+          | Часов: 17
+
+      article.center.code-1
+        .wrapper
+          pre
+            code
+              = '<p data-l10n-id="screen"></p>'
+
+      article.center.code-3
+        .wrapper
+          pre
+            code
+              = '<screen "Ширина экрана: \n\t{{ @screen.width.px }} px">'
+
+      article.center.result-scrn
+        .wrapper
+          | Ширина экрана: 1263 px
+
+      article.center.part-scrn
+        .wrapper
+          | Как передать<br>данные из вне?
+
+      article.center.code-2
+        .wrapper
+          pre
+            code
+              = '<script type="application/l10n-data+json">\n\t{\n\t\t"name": "Настя"\n\t}\n</script>'
+
+      article.center.code-4
+        .wrapper
+          pre
+            code.javascript
+              | document.l10n.ready(function() {
+              |   var message = document.querySelector(
+              |         '[data-l10n-id="message"]');
+              |   message.textContent = document.l10n.getSync(
+              |     "message",
+              |     {
+              |       "name": "Настя"
+              |     });
+              | });
+
+      article.center.result-scrn
+        .wrapper
+          | Привет, Настя
+
+      article.center.part-scrn
+        .wrapper
+          | Выбор перевода<br>взависимости<br>от переменной
+
+      article.center.code-3
+        .wrapper
+          pre
+            code
+              = '<p data-l10n-id="publishing"></p>'
+
+      article.center.code-4
+        .wrapper
+          pre
+            code
+              = '<publishing[$gender] {\n\tmasculine: "{{$name}} написал вам сообщение",\n\tfeminine: "{{$name}} написала вам сообщение",\n\t*unknown: "{{$name}} написало вам сообщение"\n}>'
+
+
+      article.center.code-4
+        .wrapper
+          pre
+            code.javascript
+              | document.l10n.ready(function() {
+              |   var node = document.querySelector(
+              |         '[data-l10n-id="publishing"]');
+              |   node.textContent = document.l10n.getSync(
+              |     "publishing",
+              |     {
+              |       "name": "Настя",
+              |       "gender": "feminine"
+              |     });
+              | });
+
+      article.center.result-scrn
+        .wrapper
+          | Настя написала вам сообщение
+
+      article.center.part-scrn
+        .wrapper
+          | Падежи и макросы
+
+      article.center.code-4
+        .wrapper
+          pre
+            code
+              = '<plural($n) { \n\t$n == 0 ? "zero" : \n\t($n%100)>10&&($n%100)<20 ? "five" : \n\t($n%10) == 1 ? "one" :\n\t($n%10)>1&&($n%10)<5 ? "two" : "five"\n}>'
+
+
+      article.center.code-4
+        .wrapper
+          pre
+            code
+              ='<messages[plural($newmessages)] {\n\tzero: "У вас нет новых сообщений",\n\tone: "У вас {{$newmessages}} новое сообщение",\n\ttwo: "У вас {{$newmessages}} новых сообщения",\n\tfive: "У вас {{$newmessages}} новых сообщений"\n}>'
+
+      article.center.code-3
+        .wrapper
+          pre
+            code
+              = '<plural($n) { \n\t$n == 0 ? "zero" : \n\t$n == 1 ? "one": "many"\n}>'
+
+
+      article.center.code-4
+        .wrapper
+          pre
+            code
+              ='<messages[plural($newmessages)] {\n\tzero: "There are no new messages",\n\tone: "You have {{$newmessages}} new message",\n\tmany: "You have {{$newmessages}} new messages"\n}>'
+
+      article.center.code-4
+        .wrapper
+          pre
+            code.javascript
+              | document.l10n.ready(function() {
+              |   var node = document.querySelector(
+              |         '[data-l10n-id="messages"]');
+              |   node.textContent = document.l10n.getSync(
+              |     "messages",
+              |     {
+              |       newmessages: 1
+              |     });
+              | });
+
+      article.center.result-scrn
+        .wrapper
+          | У вас 1 новое сообщение
+
+      article.center.part-scrn
+        .wrapper
+          | Адаптивность
+
+      article.center.code-2
+        .wrapper
+          pre
+            code
+              = '<h1 data-l10n-id="settingsTitle"></h1>'
+
+      article.center.code-2
+        .wrapper
+          pre
+            code.javascript
+              ='<formFactor($n) { \n'
+              ='   $n.px > 1200 ? "large" : \n'
+              ='   $n.px >  980 ? "desktop" : \n'
+              ='   $n.px >  768 ? "landscapeTablet" :  \n'
+              ='   $n.px >  480 ? "landscapePhone" :  \n'
+              ='                  "portraitPhone"  \n'
+              ='}>\n'
+
+      article.center.code-2
+        .wrapper
+          pre
+            code.javascript
+              ='<dataSettings[formFactor(@screen.width)] {\n'
+              =' *large: "Настройки оповещений",\n'
+              ='  portraitPhone: "Настройки"\n'
+              ='}>'
+
+      article.phone
+
+      article.center.i18n-links
+        .wrapper
+          img.link(src="svg/l20n.svg", alt="QRCODE cо ссылкой на l20n")
+          p http://l20n.org/
+
+
+      article.center.i18n-links
+        .wrapper
+          h1 Jed
+          img.link(src="svg/i18next.svg", alt="QRCODE cо ссылкой на JED")
+          p http://slexaxton.github.io/Jed/
+
+
+      article.center.i18n-links
+        .wrapper
+          h2 Message<br>Format
+          img.link(src="svg/i18next.svg", alt="QRCODE cо ссылкой на messageformat")
+          p http://github.com/SlexAxton/messageformat.js
+
+      article.center.quote
+        .wrapper
+          p — Jan Mühlemann @jamuhl 
+            time (25.02.2014)
+          cite «@SilentImp looks interesting…if the demand for this raises i'm sure it will be added.»
+
+      article.center.cloud.questions
+        h1 О, да, вопросы!
+
+      article.contacts.center.i18n-links
+        .wrapper
+          .about-speaker
+            p.name Антон Немцев
+            p.twitter @silentimp
+            p.email thesilentimp@gmail.com
+            p.skype skype: ravencry
+          img.link(src="svg/git.svg", alt="QRCODE cо ссылкой на доклад")
+          p http://github.com/SilentImp/localizaion
+
+
+
