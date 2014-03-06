@@ -466,17 +466,17 @@ html(lang="ru")
         h1 
           .wrapper Слабо направленные
 
-      article.center.code-1
+      article.center.code-2
         .wrapper
           pre
             code 
               = '<p>Оруэл عربي ١٩٨٤, رسائل</p>\n'
-              = '<p>Оруэл عربي 1984, رسائل</p>'
+              = '<p dir="rtl">Оруэл عربي 1984, رسائل</p>'
 
       article.center.rtl-demo-3
         .wrapper
           p Оруэл عربي ١٩٨٤, رسائل
-          p Оруэл عربي 1984, رسائل
+          p(dir="rtl") Оруэл عربي 1984, رسائل
 
       article.center.rtl-demo-3
         .wrapper
@@ -485,10 +485,10 @@ html(lang="ru")
             span.wb  
             span.rtl 
               | عربي  
-              span.wn 1984
+              span.wn ١٩٨٤
               span.ib , 
               | رسائل
-          p 
+          p(dir="rtl")
             span Оруэл
             span.wb  
             span.rtl 
@@ -1464,11 +1464,11 @@ html(lang="ru")
         .wrapper
           | Привет, Настя!
 
-      article.center.code-1
+      article.center.code-3
         .wrapper
           pre
             code
-              = '<title["long"] {\n\tshort: "L20n",\n\tlong: "Localization"\n}>'
+              = '<title["long"] {\n\tshort: "Настя",\n\tlong: "Настасья Николаевна"\n}>'
 
       article.center.result-scrn
         .wrapper
