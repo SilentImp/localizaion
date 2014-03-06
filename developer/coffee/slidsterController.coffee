@@ -263,7 +263,7 @@ define ['requestAnimationFramePolyfill'], ()->
       @current = element
       before = @allSlidesCount - @slides.querySelectorAll('.current~article').length
       @redrawProgress()
-      history.pushState {}, "Слайд "+before, "slides.html#slide-"+before
+      history.pushState {}, "Слайд "+before, "index.html#slide-"+before
 
     getCurrentSlide: =>
       element = @slides.querySelector '.current'
