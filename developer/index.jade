@@ -894,7 +894,7 @@ html(lang="ru")
               = '   <article>\n'
               = '     <img>\n'
               = '     <p class="name"></p>\n'
-              = '     <p class="message"></p>!\n'
+              = '     <p class="message"></p>\n'
               = '   </article>\n'
               = ' </section>\n'
               = '</section>'
@@ -948,7 +948,7 @@ html(lang="ru")
             code
               = '<template id="comment-template">\n'
               = '  <article>\n'
-              = '    <img/>\n'
+              = '    <img>\n'
               = '    <p class="name"></p>\n'
               = '    <p class="message"></p>\n'
               = '  </article>\n'
@@ -1091,9 +1091,9 @@ html(lang="ru")
         .wrapper
           pre
             code.javascript
-              | $.i18n.init().(function(){
+              | $.i18n.init().done(function(){
               |   var node = document.querySelector(
-              |         '[ddata-i18n="app.name"]');
+              |         '[data-i18n="app.name"]');
               |   node.textContent = document.i18n.t(
               |         'app.name');
               | });

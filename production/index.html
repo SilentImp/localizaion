@@ -142,7 +142,7 @@ plaintext — направленность без учета родителей 
    &lt;article&gt;
      &lt;img&gt;
      &lt;p class=&quot;name&quot;&gt;&lt;/p&gt;
-     &lt;p class=&quot;message&quot;&gt;&lt;/p&gt;!
+     &lt;p class=&quot;message&quot;&gt;&lt;/p&gt;
    &lt;/article&gt;
  &lt;/section&gt;
 &lt;/section&gt;</code></pre></div></article><article class="center code-1"><div class="wrapper"><pre><code>#templates{
@@ -159,7 +159,7 @@ message.textContent = 'Комментарий';
  
 document.body.appendChild(template);</code></pre></div></article><article class="center uno"><div class="wrapper"><img src="svg/chair.svg"></div></article><article class="center code-1"><div class="wrapper"><pre><code>&lt;template&gt;&lt;/template&gt;</code></pre></div></article><article class="center template-profit"><div class="wrapper"><ol><li>До момента его активации шаблон инертен.</li><li>Скрипты не запускаются, аудио и видео не играет, картинки не подгружаются</li><li>Его невозможно напрямую получить</li><li>Можно разместить где захочется</li></ol></div></article><article class="center code-2"><div class="wrapper"><pre><code>&lt;template id=&quot;comment-template&quot;&gt;
   &lt;article&gt;
-    &lt;img/&gt;
+    &lt;img&gt;
     &lt;p class=&quot;name&quot;&gt;&lt;/p&gt;
     &lt;p class=&quot;message&quot;&gt;&lt;/p&gt;
   &lt;/article&gt;
@@ -215,9 +215,9 @@ document.body.innerHTML+=template(data);</code></pre></div></article><article cl
  }}</code></pre></div></article><article class="center code-1"><div class="wrapper"><pre><code>&lt;title data-i18n=&quot;app.name&quot;&gt;
 	Значение по умолчанию
 &lt;/title&gt;
-</code></pre></div></article><article class="center code-2"><div class="wrapper"><pre><code class="javascript">$.i18n.init().(function(){
+</code></pre></div></article><article class="center code-2"><div class="wrapper"><pre><code class="javascript">$.i18n.init().done(function(){
   var node = document.querySelector(
-        '[ddata-i18n="app.name"]');
+        '[data-i18n="app.name"]');
   node.textContent = document.i18n.t(
         'app.name');
 });</code></pre></div></article><article class="center code-3"><div class="wrapper"><pre><code>$.i18n.init({
