@@ -65,9 +65,14 @@ define ['requestAnimationFramePolyfill'], ()->
 
       document.addEventListener 'dblclick', @fsState
       window.addEventListener 'resize', @resize
-      document.addEventListener 'fullscreenchange', @fsChange
+      
       document.addEventListener 'webkitfullscreenchange', @fsChange
       document.addEventListener 'mozfullscreenchange', @fsChange
+      document.addEventListener 'msfullscreenchange', @fsChange
+      document.addEventListener 'fullscreenchange', @fsChange
+      document.addEventListener 'fullscreeneventchange', @fsChange
+
+
       document.addEventListener "keydown", @keyDown
       
       for slide in @articles
@@ -212,30 +217,40 @@ define ['requestAnimationFramePolyfill'], ()->
           event.preventDefault()
 
     fsChange: =>
-      window.document.body.classList.toggle 'fs'
-      if not window.document.body.classList.contains 'fs'
+
+      fullscreenElement = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement 
+      fullscreenEnabled = document.fullscreenEnabled || document.mozFullScreenEnabled || document.webkitFullscreenEnabled
+
+      # console.log(fullscreenElement == null, Math.random())
+
+      if fullscreenElement == null
+        # @fsStateOff()
+        window.document.body.classList.remove 'fs'
         @scrollToCurrent()
+      else
+        # @fsStateOn()
+        window.document.body.classList.add 'fs'
+
 
     fsStateOff: =>
-      if window.document.exitFullscreen
-          window.document.exitFullscreen()
-        else if window.document.msExitFullscreen
-          window.document.msExitFullscreen()
-        else if window.document.mozCancelFullScreen
-          window.document.mozCancelFullScreen()
-        else if window.document.webkitExitFullscreen
-          window.document.webkitExitFullscreen()
+    if document.exitFullscreen
+      document.exitFullscreen()
+    else if document.msExitFullscreen
+      document.msExitFullscreen()
+    else if document.mozCancelFullScreen
+      document.mozCancelFullScreen()
+    else if document.webkitExitFullscreen
+      document.webkitExitFullscreen()
 
     fsStateOn: =>
-      elem = window.document.body
-      if elem.requestFullscreen
-          elem.requestFullscreen()
-        else if (elem.msRequestFullscreen)
-          elem.msRequestFullscreen()
-        else if (elem.mozRequestFullScreen)
-          elem.mozRequestFullScreen()
-        else if (elem.webkitRequestFullscreen)
-          elem.webkitRequestFullscreen()
+      if document.documentElement.requestFullscreen
+        document.documentElement.requestFullscreen()
+      else if document.documentElement.msRequestFullscreen
+        document.documentElement.msRequestFullscreen()
+      else if document.documentElement.mozRequestFullScreen
+        document.documentElement.mozRequestFullScreen()
+      else if document.documentElement.webkitRequestFullscreen
+        document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT)
 
 
     fsState: =>
@@ -245,6 +260,10 @@ define ['requestAnimationFramePolyfill'], ()->
         @fsStateOff()
 
     resize: =>
+      fullscreenElement = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement 
+      if !((window.navigator.standalone || (fullscreenElement && fullscreenElement != null) || (document.mozFullScreen || document.webkitIsFullScreen) || (!window.screenTop && !window.screenY)))
+        document.dispatchEvent(new CustomEvent('fullscreenchange', {bubbles: true, cancelable: true}))
+
       current = @getCurrentSlide()
       scale = 1/Math.max(current.clientWidth/window.innerWidth,current.clientHeight/window.innerHeight);
 

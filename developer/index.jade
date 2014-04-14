@@ -208,7 +208,7 @@ html(lang="ru")
               = '   http-equiv="Content-Language" \n' 
               = '   content="de, fr, it" />\n'
 
-      article.center.code-3
+      article.center.code-1
         .wrapper
           pre
             code 
@@ -216,7 +216,7 @@ html(lang="ru")
               = '   name="dc.language" \n' 
               = '   content="en" />\n'
 
-      article.center.code-3.wtf
+      article.center.code-1.wtf
         .wrapper
           pre
             code 
@@ -388,7 +388,7 @@ html(lang="ru")
           .wrapper Нейтрально направленные
 
 
-      article.center.code-3
+      article.center.code-1
         .wrapper
           pre
             code 
@@ -425,7 +425,7 @@ html(lang="ru")
             span.rtl أربعة
             span.wb .
 
-      article.center.code-3
+      article.center.code-1
         .wrapper
           pre
             code 
@@ -502,7 +502,7 @@ html(lang="ru")
         .wrapper
           h1= '&lrm; и &rlm;'
 
-      article.center.code-3
+      article.center.code-1
         .wrapper
           pre
             code 
@@ -540,7 +540,7 @@ html(lang="ru")
             span.ib .
             span &lrm;
 
-      article.center.code-1
+      article.center.code-0
         .wrapper
           pre
             code 
@@ -559,7 +559,7 @@ html(lang="ru")
           p
             bdo(dir="rtl") Интересно, что получится?
 
-      article.center.code-3
+      article.center.code-1
         .wrapper
           pre
             code 
@@ -568,7 +568,7 @@ html(lang="ru")
               |              rtl
               |              inherit;}
 
-      article.center.code-2
+      article.center.code-3
         .wrapper
           pre
             code 
@@ -630,7 +630,7 @@ html(lang="ru")
           h1 МИД РФ возмущен "неуважением" НАТО к Украине
           p Российский МИД выпустил пространное заявление, в котором посоветовал Брюсселю уважать внеблоковый статус Киева и отказаться от заявлений в адрес Украины, которые Москва считает провокационными.
 
-      article.center.code-2
+      article.center.code-4
         .wrapper
           pre
             code 
@@ -671,7 +671,7 @@ html(lang="ru")
             | 台北市长选举
           p 随着国民党荣誉主席连战之子连胜文正式宣布参选，台北市长选举选战逐渐升温。
 
-      article.center.code-2
+      article.center.code-4
         .wrapper
           pre
             code 
@@ -899,7 +899,7 @@ html(lang="ru")
               = ' </section>\n'
               = '</section>'
 
-      article.center.code-1
+      article.center.code-0
         .wrapper
           pre
             code
@@ -907,7 +907,7 @@ html(lang="ru")
               |   display:none;
               |   }
 
-      article.center.code-5
+      article.center.code-6
         .wrapper
           pre
             code.javascript
@@ -955,7 +955,7 @@ html(lang="ru")
               = '</template>'
 
 
-      article.center.code-5
+      article.center.code-6
         .wrapper
           pre
             code.javascript
@@ -972,7 +972,7 @@ html(lang="ru")
               | document.body.appendChild(template);
 
 
-      article.center.code-5.template-hilight
+      article.center.code-6.template-hilight
         .wrapper
           pre
             code.javascript
@@ -1001,7 +1001,7 @@ html(lang="ru")
       article.center.mustache.cloud
         h1  Handlebars
 
-      article.center.code-2
+      article.center.code-4
         .wrapper
           pre
             code
@@ -1014,7 +1014,7 @@ html(lang="ru")
               = '  </article>\n'
               = '</template>'
 
-      article.center.code-5
+      article.center.code-6
         .wrapper
           pre
             code.javascript
@@ -1044,7 +1044,11 @@ html(lang="ru")
 
       article.center.better-1.cloud
           h1 
-            .wrapper Но ведь можно лучше?
+            .wrapper Но ведь 
+              br
+              | можно 
+              br
+              | лучше?
 
       article.center.i18next-title
         h1  i18next
@@ -1098,7 +1102,7 @@ html(lang="ru")
               |         'app.name');
               | });
 
-      article.center.code-3
+      article.center.code-1
         .wrapper
           pre
             code
@@ -1167,7 +1171,7 @@ html(lang="ru")
               | "Количество яблок: __apple-count__"
               | }
 
-      article.center.code-3
+      article.center.code-1
         .wrapper
           pre
             code
@@ -1203,7 +1207,7 @@ html(lang="ru")
               |   "ihave_plural_5": "У меня __count__ яблок",
               | }
 
-      article.center.code-3
+      article.center.code-1
         .wrapper
           pre
             code
@@ -1218,7 +1222,7 @@ html(lang="ru")
         .wrapper
           | У меня 302 яблока
 
-      article.center.code-3
+      article.center.code-1
         .wrapper
           pre
             code
@@ -1284,7 +1288,7 @@ html(lang="ru")
             code
               = '<p data-i18n="ipublish"></p>'
 
-      article.center.code-4
+      article.center.code-5
         .wrapper
           pre
             code
@@ -1324,6 +1328,46 @@ html(lang="ru")
           img.link(src="svg/i18next.svg", alt="QRCODE cо ссылкой на i18next")
           p http://i18next.com/
 
+      article.center.i18n-links.oh
+        .wrapper
+          .half 
+            h2 Grunt-плагин для конвертации .po в .json
+          .half
+            img.link(src="svg/grunt-i18next-conv.svg", alt="QRCODE cо ссылкой на grunt-i18next-conv")
+          p http://goo.gl/4aj4pG
+
+      article.center.i18n-links.oh
+        .wrapper
+          .half 
+            h2 Grunt-плагин, что бы сшить .json разных локалей
+          img.link(src="svg/grunt-contrib-i18next.svg", alt="QRCODE cо ссылкой на grunt-contrib-i18next")
+          p http://goo.gl/gmf0Qu
+
+      article.center.i18n-links.oh
+        .wrapper
+          .half 
+            h2 Bower-пакет, с i18next
+          img.link(src="svg/bower-i18next.svg", alt="QRCODE cо ссылкой на bower-i18next")
+          p https://github.com/jamuhl/i18next
+
+      article.center.code-1
+        .wrapper
+          pre
+            code
+              | $ bower install i18next
+
+      //- article.center.i18n-links
+      //-   .wrapper
+      //-     .half 
+      //-       h2 Bower-пакет, с i18next+Angular
+      //-     img.link(src="svg/bower-i18nextAng.svg", alt="QRCODE cо ссылкой на bower-i18nextAng")
+      //-     p https://github.com/archer96/ng-i18next
+
+      //- article.center.code-1
+      //-   .wrapper
+      //-     pre
+      //-       code
+      //-         | $ bower install ng-i18next
 
       article.center.better-2.cloud
           h1 
@@ -1384,7 +1428,7 @@ html(lang="ru")
         .wrapper
           | Простой пример
 
-      article.center.code-2
+      article.center.code-4
         .wrapper
           pre
             code
@@ -1404,7 +1448,7 @@ html(lang="ru")
         .wrapper
           | Многострочные вставки
 
-      article.center.code-2
+      article.center.code-4
         .wrapper
           pre
             code
@@ -1516,7 +1560,7 @@ html(lang="ru")
             code
               = '<p data-l10n-id="screen"></p>'
 
-      article.center.code-3
+      article.center.code-4
         .wrapper
           pre
             code
@@ -1530,13 +1574,13 @@ html(lang="ru")
         .wrapper
           | Как передать<br>данные из вне?
 
-      article.center.code-2
+      article.center.code-4
         .wrapper
           pre
             code
               = '<script type="application/l10n-data+json">\n\t{\n\t\t"name": "Настя"\n\t}\n</script>'
 
-      article.center.code-4
+      article.center.code-5
         .wrapper
           pre
             code.javascript
@@ -1564,7 +1608,7 @@ html(lang="ru")
             code
               = '<p data-l10n-id="publishing"></p>'
 
-      article.center.code-4
+      article.center.code-5
         .wrapper
           pre
             code
@@ -1601,7 +1645,7 @@ html(lang="ru")
               = '<plural($n) { \n\t$n == 0 ? "zero" : \n\t($n%100)>10&&($n%100)<20 ? "five" : \n\t($n%10) == 1 ? "one" :\n\t($n%10)>1&&($n%10)<5 ? "two" : "five"\n}>'
 
 
-      article.center.code-4
+      article.center.code-5
         .wrapper
           pre
             code
@@ -1614,7 +1658,7 @@ html(lang="ru")
               = '<plural($n) { \n\t$n == 0 ? "zero" : \n\t$n == 1 ? "one": "many"\n}>'
 
 
-      article.center.code-4
+      article.center.code-5
         .wrapper
           pre
             code
@@ -1660,7 +1704,7 @@ html(lang="ru")
               ='                  "portraitPhone"  \n'
               ='}>\n'
 
-      article.center.code-2
+      article.center.code-4
         .wrapper
           pre
             code.javascript
@@ -1676,10 +1720,29 @@ html(lang="ru")
           img.link(src="svg/l20n.svg", alt="QRCODE cо ссылкой на l20n")
           p http://l20n.org/
 
+      article.center.i18n-links.oh
+        .wrapper
+          .half 
+            h2 Bower-пакет с l20n
+          .half
+            img.link(src="svg/bower-l20n.svg", alt="QRCODE cо ссылкой на l20n")
+          p https://github.com/l20n/builds
+
+      article.center.code-1
+        .wrapper
+          pre
+            code
+              | $ bower install l20n
 
       article.center.i18n-links
         .wrapper
-          h1 Jed
+          h2 SLIME
+          img.link(src="svg/slime.svg", alt="QRCODE cо ссылкой на SLIME")
+          p http://hg.mozilla.org/l10n/silme/summary
+
+      article.center.i18n-links
+        .wrapper
+          h2 Jed
           img.link(src="svg/i18next.svg", alt="QRCODE cо ссылкой на JED")
           p http://slexaxton.github.io/Jed/
 

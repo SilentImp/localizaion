@@ -64,9 +64,11 @@
         this.progress = document.querySelector('.progress .value');
         document.addEventListener('dblclick', this.fsState);
         window.addEventListener('resize', this.resize);
-        document.addEventListener('fullscreenchange', this.fsChange);
         document.addEventListener('webkitfullscreenchange', this.fsChange);
         document.addEventListener('mozfullscreenchange', this.fsChange);
+        document.addEventListener('msfullscreenchange', this.fsChange);
+        document.addEventListener('fullscreenchange', this.fsChange);
+        document.addEventListener('fullscreeneventchange', this.fsChange);
         document.addEventListener("keydown", this.keyDown);
         _ref = this.articles;
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
@@ -226,35 +228,38 @@
       };
 
       slidsterController.prototype.fsChange = function() {
-        window.document.body.classList.toggle('fs');
-        if (!window.document.body.classList.contains('fs')) {
+        var fullscreenElement, fullscreenEnabled;
+        fullscreenElement = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement;
+        fullscreenEnabled = document.fullscreenEnabled || document.mozFullScreenEnabled || document.webkitFullscreenEnabled;
+        if (fullscreenElement === null) {
+          window.document.body.classList.remove('fs');
           return this.scrollToCurrent();
+        } else {
+          return window.document.body.classList.add('fs');
         }
       };
 
-      slidsterController.prototype.fsStateOff = function() {
-        if (window.document.exitFullscreen) {
-          return window.document.exitFullscreen();
-        } else if (window.document.msExitFullscreen) {
-          return window.document.msExitFullscreen();
-        } else if (window.document.mozCancelFullScreen) {
-          return window.document.mozCancelFullScreen();
-        } else if (window.document.webkitExitFullscreen) {
-          return window.document.webkitExitFullscreen();
-        }
-      };
+      slidsterController.prototype.fsStateOff = function() {};
+
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+      } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+      } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+      }
 
       slidsterController.prototype.fsStateOn = function() {
-        var elem;
-        elem = window.document.body;
-        if (elem.requestFullscreen) {
-          return elem.requestFullscreen();
-        } else if (elem.msRequestFullscreen) {
-          return elem.msRequestFullscreen();
-        } else if (elem.mozRequestFullScreen) {
-          return elem.mozRequestFullScreen();
-        } else if (elem.webkitRequestFullscreen) {
-          return elem.webkitRequestFullscreen();
+        if (document.documentElement.requestFullscreen) {
+          return document.documentElement.requestFullscreen();
+        } else if (document.documentElement.msRequestFullscreen) {
+          return document.documentElement.msRequestFullscreen();
+        } else if (document.documentElement.mozRequestFullScreen) {
+          return document.documentElement.mozRequestFullScreen();
+        } else if (document.documentElement.webkitRequestFullscreen) {
+          return document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
         }
       };
 
@@ -267,7 +272,14 @@
       };
 
       slidsterController.prototype.resize = function() {
-        var current, scale;
+        var current, fullscreenElement, scale;
+        fullscreenElement = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement;
+        if (!(window.navigator.standalone || (fullscreenElement && fullscreenElement !== null) || (document.mozFullScreen || document.webkitIsFullScreen) || (!window.screenTop && !window.screenY))) {
+          document.dispatchEvent(new CustomEvent('fullscreenchange', {
+            bubbles: true,
+            cancelable: true
+          }));
+        }
         current = this.getCurrentSlide();
         scale = 1 / Math.max(current.clientWidth / window.innerWidth, current.clientHeight / window.innerHeight);
         return ['WebkitTransform', 'MozTransform', 'msTransform', 'OTransform', 'transform'].forEach((function(_this) {
